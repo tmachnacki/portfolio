@@ -1,0 +1,138 @@
+---
+import Layout from "@/layouts/layout.astro";
+import "@/styles/globals.css";
+import GridPattern from "@/components/client/grid-pattern";
+import Spotlight from "@/components/client/spotlight";
+import Avatar from "@/components/avatar.astro";
+import OrbitingTech from "@/components/orbiting-tech.astro";
+import SectionHeader from "@/components/section-header.astro";
+import { EXPERIENCE } from "@/data/experience";
+import Experience from "@/components/experience.astro";
+import Particles from "@/components/client/particles";
+import Button from "@/components/button.astro";
+---
+
+<Layout>
+  <!-- background effects-->
+  <!-- <Particles client:idle color="#4338ca" className="w-full h-full fixed z-0" /> -->
+  <div
+    class="absolute lg:fixed h-[500px] flex items-center justify-center inset-0 w-full"
+  >
+    <!-- <GridPattern
+      client:idle
+      width={80}
+      height={80}
+      className="[mask-image:linear-gradient(to_bottom_right,background_10%,transparent,transparent)] stroke-primary/15 -z-10 "
+      transition:persist="grid"
+    /> -->
+
+    <Spotlight fill="var(--zinc-100)" className="absolute -z-10 " />
+  </div>
+
+  <div
+    class="relative min-h-screen container grid grid-cols-1 lg:grid-cols-2 gap-8"
+  >
+    <!-- hero -->
+    <header
+      class="lg:sticky lg:top-0 lg:flex lg:max-h-screen w-full lg:flex-col lg:justify-between lg:py-24"
+    >
+      <div
+        class="flex lg:items-start gap-8 flex-col lg:flex-row items-center text-center lg:text-left"
+      >
+        <Avatar />
+        <div class="">
+          <a
+            href="/"
+            class="text-4xl lg:text-5xl block font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-foreground to-zinc-300 bg-opacity-50 mb-2"
+          >
+            <h1>Tim Machnacki</h1>
+          </a>
+          <h2 class="text-lg lg:text-xl font-medium text-muted-foreground mb-6">
+            Front-End Engineer
+          </h2>
+          <p class="text-muted-foreground">I build things for the web.</p>
+        </div>
+      </div>
+
+      <nav class="mt-16">
+        <ul class="w-max space-y-4">
+          <li>
+            <a href="#about">About</a>
+          </li>
+          <li>
+            <a href="#experience">Experience</a>
+          </li>
+          <li>
+            <a href="#projects">Projects</a>
+          </li>
+        </ul>
+
+        <Button gradient={"full"} class={"mt-4 rounded-full px-5"}
+          >Resume</Button
+        >
+      </nav>
+    </header>
+
+    <!-- content -->
+    <main class="relative py-24 w-full">
+      <!-- about -->
+      <section
+        id="about"
+        class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+        aria-label="About Me"
+      >
+        <SectionHeader title="About" />
+
+        <OrbitingTech />
+
+        <p class="text-base leading-8 mt-16 text-muted-foreground">
+          In my current role as a Full Stack Engineer at Dutch Pet (Remote), I
+          am at the forefront of designing and architecting dutch.com,
+          leveraging a powerful stack including Shopify Storefront API, Admin
+          API, Vue.JS, Node.JS, Liquid, Alpine.js, and Tailwind. My expertise
+          extends to integrating with the ReCharge subscription system and
+          collaborating closely with designers to ensure pixel-perfect layouts
+          and user flows. Looking forward to new challenges and exciting
+          collaborations!
+        </p>
+      </section>
+
+      <!-- experience -->
+      <section
+        id="experience"
+        class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+        aria-label="Work experience"
+      >
+        <SectionHeader title="Experience" />
+        <div>
+          <ol class="group/list space-y-12">
+            <!-- experience cards -->
+            {EXPERIENCE.map((experience) => <Experience {...experience} />)}
+          </ol>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section
+        id="projects"
+        class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+        aria-label="Projects"
+      >
+        <SectionHeader title="Projects" />
+        <div>
+          <a href="/projects/archive/"> view archive </a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <style scoped>
+    .bg-grid {
+      background-image: url("/grid.svg");
+      background-position: top center;
+      background-repeat: no-repeat;
+      overflow-y: visible;
+      overflow-x: clip;
+    }
+  </style>
+</Layout>

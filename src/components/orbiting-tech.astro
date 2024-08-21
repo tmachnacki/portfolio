@@ -1,0 +1,154 @@
+---
+import OrbitingCircles from "@/components/client/orbiting-circles.tsx";
+import React from "./icons/react.astro";
+import Tailwind from "./icons/tailwind.astro";
+import Next from "./icons/next.astro";
+import Typescript from "./icons/typescript.astro";
+import AstroIcon from "./icons/astro-icon.astro";
+import Firebase from "./icons/firebase.astro";
+import Mongo from "./icons/mongo.astro";
+
+const pathClassName =
+  "stroke-primary/20 dark:stroke-primary/20 z-10 animate-pulse";
+const circleClassName =
+  "dark:bg-gradient-to-br  dark:to-black dark:via-zinc-950 dark:bg-background z-20";
+---
+
+<div
+  class="relative flex w-full flex-col items-center justify-center h-[440px] bg-transparent"
+>
+  <!-- <span
+    class="pointer-events-none bg-gradient-to-b from-black to-gray-300 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-background"
+  >
+    Tech
+  </span> -->
+
+  {/* Inner Circles */}
+
+  <OrbitingCircles
+    className={`circle-inner dark:from-fuchsia-500 size-12  ${circleClassName}`}
+    duration={20}
+    radius={80}
+    delay={7}
+    pathClassName={pathClassName}
+    tooltipLabel="Astro"
+    tooltipGradientClassName="via-fuchsia-500 shadow-md shadow-fuchsia-500/50"
+    client:idle
+  >
+    <AstroIcon class="size-6" />
+  </OrbitingCircles>
+
+  <OrbitingCircles
+    className={`circle-inner dark:from-cyan-600 size-12  ${circleClassName}`}
+    duration={20}
+    delay={14}
+    radius={80}
+    pathClassName={pathClassName}
+    tooltipLabel="React"
+    tooltipGradientClassName="via-cyan-600 shadow-md shadow-cyan-600/50"
+    client:idle
+  >
+    <React class="size-6" />
+  </OrbitingCircles>
+
+  <OrbitingCircles
+    className={`circle-inner dark:from-sky-500 size-12  ${circleClassName}`}
+    duration={20}
+    delay={21}
+    radius={80}
+    pathClassName={pathClassName}
+    tooltipLabel="TailwindCSS"
+    tooltipGradientClassName="via-sky-500 shadow-md shadow-sky-500/50"
+    client:idle
+  >
+    <Tailwind class="size-6" />
+  </OrbitingCircles>
+
+  {/* Outer Circles (reverse) */}
+  <OrbitingCircles
+    className={`circle-outer dark:from-blue-500 size-14 ${circleClassName}`}
+    radius={190}
+    duration={20}
+    delay={5}
+    reverse
+    pathClassName={pathClassName}
+    tooltipLabel="Typescript"
+    tooltipGradientClassName="via-blue-500 shadow-md shadow-blue-500/50"
+    client:idle
+  >
+    <Typescript class="size-6" />
+  </OrbitingCircles>
+
+  <OrbitingCircles
+    className={`circle-outer dark:from-zinc-400 size-14 ${circleClassName}`}
+    radius={190}
+    duration={20}
+    delay={10}
+    reverse
+    pathClassName={pathClassName}
+    tooltipLabel="NextJS"
+    tooltipGradientClassName="via-white shadow-md shadow-white/50"
+    client:idle
+  >
+    <Next />
+  </OrbitingCircles>
+
+  <OrbitingCircles
+    className={`circle-outer dark:from-yellow-500 size-14 ${circleClassName}`}
+    radius={190}
+    duration={20}
+    delay={15}
+    reverse
+    pathClassName={pathClassName}
+    tooltipLabel="Firebase"
+    tooltipGradientClassName="via-yellow-500 shadow-md shadow-yellow-500/50"
+    client:idle
+  >
+    <Firebase />
+  </OrbitingCircles>
+
+  <OrbitingCircles
+    className={`circle-outer dark:from-green-500 size-14 ${circleClassName}`}
+    radius={190}
+    duration={20}
+    delay={20}
+    reverse
+    pathClassName={pathClassName}
+    tooltipLabel="MongoDB"
+    tooltipGradientClassName="via-green-500 shadow-md shadow-green-500/50"
+    client:idle
+  >
+    <Mongo class="stroke-green-900 fill-green-600 size-7" />
+  </OrbitingCircles>
+</div>
+
+<script>
+  // pause orbit animations on hover
+  const innerCircles = document.querySelectorAll(".circle-inner");
+  innerCircles.forEach((circle) => {
+    circle.addEventListener("mouseenter", () => {
+      innerCircles.forEach((circle) => {
+        circle.classList.add("paused");
+      });
+    });
+    circle.addEventListener("mouseleave", () => {
+      innerCircles.forEach((circle) => {
+        circle.classList.remove("paused");
+      });
+    });
+  });
+
+  const outerCircles = document.querySelectorAll(".circle-outer");
+  outerCircles.forEach((circle) => {
+    circle.addEventListener("mouseenter", () => {
+      outerCircles.forEach((circle) => {
+        circle.classList.add("paused");
+      });
+    });
+    circle.addEventListener("mouseleave", () => {
+      outerCircles.forEach((circle) => {
+        circle.classList.remove("paused");
+      });
+    });
+  });
+</script>

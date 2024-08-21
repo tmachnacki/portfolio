@@ -1,0 +1,45 @@
+---
+interface Props {
+  title?: string;
+}
+const { title } = Astro.props;
+import "@fontsource/poppins";
+import GridPattern from "@/components/client/grid-pattern";
+import Particles from "@/components/client/particles";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title ? title : "Tim Machnacki"}</title>
+  </head>
+  <body class="dark relative z-10">
+    <Particles
+      client:idle
+      color="#4338ca"
+      className="w-full h-full fixed z-0"
+      transition:persist
+    />
+    <div
+      class="absolute lg:fixed h-[500px] flex items-center justify-center inset-0 w-full -z-10"
+    >
+      <GridPattern
+        client:idle
+        width={80}
+        height={80}
+        className="[mask-image:linear-gradient(to_bottom_right,background,transparent_50%,transparent)] stroke-primary/10  "
+      />
+    </div>
+    <slot />
+  </body>
+</html>
+<style is:global>
+  :root {
+    font-family: "Poppins", sans-serif;
+  }
+</style>
