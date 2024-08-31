@@ -1,53 +1,44 @@
 ---
 import Layout from "@/layouts/layout.astro";
 import "@/styles/globals.css";
-import GridPattern from "@/components/client/grid-pattern";
+
 import Spotlight from "@/components/client/spotlight";
-import Avatar from "@/components/avatar.astro";
-import OrbitingTech from "@/components/orbiting-tech.astro";
+import Avatar from "@/components/home/avatar.astro";
+import OrbitingTech from "@/components/home/orbiting-tech.astro";
 import SectionHeader from "@/components/section-header.astro";
 import { EXPERIENCE } from "@/data/experience";
-import Experience from "@/components/experience.astro";
-import Particles from "@/components/client/particles";
-import Button from "@/components/button.astro";
+import Experience from "@/components/home/experience.astro";
+import Button from "@/components/ui/button.astro";
+import Projects from "@/components/home/projects.astro";
 ---
 
 <Layout>
   <!-- background effects-->
-  <!-- <Particles client:idle color="#4338ca" className="w-full h-full fixed z-0" /> -->
   <div
-    class="absolute lg:fixed h-[500px] flex items-center justify-center inset-0 w-full"
+    class="absolute inset-0 flex h-[500px] w-full items-center justify-center lg:fixed"
   >
-    <!-- <GridPattern
-      client:idle
-      width={80}
-      height={80}
-      className="[mask-image:linear-gradient(to_bottom_right,background_10%,transparent,transparent)] stroke-primary/15 -z-10 "
-      transition:persist="grid"
-    /> -->
-
-    <Spotlight fill="var(--zinc-100)" className="absolute -z-10 " />
+    <Spotlight fill="var(--indigo-300)" className="absolute -z-10" />
   </div>
 
   <div
-    class="relative min-h-screen container grid grid-cols-1 lg:grid-cols-2 gap-8"
+    class="container relative min-h-screen lg:grid lg:grid-cols-10 lg:gap-12"
   >
     <!-- hero -->
     <header
-      class="lg:sticky lg:top-0 lg:flex lg:max-h-screen w-full lg:flex-col lg:justify-between lg:py-24"
+      class="w-full lg:sticky lg:top-0 lg:col-span-4 lg:flex lg:max-h-screen lg:flex-col lg:justify-between lg:py-24"
     >
       <div
-        class="flex lg:items-start gap-8 flex-col lg:flex-row items-center text-center lg:text-left"
+        class="flex flex-col items-center gap-8 text-center lg:flex-row lg:items-start lg:text-left"
       >
-        <Avatar />
+        <!-- <Avatar /> -->
         <div class="">
           <a
             href="/"
-            class="text-4xl lg:text-5xl block font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-foreground to-zinc-300 bg-opacity-50 mb-2"
+            class="mb-2 block whitespace-nowrap bg-opacity-50 bg-gradient-to-b from-foreground to-zinc-300 bg-clip-text text-4xl font-bold tracking-tight text-transparent lg:text-5xl"
           >
             <h1>Tim Machnacki</h1>
           </a>
-          <h2 class="text-lg lg:text-xl font-medium text-muted-foreground mb-6">
+          <h2 class="mb-6 text-lg font-medium text-muted-foreground lg:text-xl">
             Front-End Engineer
           </h2>
           <p class="text-muted-foreground">I build things for the web.</p>
@@ -74,18 +65,18 @@ import Button from "@/components/button.astro";
     </header>
 
     <!-- content -->
-    <main class="relative py-24 w-full">
+    <main class="relative w-full py-24 lg:col-span-6">
       <!-- about -->
       <section
         id="about"
-        class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+        class="mb-16 scroll-mt-16 px-4 md:mb-24 lg:mb-36 lg:scroll-mt-24 lg:px-6"
         aria-label="About Me"
       >
         <SectionHeader title="About" />
 
         <OrbitingTech />
 
-        <p class="text-base leading-8 mt-16 text-muted-foreground">
+        <p class="mt-16 text-base leading-8 text-muted-foreground">
           In my current role as a Full Stack Engineer at Dutch Pet (Remote), I
           am at the forefront of designing and architecting dutch.com,
           leveraging a powerful stack including Shopify Storefront API, Admin
@@ -107,7 +98,13 @@ import Button from "@/components/button.astro";
         <div>
           <ol class="group/list space-y-12">
             <!-- experience cards -->
-            {EXPERIENCE.map((experience) => <Experience {...experience} />)}
+            {
+              EXPERIENCE.map((experience) => (
+                <li>
+                  <Experience {...experience} />
+                </li>
+              ))
+            }
           </ol>
         </div>
       </section>
@@ -119,6 +116,8 @@ import Button from "@/components/button.astro";
         aria-label="Projects"
       >
         <SectionHeader title="Projects" />
+        <Projects />
+
         <div>
           <a href="/projects/archive/"> view archive </a>
         </div>

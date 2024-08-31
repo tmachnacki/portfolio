@@ -1,4 +1,4 @@
-import type { Props as ExperienceProps } from "@/components/experience.astro";
+import type { Props as ExperienceProps } from "@/components/home/experience.astro";
 
 export const EXPERIENCE: ExperienceProps[] = [
   {

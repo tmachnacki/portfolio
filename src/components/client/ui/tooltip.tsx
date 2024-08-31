@@ -23,7 +23,7 @@ const TooltipContent = React.forwardRef<
       ref={ref}
       sideOffset={sideOffset}
       className={cn(
-        "relative z-50 rounded-md border bg-popover/80 backdrop-blur px-3 py-1.5 text-sm text-popover-foreground drop-shadow-lg animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+        "text-xs relative z-50 rounded-full border bg-popover/80 backdrop-blur px-4 py-1.5 text-popover-foreground drop-shadow-lg animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
         className
       )}
       {...props}
@@ -31,7 +31,7 @@ const TooltipContent = React.forwardRef<
       <span
         aria-hidden="true"
         className={cn(
-          "absolute left-0 translate-x-[10%] w-[80%] -bottom-[1px] bg-gradient-to-r from-transparent via-white to-transparent h-[2px] ",
+          "absolute left-[15%] w-[70%] -bottom-[1px] bg-gradient-to-r from-transparent via-white to-transparent h-[2px] ",
           tooltipGradientClassName
         )}
       />

@@ -1,0 +1,154 @@
+---
+import { Image } from "astro:assets";
+import Card from "../card.astro";
+import Skill from "../skill.astro";
+import Source from "../icons/source.astro";
+import ButtonLink from "../ui/button-link.astro";
+import Globe from "../icons/globe.astro";
+import Link from "../ui/link.astro";
+import SquareTr from "../icons/square-tr.astro";
+
+export interface ProjectImage {
+  label: string;
+  image: ImageMetadata;
+  compare?: boolean;
+  compareImages?: {
+    labelOne: string;
+    imageOne: ImageMetadata;
+    labelTwo: string;
+    imageTwo: ImageMetadata;
+  };
+}
+
+export interface Props {
+  title: string;
+  date: string;
+  description: string;
+  features?: string[];
+  thumbnail?: ImageMetadata;
+  images?: ProjectImage[];
+  skills?: {
+    name: string;
+    description?: string;
+  }[];
+  actions?: {
+    demo?: string; // hosted url
+    source?: string; // github repo url
+    details?: string; // project details page
+  };
+}
+
+const {
+  title,
+  date,
+  description,
+  features,
+  thumbnail,
+  images,
+  skills,
+  actions,
+} = Astro.props;
+---
+
+<Card class="">
+  <div class="relative z-10 mb-2 mt-1 overflow-hidden rounded-sm sm:col-span-2">
+    <Image
+      src={thumbnail!}
+      alt={`${title} screenshot`}
+      width={1600}
+      height={900}
+      class="h-auto w-full object-cover transition"
+    />
+  </div>
+
+  <div class="z-10 space-y-4 sm:col-span-6">
+    <div class="font-medium leading-snug text-foreground">
+      <h3>
+        {title}
+      </h3>
+      <p class="text-zinc-500">{description}</p>
+    </div>
+
+    {
+      features && features.length > 0 && (
+        <ul class="space-y-1.5 text-sm leading-snug text-muted-foreground">
+          {features.slice(0, 6).map((feature) => (
+            <li class="flex items-start gap-2">
+              {/* <Check class="size-4 flex-shrink-0 text-primary/70 group-hover:text-primary transition duration-200" /> */}
+              <span
+                aria-hidden="true"
+                class="leading-none grayscale group-hover:grayscale-0"
+              >
+                👉
+              </span>
+              {feature}
+            </li>
+          ))}
+        </ul>
+      )
+    }
+
+    {
+      skills && skills.length > 0 && (
+        <ul class="flex flex-wrap" aria-label="Technologies used">
+          {skills.map((skill) => (
+            <li class="mr-1.5 mt-2">
+              <Skill
+                label={skill.name}
+                class="transition lg:group-hover:border-primary lg:group-hover:text-indigo-400 lg:group-hover:shadow-md lg:group-hover:shadow-primary/20"
+              />
+            </li>
+          ))}
+        </ul>
+      )
+    }
+
+    {
+      actions && (
+        <ul class="flex flex-wrap *:mr-6 *:mt-2">
+          {actions.source && (
+            <Link
+              href={actions.source}
+              class={
+                "inline-flex items-center text-sm transition-colors hover:text-primary"
+              }
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label={`${title} source code on Github (opens in a new tab)`}
+            >
+              <Source class="mr-2 size-4" />
+              Source
+            </Link>
+          )}
+
+          {actions.demo && (
+            <Link
+              href={actions.demo}
+              class={
+                "inline-flex items-center text-sm transition-colors hover:text-primary"
+              }
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label={`${title} (opens in a new tab)`}
+            >
+              <Globe class="mr-2 size-4" />
+              Demo
+            </Link>
+          )}
+
+          {actions.details && (
+            <Link
+              href={actions.details}
+              class={
+                "inline-flex items-center text-sm transition-colors hover:text-primary"
+              }
+            >
+              <SquareTr class="mr-2 size-4" />
+              Details
+            </Link>
+          )}
+        </ul>
+      )
+    }
+  </div>
+</Card>

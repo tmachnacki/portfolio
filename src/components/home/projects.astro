@@ -1,0 +1,16 @@
+---
+import { PROJECTS } from "@/data/projects";
+import Project from "./project.astro";
+---
+
+<div>
+  <ol class="group/list space-y-12">
+    {
+      PROJECTS.map((project) => (
+        <li id={project.title}>
+          <Project {...project} />
+        </li>
+      ))
+    }
+  </ol>
+</div>

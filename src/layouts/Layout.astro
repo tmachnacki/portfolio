@@ -4,12 +4,12 @@ interface Props {
 }
 const { title } = Astro.props;
 import "@fontsource/poppins";
-import GridPattern from "@/components/client/grid-pattern";
+import Grid from "@/components/grid.astro";
 import Particles from "@/components/client/particles";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -18,28 +18,69 @@ import Particles from "@/components/client/particles";
     <meta name="generator" content={Astro.generator} />
     <title>{title ? title : "Tim Machnacki"}</title>
   </head>
-  <body class="dark relative z-10">
+  <body class="custom-scrollbar no-scrollbar relative z-10">
     <Particles
       client:idle
       color="#4338ca"
-      className="w-full h-full fixed z-0"
+      className="fixed z-0 h-full w-full"
       transition:persist
     />
     <div
-      class="absolute lg:fixed h-[500px] flex items-center justify-center inset-0 w-full -z-10"
+      class="absolute inset-0 -z-10 flex h-[500px] w-full items-center justify-center lg:fixed"
     >
-      <GridPattern
-        client:idle
+      <Grid
         width={80}
         height={80}
-        className="[mask-image:linear-gradient(to_bottom_right,background,transparent_50%,transparent)] stroke-primary/10  "
+        class="stroke-primary/20 [mask-image:linear-gradient(to_bottom_right,background,transparent_50%,transparent)]"
       />
     </div>
     <slot />
   </body>
+  <style is:global>
+    :root {
+      font-family: "Poppins", sans-serif;
+    }
+
+    *::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    *::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    *::-webkit-scrollbar-thumb {
+      background: #3f3f46;
+      border-radius: 8px;
+    }
+
+    *::-webkit-scrollbar-thumb:hover {
+      background: #52525b;
+    }
+
+    *::-webkit-scrollbar-thumb:active {
+      background: #71717a;
+    }
+
+    .scrollbar-opacity-0::-webkit-scrollbar-thumb {
+      opacity: 0;
+      transition: opacity;
+    }
+
+    .scrollbar-opacity-100::-webkit-scrollbar-thumb {
+      opacity: 1;
+      transition: opacity;
+    }
+
+    .no-visible-scrollbar {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .no-visible-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
 </html>
-<style is:global>
-  :root {
-    font-family: "Poppins", sans-serif;
-  }
-</style>

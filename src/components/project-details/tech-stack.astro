@@ -1,0 +1,28 @@
+---
+import Skill from "../skill.astro";
+
+interface Props {
+  skills?: {
+    name: string;
+    description?: string;
+  }[];
+}
+
+const { skills, ...props } = Astro.props;
+---
+
+<ul class="">
+  {
+    skills &&
+      skills.map((skill) => (
+        <li class="grid grid-cols-2 items-center border-b-[1px] border-border/50 py-2 first:pt-0 last:border-b-0 last:pb-0">
+          <Skill label={skill.name} />
+          {skill.description && (
+            <p class="text-xs uppercase text-muted-foreground/70">
+              {skill.description}
+            </p>
+          )}
+        </li>
+      ))
+  }
+</ul>

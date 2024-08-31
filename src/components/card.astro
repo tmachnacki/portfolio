@@ -1,0 +1,22 @@
+---
+import { cn } from "@/lib/utils";
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {}
+const { class: className, ...props } = Astro.props;
+---
+
+<div
+  class={cn(
+    "group relative grid transition-all sm:grid-cols-8 sm:gap-8  lg:hover:!opacity-100 lg:group-hover/list:opacity-50 rounded-md p-4 lg:p-6 hover:bg-zinc-900/30 hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:backdrop-blur-md hover:drop-shadow-lg ",
+    className
+  )}
+>
+  <span
+    class="absolute -top-0 left-[0.5rem] h-px w-[calc(100%-1rem)] bg-gradient-to-r from-blue-500/10 via-indigo-500 to-blue-500/10 opacity-0 transition-opacity duration-400 group-hover:opacity-100 z-10"
+    aria-hidden="true"
+  >
+  </span>
+
+  <slot />
+</div>

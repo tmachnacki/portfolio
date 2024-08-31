@@ -1,0 +1,36 @@
+---
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "./button.astro";
+import { type VariantProps } from "class-variance-authority";
+import type { HTMLAttributes } from "astro/types";
+
+interface Props
+  extends HTMLAttributes<"a">,
+    VariantProps<typeof buttonVariants> {}
+const { variant, size, gradient, class: className, ...props } = Astro.props;
+---
+
+<a
+  class={cn(buttonVariants({ variant, size, gradient, className }))}
+  {...props}
+>
+  {
+    gradient === "full" && (
+      <span
+        aria-hidden="true"
+        class="absolute -top-px left-[20%] h-px w-[60%] bg-gradient-to-r from-blue-500/10 via-indigo-500 to-blue-500/10 transition-opacity duration-300 opacity-0 group-hover/button:opacity-100"
+      />
+    )
+  }
+
+  <slot />
+
+  {
+    gradient === "full" && (
+      <span
+        aria-hidden="true"
+        class="absolute -bottom-px left-[20%] h-px w-[60%] bg-gradient-to-r from-blue-500/10 via-teal-500 to-blue-500/10 transition-opacity duration-300 group-hover/button:opacity-0"
+      />
+    )
+  }
+</a>

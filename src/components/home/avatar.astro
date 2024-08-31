@@ -10,8 +10,8 @@ const { class: className } = Astro.props;
 
 <div
   class={cn(
-    "relative rounded-full aspect-square overflow-hidden h-28 w-28 flex-shrink-0",
-    className
+    "relative rounded-full aspect-square overflow-hidden h-24 w-24 flex-shrink-0",
+    className,
   )}
 >
   <Image
@@ -19,6 +19,6 @@ const { class: className } = Astro.props;
     alt="Portrait of Tim Machnacki"
     width={160}
     height={160}
-    class={"w-full h-full object-contain scale-[250%] object-center rounded-lg absolute inset-0 z-10"}
+    class={"w-full h-full object-contain scale-[270%] object-center rounded-lg absolute inset-0 z-10"}
   />
 </div>

@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import type { HTMLAttributes } from "astro/types";
 
 export const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "cursor-pointer inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
@@ -12,7 +12,7 @@ export const buttonVariants = cva(
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+          "border border-input bg-background/10 backdrop-blur-sm hover:bg-gradient-to-t hover:from-accent hover:to-transparent hover:text-accent-foreground",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
@@ -29,9 +29,7 @@ export const buttonVariants = cva(
       },
       gradient: {
         default: "",
-        full: "relative group/button  bg-background/10 backdrop-blur-sm hover:bg-gradient-to-b hover:from-primary/10 hover:to-primary/0 hover:bg-transparent transition-colors duration-300 border border-border hover:border-primary/30",
-        top: "",
-        bottom: "",
+        full: "relative group/button bg-background/10 backdrop-blur-sm hover:bg-gradient-to-b hover:from-primary/10 hover:to-primary/0 hover:bg-transparent transition duration-300 border border-border hover:border-primary/30",
       },
     },
     defaultVariants: {
@@ -39,7 +37,7 @@ export const buttonVariants = cva(
       size: "default",
       gradient: "default",
     },
-  }
+  },
 );
 
 interface Props
@@ -61,7 +59,7 @@ const {
 >
   {
     gradient === "full" && (
-      <span class="absolute -top-0 left-[20%] h-px w-[60%] bg-gradient-to-r from-blue-500/10 via-indigo-500 to-blue-500/10 transition-opacity duration-300 opacity-0 group-hover/button:opacity-100" />
+      <span class="absolute -top-px left-[20%] h-px w-[60%] bg-gradient-to-r from-blue-500/10 via-indigo-500 to-blue-500/10 opacity-0 transition-opacity duration-300 group-hover/button:opacity-100" />
     )
   }
 
@@ -69,7 +67,7 @@ const {
 
   {
     gradient === "full" && (
-      <span class="absolute -bottom-0 left-[20%] h-px w-[60%] bg-gradient-to-r from-blue-500/10 via-sky-500 to-blue-500/10 transition-opacity duration-300 group-hover/button:opacity-0" />
+      <span class="absolute -bottom-px left-[20%] h-px w-[60%] bg-gradient-to-r from-blue-500/10 via-teal-500 to-blue-500/10 transition-opacity duration-300 group-hover/button:opacity-0" />
     )
   }
 </button>

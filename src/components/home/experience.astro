@@ -1,0 +1,79 @@
+---
+import Card from "../card.astro";
+import ArrowTr from "../icons/arrow-tr.astro";
+import Check from "../icons/check.astro";
+import Square from "../icons/square.astro";
+import Skill from "../skill.astro";
+
+export interface Props {
+  timePeriod: string;
+  logo?: string;
+  badge?: string;
+  title: string;
+  company: string;
+  companyUrl: string;
+  bullets: string[];
+  skills: string[];
+}
+const { timePeriod, logo, badge, title, company, companyUrl, bullets, skills } =
+  Astro.props;
+---
+
+<Card>
+  <header
+    class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-zinc-500 sm:col-span-2"
+    aria-label={timePeriod}
+  >
+    {timePeriod}
+  </header>
+  <div class="z-10 sm:col-span-6 space-y-4">
+    <h3 class="font-medium leading-snug text-foreground">
+      <div>
+        <a
+          class="inline-flex items-center font-medium leading-tight hover:text-primary focus-visible:text-primary group/link text-base"
+          href={companyUrl}
+          target="_blank"
+          rel="noreferrer noopener"
+          aria-label={`${title} at ${company} (opens in a new tab)`}
+        >
+          <span>
+            {title} ·
+            <span class="inline-block">{company}</span>
+          </span>
+          <ArrowTr
+            class="ml-2 size-3 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+            aria-hidden="true"
+          />
+        </a>
+      </div>
+    </h3>
+    <ul class="text-sm leading-snug text-muted-foreground space-y-1.5">
+      {
+        bullets.map((bullet) => (
+          <li class="flex items-start gap-2">
+            {/* <Check class="size-4 flex-shrink-0 text-primary/70 group-hover:text-primary transition duration-200" /> */}
+            <span
+              aria-hidden="true"
+              class="grayscale group-hover:grayscale-0 leading-none"
+            >
+              👉
+            </span>
+            {bullet}
+          </li>
+        ))
+      }
+    </ul>
+    <ul class="flex flex-wrap" aria-label="Technologies used">
+      {
+        skills.map((skill) => (
+          <li class="mr-1.5 mt-2">
+            <Skill
+              label={skill}
+              class=" lg:group-hover:border-primary lg:group-hover:shadow-md lg:group-hover:shadow-primary/20  lg:group-hover:text-indigo-400 transition"
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Card>
