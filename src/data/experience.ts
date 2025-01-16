@@ -8,7 +8,7 @@ export const EXPERIENCE: ExperienceProps[] = [
     company: "Signs365",
     companyUrl: "https://signs365.com",
     bullets: [
-      "Leveraged knwoedge of React, TypeScript, and Tailwind CSS to build a UI component library",
+      "Leveraged knowledge of React, TypeScript, and Tailwind CSS to build a UI component library",
       "Did some other cool thing with some tech and code",
       "Did another other cool thing with some tech and code",
     ],
@@ -32,7 +32,7 @@ export const EXPERIENCE: ExperienceProps[] = [
     company: "Recruiting Arena",
     companyUrl: "https://google.com",
     bullets: [
-      "Leveraged knwoedge of React, TypeScript, and Tailwind CSS to build a UI component library",
+      "Leveraged knowledge of React, TypeScript, and Tailwind CSS to build a UI component library",
       "Did some other cool thing with some tech and code",
       "Did another other cool thing with some tech and code",
     ],
@@ -46,7 +46,7 @@ export const EXPERIENCE: ExperienceProps[] = [
     company: "Recruiting Arena",
     companyUrl: "https://google.com",
     bullets: [
-      "Leveraged knwoedge of React, TypeScript, and Tailwind CSS to build a UI component library",
+      "Leveraged knowledge of React, TypeScript, and Tailwind CSS to build a UI component library",
       "Did some other cool thing with some tech and code",
       "Did another other cool thing with some tech and code",
     ],
@@ -60,7 +60,7 @@ export const EXPERIENCE: ExperienceProps[] = [
     company: "Recruiting Arena",
     companyUrl: "https://google.com",
     bullets: [
-      "Leveraged knwoedge of React, TypeScript, and Tailwind CSS to build a UI component library",
+      "Leveraged knowledge of React, TypeScript, and Tailwind CSS to build a UI component library",
       "Did some other cool thing with some tech and code",
       "Did another other cool thing with some tech and code",
     ],
