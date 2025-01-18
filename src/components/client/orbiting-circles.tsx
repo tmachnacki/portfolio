@@ -1,3 +1,4 @@
+import { useEffect, useState, type HTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 import {
   Tooltip,
@@ -5,8 +6,9 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/client/ui/tooltip";
+import { usePrefersReducedMotion } from "@/components/client/use-prefers-reduced-motion";
 
-export interface OrbitingCirclesProps {
+export interface OrbitingCirclesProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
   children?: React.ReactNode;
   reverse?: boolean;
@@ -14,6 +16,7 @@ export interface OrbitingCirclesProps {
   delay?: number;
   radius?: number;
   path?: boolean;
+  angle?: number;
   pathClassName?: string;
   tooltipClassName?: string;
   tooltipGradientClassName?: string;
@@ -28,11 +31,17 @@ export default function OrbitingCircles({
   delay = 10,
   radius = 50,
   path = true,
+  angle = 0,
   pathClassName,
   tooltipClassName,
   tooltipGradientClassName,
   tooltipLabel,
 }: OrbitingCirclesProps) {
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const [hovered, setHovered] = useState(false);
+
+  const paused = prefersReducedMotion || hovered;
+
   return (
     <>
       {path && (
@@ -44,7 +53,7 @@ export default function OrbitingCircles({
           <circle
             className={cn(
               "stroke-black/10 stroke-1 dark:stroke-white/10",
-              pathClassName
+              pathClassName,
             )}
             cx="50%"
             cy="50%"
@@ -68,8 +77,15 @@ export default function OrbitingCircles({
               className={cn(
                 "absolute flex size-full transform-gpu animate-orbit items-center justify-center rounded-full border bg-black/10 [animation-delay:calc(var(--delay)*1000ms)] dark:bg-white/10",
                 { "[animation-direction:reverse]": reverse },
-                className
+                paused && "paused",
+                className,
               )}
+              onPointerEnter={() => {
+                setHovered(true);
+              }}
+              onPointerLeave={() => {
+                setHovered(false);
+              }}
             >
               {children}
             </div>

@@ -15,7 +15,7 @@ const circleClassName =
 ---
 
 <div
-  class="relative flex w-full flex-col items-center justify-center h-[440px] bg-transparent overflow-visible"
+  class="relative flex h-[440px] w-full flex-col items-center justify-center overflow-visible bg-transparent"
 >
   <!-- <span
     class="pointer-events-none bg-gradient-to-b from-black to-gray-300 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-background"
@@ -26,47 +26,50 @@ const circleClassName =
   {/* Inner Circles */}
 
   <OrbitingCircles
-    className={`circle-inner dark:from-fuchsia-500 size-12  ${circleClassName}`}
+    className={`circle-inner size-12 dark:from-fuchsia-500 ${circleClassName}`}
     duration={20}
     radius={80}
     delay={7}
+    angle={120}
     pathClassName={pathClassName}
     tooltipLabel="Astro"
     tooltipGradientClassName="via-fuchsia-500 shadow-md shadow-fuchsia-500/50"
-    client:idle
+    client:load
   >
     <AstroIcon class="size-6" />
   </OrbitingCircles>
 
   <OrbitingCircles
-    className={`circle-inner dark:from-cyan-600 size-12  ${circleClassName}`}
+    className={`circle-inner size-12 dark:from-cyan-600 ${circleClassName}`}
     duration={20}
     delay={14}
     radius={80}
+    angle={240}
     pathClassName={pathClassName}
     tooltipLabel="React"
     tooltipGradientClassName="via-cyan-600 shadow-md shadow-cyan-600/50"
-    client:idle
+    client:load
   >
     <React class="size-6" />
   </OrbitingCircles>
 
   <OrbitingCircles
-    className={`circle-inner dark:from-sky-500 size-12  ${circleClassName}`}
+    className={`circle-inner size-12 dark:from-sky-500 ${circleClassName}`}
     duration={20}
     delay={21}
     radius={80}
+    angle={360}
     pathClassName={pathClassName}
     tooltipLabel="TailwindCSS"
     tooltipGradientClassName="via-sky-500 shadow-md shadow-sky-500/50"
-    client:idle
+    client:load
   >
     <Tailwind class="size-6" />
   </OrbitingCircles>
 
   {/* Outer Circles (reverse) */}
   <OrbitingCircles
-    className={`circle-outer dark:from-blue-500 size-14 ${circleClassName}`}
+    className={`circle-outer size-14 dark:from-blue-500 ${circleClassName}`}
     radius={190}
     duration={20}
     delay={5}
@@ -74,13 +77,13 @@ const circleClassName =
     pathClassName={pathClassName}
     tooltipLabel="Typescript"
     tooltipGradientClassName="via-blue-500 shadow-md shadow-blue-500/50"
-    client:idle
+    client:load
   >
     <Typescript class="size-6" />
   </OrbitingCircles>
 
   <OrbitingCircles
-    className={`circle-outer dark:from-zinc-400 size-14 ${circleClassName}`}
+    className={`circle-outer size-14 dark:from-zinc-400 ${circleClassName}`}
     radius={190}
     duration={20}
     delay={10}
@@ -88,13 +91,13 @@ const circleClassName =
     pathClassName={pathClassName}
     tooltipLabel="NextJS"
     tooltipGradientClassName="via-white shadow-md shadow-white/50"
-    client:idle
+    client:load
   >
     <Next />
   </OrbitingCircles>
 
   <OrbitingCircles
-    className={`circle-outer dark:from-yellow-500 size-14 ${circleClassName}`}
+    className={`circle-outer size-14 dark:from-yellow-500 ${circleClassName}`}
     radius={190}
     duration={20}
     delay={15}
@@ -102,13 +105,13 @@ const circleClassName =
     pathClassName={pathClassName}
     tooltipLabel="Firebase"
     tooltipGradientClassName="via-yellow-500 shadow-md shadow-yellow-500/50"
-    client:idle
+    client:load
   >
     <Firebase />
   </OrbitingCircles>
 
   <OrbitingCircles
-    className={`circle-outer dark:from-green-500 size-14 ${circleClassName}`}
+    className={`circle-outer size-14 dark:from-green-500 ${circleClassName}`}
     radius={190}
     duration={20}
     delay={20}
@@ -116,9 +119,9 @@ const circleClassName =
     pathClassName={pathClassName}
     tooltipLabel="MongoDB"
     tooltipGradientClassName="via-green-500 shadow-md shadow-green-500/50"
-    client:idle
+    client:load
   >
-    <Mongo class="stroke-green-900 fill-green-600 size-7" />
+    <Mongo class="size-7 fill-green-600 stroke-green-900" />
   </OrbitingCircles>
 </div>
 

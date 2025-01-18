@@ -13,6 +13,10 @@ import Experience from "@/components/home/experience.astro";
 import Button from "@/components/ui/button.astro";
 import Projects from "@/components/home/projects.astro";
 import Pin from "@/components/icons/pin.astro";
+import Github from "@/components/icons/github.astro";
+import LinkedIn from "@/components/icons/linkedin.astro";
+import Linkedin from "@/components/icons/linkedin.astro";
+import Envelope from "@/components/icons/envelope.astro";
 ---
 
 <Layout>
@@ -70,12 +74,39 @@ import Pin from "@/components/icons/pin.astro";
         </Button>
       </nav>
 
-      <ul class="flex-shrink-0">
+      <ul class="flex flex-shrink-0 items-center gap-4">
         <li>
-          <a href="https://github.com/timmachnacki">Github</a>
+          <a
+            href="https://github.com/tmachnacki"
+            target="_blank"
+            aria-label="Tim Machnacki's Github (opens in a new tab)"
+          >
+            <Github
+              class={"size-6 text-muted-foreground hover:text-foreground"}
+            />
+          </a>
         </li>
         <li>
-          <a href="https://www.linkedin.com/in/timmachnacki/">LinkedIn</a>
+          <a
+            href="https://www.linkedin.com/in/timothy-machnacki-172b58257"
+            target="_blank"
+            aria-label="Tim Machnacki's LinkedIn (opens in a new tab)"
+          >
+            <Linkedin
+              class={"size-7 text-muted-foreground hover:text-foreground"}
+            />
+          </a>
+        </li>
+        <li>
+          <a
+            href="mailto:machnackit@gmail.com"
+            target="_blank"
+            aria-label="Email Tim Machnacki"
+          >
+            <Envelope
+              class={"size-7 text-muted-foreground hover:text-foreground"}
+            />
+          </a>
         </li>
       </ul>
     </header>
