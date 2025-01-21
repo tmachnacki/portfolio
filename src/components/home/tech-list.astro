@@ -1,0 +1,92 @@
+---
+import React from "../icons/react.astro";
+import Tailwind from "../icons/tailwind.astro";
+import Next from "../icons/next.astro";
+import Typescript from "../icons/typescript.astro";
+import AstroIcon from "../icons/astro-icon.astro";
+import Firebase from "../icons/firebase.astro";
+import Mongo from "../icons/mongo.astro";
+
+import Stripe from "../icons/stripe.png";
+
+import TechListItem from "./tech-list-item.astro";
+
+import { cn } from "@/lib/utils";
+import { Image } from "astro:assets";
+---
+
+<ul class="mt-16 grid w-full grid-cols-2 gap-4">
+  <TechListItem
+    name="Typescript"
+    description="Less bad javascript"
+    backgroundGradientClassName="hover:from-blue-500/10 hover:to-blue-500/0"
+    borderGradientClassName="via-blue-500"
+    planetGradientClassName="from-blue-500"
+  >
+    <Typescript class="size-6" />
+  </TechListItem>
+  <TechListItem
+    name="React"
+    description="UI framework (not library)"
+    backgroundGradientClassName="hover:from-cyan-600/10 hover:to-cyan-600/0"
+    borderGradientClassName="via-cyan-600"
+    planetGradientClassName="from-cyan-600"
+  >
+    <React class="size-6" />
+  </TechListItem>
+  <TechListItem
+    name="Tailwind CSS"
+    description="Utility-first CSS framework"
+    backgroundGradientClassName="hover:from-sky-500/10 hover:to-sky-500/0"
+    borderGradientClassName="via-sky-500"
+    planetGradientClassName="from-sky-500"
+  >
+    <Tailwind class="size-6" />
+  </TechListItem>
+
+  <TechListItem
+    name="NextJS"
+    description="Fullstack React framework"
+    backgroundGradientClassName="hover:from-zinc-400/10 hover:to-zinc-400/0"
+    borderGradientClassName="via-zinc-400"
+    planetGradientClassName="from-zinc-400"
+  >
+    <Next class="size-6" />
+  </TechListItem>
+  <TechListItem
+    name="Astro"
+    description="Server-first web framework"
+    backgroundGradientClassName="hover:from-fuchsia-500/10 hover:to-fuchsia-500/0"
+    borderGradientClassName="via-fuchsia-500"
+    planetGradientClassName="from-fuchsia-500"
+  >
+    <AstroIcon class="size-6" />
+  </TechListItem>
+  <TechListItem
+    name="MongoDB"
+    description="NoSQL database"
+    backgroundGradientClassName="hover:from-green-500/10 hover:to-green-500/0"
+    borderGradientClassName="via-green-500"
+    planetGradientClassName="from-green-500"
+  >
+    <Mongo class="size-6 fill-green-600 stroke-green-900" />
+  </TechListItem>
+  <TechListItem
+    name="Firebase"
+    description="Backend as a service"
+    backgroundGradientClassName="hover:from-yellow-500/10 hover:to-yellow-500/0"
+    borderGradientClassName="via-yellow-500"
+    planetGradientClassName="from-yellow-500"
+  >
+    <Firebase class="size-6" />
+  </TechListItem>
+  <TechListItem
+    name="Stripe"
+    description="Payment processing"
+    backgroundGradientClassName="hover:from-indigo-500/10 hover:to-indigo-500/0"
+    borderGradientClassName="via-indigo-500"
+    planetGradientClassName="from-indigo-500"
+  >
+    <Image src={Stripe} alt="Stripe" class="aspect-square size-6 rounded-sm" />
+  </TechListItem>
+</ul>

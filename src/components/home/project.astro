@@ -7,6 +7,7 @@ import ButtonLink from "../ui/button-link.astro";
 import Globe from "../icons/globe.astro";
 import Link from "../ui/link.astro";
 import SquareTr from "../icons/square-tr.astro";
+import type { HTMLAttributes } from "astro/types";
 
 export interface ProjectImage {
   label: string;
@@ -89,28 +90,13 @@ const {
     }
 
     {
-      skills && skills.length > 0 && (
-        <ul class="flex flex-wrap" aria-label="Technologies used">
-          {skills.map((skill) => (
-            <li class="mr-1.5 mt-2">
-              <Skill
-                label={skill.name}
-                class="transition lg:group-hover:border-primary lg:group-hover:text-indigo-400 lg:group-hover:shadow-md lg:group-hover:shadow-primary/20"
-              />
-            </li>
-          ))}
-        </ul>
-      )
-    }
-
-    {
       actions && (
         <ul class="flex flex-wrap *:mr-6 *:mt-2">
           {actions.source && (
             <Link
               href={actions.source}
               class={
-                "inline-flex items-center text-sm transition hover:-translate-y-[2px]"
+                "inline-flex items-center text-sm text-foreground transition"
               }
               target="_blank"
               rel="noreferrer noopener"
@@ -125,7 +111,7 @@ const {
             <Link
               href={actions.demo}
               class={
-                "inline-flex items-center text-sm transition hover:-translate-y-[2px]"
+                "inline-flex items-center text-sm text-foreground transition"
               }
               target="_blank"
               rel="noreferrer noopener"
@@ -140,13 +126,28 @@ const {
             <Link
               href={actions.details}
               class={
-                "inline-flex items-center text-sm transition hover:-translate-y-[2px]"
+                "inline-flex items-center text-sm text-foreground transition"
               }
             >
               <SquareTr class="mr-2 size-4" />
               Details
             </Link>
           )}
+        </ul>
+      )
+    }
+
+    {
+      skills && skills.length > 0 && (
+        <ul class="flex flex-wrap" aria-label="Technologies used">
+          {skills.map((skill) => (
+            <li class="mr-1.5 mt-2">
+              <Skill
+                label={skill.name}
+                class="transition lg:group-hover:border-primary lg:group-hover:text-indigo-400 lg:group-hover:shadow-md lg:group-hover:shadow-primary/20"
+              />
+            </li>
+          ))}
         </ul>
       )
     }

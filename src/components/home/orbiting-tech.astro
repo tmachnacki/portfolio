@@ -8,10 +8,9 @@ import AstroIcon from "../icons/astro-icon.astro";
 import Firebase from "../icons/firebase.astro";
 import Mongo from "../icons/mongo.astro";
 
-const pathClassName =
-  "stroke-primary/20 dark:stroke-primary/20 z-10 animate-pulse";
+const pathClassName = "stroke-primary/20 z-10 animate-pulse";
 const circleClassName =
-  "dark:bg-gradient-to-br  dark:to-black dark:via-zinc-950 dark:bg-background z-20";
+  "bg-gradient-to-br to-black via-zinc-950 bg-background z-20";
 ---
 
 <div
@@ -26,7 +25,7 @@ const circleClassName =
   {/* Inner Circles */}
 
   <OrbitingCircles
-    className={`circle-inner size-12 dark:from-fuchsia-500 ${circleClassName}`}
+    className={`circle-inner size-12 from-fuchsia-500 ${circleClassName}`}
     duration={20}
     radius={80}
     delay={7}
@@ -40,7 +39,7 @@ const circleClassName =
   </OrbitingCircles>
 
   <OrbitingCircles
-    className={`circle-inner size-12 dark:from-cyan-600 ${circleClassName}`}
+    className={`circle-inner size-12 from-cyan-600 ${circleClassName}`}
     duration={20}
     delay={14}
     radius={80}
@@ -54,7 +53,7 @@ const circleClassName =
   </OrbitingCircles>
 
   <OrbitingCircles
-    className={`circle-inner size-12 dark:from-sky-500 ${circleClassName}`}
+    className={`circle-inner size-12 from-sky-500 ${circleClassName}`}
     duration={20}
     delay={21}
     radius={80}
@@ -69,7 +68,7 @@ const circleClassName =
 
   {/* Outer Circles (reverse) */}
   <OrbitingCircles
-    className={`circle-outer size-14 dark:from-blue-500 ${circleClassName}`}
+    className={`circle-outer size-14 from-blue-500 ${circleClassName}`}
     radius={190}
     duration={20}
     delay={5}
@@ -83,7 +82,7 @@ const circleClassName =
   </OrbitingCircles>
 
   <OrbitingCircles
-    className={`circle-outer size-14 dark:from-zinc-400 ${circleClassName}`}
+    className={`circle-outer size-14 from-zinc-400 ${circleClassName}`}
     radius={190}
     duration={20}
     delay={10}
@@ -97,7 +96,7 @@ const circleClassName =
   </OrbitingCircles>
 
   <OrbitingCircles
-    className={`circle-outer size-14 dark:from-yellow-500 ${circleClassName}`}
+    className={`circle-outer size-14 from-yellow-500 ${circleClassName}`}
     radius={190}
     duration={20}
     delay={15}
@@ -111,7 +110,7 @@ const circleClassName =
   </OrbitingCircles>
 
   <OrbitingCircles
-    className={`circle-outer size-14 dark:from-green-500 ${circleClassName}`}
+    className={`circle-outer size-14 from-green-500 ${circleClassName}`}
     radius={190}
     duration={20}
     delay={20}

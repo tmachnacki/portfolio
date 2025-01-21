@@ -1,0 +1,53 @@
+---
+import { cn } from "@/lib/utils";
+
+interface Props {
+  name: string;
+  description: string;
+  backgroundGradientClassName: string;
+  borderGradientClassName: string;
+  planetGradientClassName: string;
+}
+
+const {
+  name,
+  description,
+  backgroundGradientClassName,
+  borderGradientClassName,
+  planetGradientClassName,
+  ...props
+} = Astro.props;
+---
+
+<li
+  class={cn(
+    "group relative flex w-full flex-row items-center gap-4 rounded-md border border-white/10 bg-transparent p-4 hover:bg-gradient-to-b cursor-default select-none ",
+    backgroundGradientClassName,
+  )}
+>
+  <span
+    aria-hidden="true"
+    class={cn(
+      "absolute -top-[1px] left-[10%] h-[2px] w-[80%] bg-gradient-to-r from-transparent to-transparent transition-all duration-300 opacity-0 group-hover:opacity-100",
+      borderGradientClassName,
+    )}></span>
+
+  <!-- <span
+    aria-hidden="true"
+    class={cn(
+      "absolute -bottom-[1px] left-[10%] h-[2px] w-[80%] bg-gradient-to-r from-transparent to-transparent opacity-100 transition-all duration-300 group-hover:opacity-0",
+      borderGradientClassName,
+    )}></span> -->
+  <div
+    class={cn(
+      "size-12 flex items-center justify-center bg-gradient-to-br from-zinc-400 to-black via-zinc-950 bg-background rounded-full border",
+      planetGradientClassName,
+    )}
+  >
+    <slot />
+  </div>
+  <div class="flex flex-col">
+    <p class="text-base font-medium text-foreground">{name}</p>
+    <p class="text-sm text-muted-foreground">{description}</p>
+  </div>
+</li>
