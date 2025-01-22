@@ -18,7 +18,7 @@ const { variant, size, gradient, class: className, ...props } = Astro.props;
     gradient === "full" && (
       <span
         aria-hidden="true"
-        class="absolute -top-px left-[20%] h-px w-[60%] bg-gradient-to-r from-blue-500/10 via-indigo-500 to-blue-500/10 transition-opacity duration-300 opacity-0 group-hover/button:opacity-100"
+        class="absolute -top-px left-[20%] h-px w-[60%] bg-gradient-to-r from-indigo-500/10 via-indigo-500 to-indigo-500/10 opacity-0 transition-opacity duration-300 group-hover/button:opacity-100"
       />
     )
   }
@@ -29,7 +29,7 @@ const { variant, size, gradient, class: className, ...props } = Astro.props;
     gradient === "full" && (
       <span
         aria-hidden="true"
-        class="absolute -bottom-px left-[20%] h-px w-[60%] bg-gradient-to-r from-blue-500/10 via-teal-500 to-blue-500/10 transition-opacity duration-300 group-hover/button:opacity-0"
+        class="absolute -bottom-px left-[20%] h-px w-[60%] bg-gradient-to-r from-indigo-500/10 via-indigo-500 to-indigo-500/10 transition-opacity duration-300 group-hover/button:opacity-0"
       />
     )
   }

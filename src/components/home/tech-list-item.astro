@@ -40,14 +40,14 @@ const {
     )}></span> -->
   <div
     class={cn(
-      "size-12 flex items-center justify-center bg-gradient-to-br from-zinc-400 to-black via-zinc-950 bg-background rounded-full border",
+      "size-12 flex items-center justify-center bg-gradient-to-br from-zinc-400 to-black via-zinc-950 bg-background rounded-full border flex-shrink-0",
       planetGradientClassName,
     )}
   >
     <slot />
   </div>
   <div class="flex flex-col">
-    <p class="text-base font-medium text-foreground">{name}</p>
+    <h3 class="text-base font-medium text-foreground">{name}</h3>
     <p class="text-sm text-muted-foreground">{description}</p>
   </div>
 </li>

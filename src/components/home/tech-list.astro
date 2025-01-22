@@ -6,7 +6,8 @@ import Typescript from "../icons/typescript.astro";
 import AstroIcon from "../icons/astro-icon.astro";
 import Firebase from "../icons/firebase.astro";
 import Mongo from "../icons/mongo.astro";
-
+import Node from "../icons/node.astro";
+import Figma from "../icons/figma.astro";
 import Stripe from "../icons/stripe.png";
 
 import TechListItem from "./tech-list-item.astro";
@@ -15,7 +16,7 @@ import { cn } from "@/lib/utils";
 import { Image } from "astro:assets";
 ---
 
-<ul class="mt-16 grid w-full grid-cols-2 gap-4">
+<ul class="mt-16 grid w-full grid-cols-1 gap-3 md:grid-cols-2">
   <TechListItem
     name="Typescript"
     description="Less bad javascript"
@@ -43,7 +44,6 @@ import { Image } from "astro:assets";
   >
     <Tailwind class="size-6" />
   </TechListItem>
-
   <TechListItem
     name="NextJS"
     description="Fullstack React framework"
@@ -52,6 +52,15 @@ import { Image } from "astro:assets";
     planetGradientClassName="from-zinc-400"
   >
     <Next class="size-6" />
+  </TechListItem>
+  <TechListItem
+    name="NodeJS"
+    description="JavaScript runtime"
+    backgroundGradientClassName="hover:from-lime-500/10 hover:to-lime-500/0"
+    borderGradientClassName="via-lime-500"
+    planetGradientClassName="from-lime-500"
+  >
+    <Node class="size-6" />
   </TechListItem>
   <TechListItem
     name="Astro"
@@ -88,5 +97,14 @@ import { Image } from "astro:assets";
     planetGradientClassName="from-indigo-500"
   >
     <Image src={Stripe} alt="Stripe" class="aspect-square size-6 rounded-sm" />
+  </TechListItem>
+  <TechListItem
+    name="Figma"
+    description="UI/UX design tool"
+    backgroundGradientClassName="hover:from-zinc-400/10 hover:to-zinc-400/0"
+    borderGradientClassName="via-zinc-400"
+    planetGradientClassName="from-zinc-400"
+  >
+    <Figma class="size-6" />
   </TechListItem>
 </ul>

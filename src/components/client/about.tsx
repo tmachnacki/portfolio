@@ -26,12 +26,12 @@ const About = () => {
   }, [beginGPTResponse]);
 
   return (
-    <div className="flex w-full flex-col gap-8">
-      <div className="ml-4 w-full max-w-sm self-end rounded-2xl bg-muted px-4 py-2 text-muted-foreground">
+    <div className="flex h-auto min-h-48 w-full flex-col gap-8 bg-red-500 px-4">
+      <div className="-me-4 w-full max-w-xs self-end rounded-2xl bg-muted px-4 py-2 text-muted-foreground sm:max-w-sm md:max-w-md lg:max-w-sm">
         {showTypingText ? (
           <TypingText
             text={`Write me an "about" section for my frontend software engineer portfolio without using any jargon or buzzwords, like "passionate".`}
-            className="w-full"
+            className="w-full text-left"
             grow={true}
             repeat={false}
             hideCursorOnComplete={true}
@@ -50,17 +50,21 @@ const About = () => {
       </div>
 
       <div
-        className={`mr-4 w-full max-w-sm self-start rounded-2xl border bg-transparent px-4 py-2 text-muted-foreground ${showGPTResponse ? "opacity-100" : "opacity-0"}`}
+        className={`-ms-4 mr-4 w-full max-w-xs self-start rounded-2xl border bg-transparent px-4 py-2 text-muted-foreground sm:max-w-sm md:max-w-md lg:max-w-sm`}
       >
-        {showGPTResponse && (
+        {showGPTResponse ? (
           <TypingText
             text={`I build things for the web.`}
-            className="w-full"
+            className="w-full text-left"
             grow={true}
             repeat={false}
             hideCursorOnComplete={true}
             alwaysVisibleCount={0}
           />
+        ) : (
+          <p aria-hidden="true" className="h-6">
+            hidden placeholder
+          </p>
         )}
       </div>
     </div>
