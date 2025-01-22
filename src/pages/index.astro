@@ -3,7 +3,6 @@ import Layout from "@/layouts/Layout.astro";
 import "@/styles/globals.css";
 
 import Spotlight from "@/components/client/spotlight";
-import TypingText from "@/components/client/typing-text.tsx";
 import About from "@/components/client/about.tsx";
 import Avatar from "@/components/home/avatar.astro";
 import OrbitingTech from "@/components/home/orbiting-tech.astro";
@@ -16,7 +15,6 @@ import Projects from "@/components/home/projects.astro";
 import Pin from "@/components/icons/pin.astro";
 import Github from "@/components/icons/github.astro";
 import LinkedIn from "@/components/icons/linkedin.astro";
-import Linkedin from "@/components/icons/linkedin.astro";
 import Envelope from "@/components/icons/envelope.astro";
 import ButtonLink from "@/components/ui/button-link.astro";
 ---
@@ -34,7 +32,7 @@ import ButtonLink from "@/components/ui/button-link.astro";
   >
     <!-- hero -->
     <header
-      class="w-full lg:sticky lg:top-0 lg:col-span-4 lg:flex lg:max-h-screen lg:flex-col lg:justify-between lg:py-24"
+      class="relative w-full lg:sticky lg:top-0 lg:col-span-4 lg:flex lg:max-h-screen lg:flex-col lg:justify-between lg:py-24"
     >
       <div class="relative flex flex-grow flex-col items-start gap-8 text-left">
         <div class="flex flex-row gap-6">
@@ -59,25 +57,49 @@ import ButtonLink from "@/components/ui/button-link.astro";
       </div>
 
       <nav
-        class="hidden flex-shrink-0 flex-grow lg:block"
+        class="absolute left-0 top-1/2 hidden flex-shrink-0 flex-grow text-muted-foreground lg:block"
         aria-label="In page jump links"
       >
         <ul class="w-max space-y-4">
-          <li>
-            <a href="#skills">Skills</a>
+          <li class="relative">
+            <a
+              id="skills-nav"
+              href="#skills"
+              class="group/nav-link flex items-center gap-2 transition-all [&.active]:text-foreground"
+            >
+              <span
+                aria-hidden="true"
+                class="h-px w-0 bg-gradient-to-r from-primary/10 via-primary to-primary/10 opacity-0 transition-all duration-300 group-[&.active]/nav-link:w-24 group-[&.active]/nav-link:opacity-100"
+              ></span>
+              <span>Skills</span>
+            </a>
           </li>
-          <li>
-            <a href="#experience">Experience</a>
+          <li class="relative">
+            <a
+              id="experience-nav"
+              href="#experience"
+              class="transition-all [&.active]:text-foreground">Experience</a
+            >
           </li>
-          <li>
-            <a href="#projects">Projects</a>
+          <li class="relative">
+            <a
+              id="projects-nav"
+              href="#projects"
+              class="transition-all [&.active]:text-foreground">Projects</a
+            >
           </li>
         </ul>
       </nav>
 
       <ul class="flex flex-shrink-0 items-center gap-4">
         <li>
-          <ButtonLink gradient={"full"} class={"rounded-full px-5"} href={"/"}>
+          <ButtonLink
+            gradient={"full"}
+            class={"rounded-full px-5"}
+            href={"/resume.pdf"}
+            target={"_blank"}
+            aria-label={"Tim Machnacki's Resume (opens in a new tab)"}
+          >
             Resume
           </ButtonLink>
         </li>
@@ -98,7 +120,7 @@ import ButtonLink from "@/components/ui/button-link.astro";
             target="_blank"
             aria-label="Tim Machnacki's LinkedIn (opens in a new tab)"
           >
-            <Linkedin
+            <LinkedIn
               class={"size-7 text-muted-foreground hover:text-foreground"}
             />
           </a>
@@ -124,6 +146,7 @@ import ButtonLink from "@/components/ui/button-link.astro";
         id="skills"
         class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24 lg:px-4"
         aria-label="About Me"
+        data-observable="true"
       >
         <SectionHeader title="Skills" />
 
@@ -136,6 +159,7 @@ import ButtonLink from "@/components/ui/button-link.astro";
         id="experience"
         class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
         aria-label="Work experience"
+        data-observable="true"
       >
         <SectionHeader title="Experience" />
         <div>
@@ -157,6 +181,7 @@ import ButtonLink from "@/components/ui/button-link.astro";
         id="projects"
         class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
         aria-label="Projects"
+        data-observable="true"
       >
         <SectionHeader title="Projects" />
         <Projects />
@@ -178,3 +203,31 @@ import ButtonLink from "@/components/ui/button-link.astro";
     }
   </style>
 </Layout>
+
+<!-- scrollspy -->
+<script is:inline>
+  const threshold = 0.75;
+
+  const changeNav = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && entry.intersectionRatio >= threshold) {
+        document.querySelector(".active")?.classList.remove("active");
+        const id = entry.target.getAttribute("id");
+        const newLink = document
+          .querySelector(`[href="#${id}"]`)
+          .classList.add("active");
+      }
+    });
+  };
+
+  const options = {
+    threshold: threshold,
+  };
+
+  const observer = new IntersectionObserver(changeNav, options);
+
+  const sections = document.querySelectorAll("[data-observable='true']");
+  sections.forEach((section) => {
+    observer.observe(section);
+  });
+</script>
