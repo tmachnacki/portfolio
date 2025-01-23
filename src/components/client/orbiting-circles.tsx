@@ -6,7 +6,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/client/ui/tooltip";
-import { usePrefersReducedMotion } from "@/components/client/use-prefers-reduced-motion";
 
 export interface OrbitingCirclesProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
@@ -37,10 +36,6 @@ export default function OrbitingCircles({
   tooltipGradientClassName,
   tooltipLabel,
 }: OrbitingCirclesProps) {
-  const prefersReducedMotion = usePrefersReducedMotion();
-  const [hovered, setHovered] = useState(false);
-
-  const paused = prefersReducedMotion || hovered;
 
   return (
     <>
@@ -74,15 +69,9 @@ export default function OrbitingCircles({
               className={cn(
                 "absolute flex size-full transform-gpu animate-orbit items-center justify-center rounded-full border bg-white/10 [animation-delay:calc(var(--delay)*1000ms)]",
                 { "[animation-direction:reverse]": reverse },
-                paused && "paused",
+                "motion-reduce:paused",
                 className,
               )}
-              onPointerEnter={() => {
-                setHovered(true);
-              }}
-              onPointerLeave={() => {
-                setHovered(false);
-              }}
             >
               {children}
             </div>

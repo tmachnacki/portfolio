@@ -9,7 +9,7 @@ const { class: className, ...props } = Astro.props;
 <a class={cn("group/gradient-link relative", className)} {...props}>
   <span
     aria-hidden="true"
-    class="absolute -bottom-1 left-[5%] h-px w-[90%] bg-gradient-to-r from-blue-500/10 via-primary to-blue-500/10 opacity-0 transition-opacity duration-300 group-hover/gradient-link:opacity-100"
+    class="absolute -bottom-1 left-[5%] h-px w-[90%] bg-gradient-to-r from-blue-500/10 via-primary to-blue-500/10 opacity-0 transition-opacity duration-300 group-hover/gradient-link:opacity-100 motion-reduce:transition-none"
   ></span>
   <slot />
 </a>

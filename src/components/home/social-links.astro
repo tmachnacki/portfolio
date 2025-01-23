@@ -1,0 +1,53 @@
+---
+import { cn } from "@/lib/utils";
+import ButtonLink from "../ui/button-link.astro";
+import Github from "../icons/github.astro";
+import LinkedIn from "../icons/linkedin.astro";
+import Envelope from "../icons/envelope.astro";
+
+const { class: className, ...props } = Astro.props;
+---
+
+<ul class={cn("flex flex-shrink-0 items-center gap-4", className)} {...props}>
+  <li>
+    <ButtonLink
+      gradient={"full"}
+      class={"rounded-full px-5"}
+      href={"/resume.pdf"}
+      target={"_blank"}
+      aria-label={"Tim Machnacki's Resume (opens in a new tab)"}
+    >
+      Resume
+    </ButtonLink>
+  </li>
+  <li>
+    <a
+      href="https://github.com/tmachnacki"
+      target="_blank"
+      aria-label="Tim Machnacki's Github (opens in a new tab)"
+      title="Github"
+    >
+      <Github class={"size-6 text-muted-foreground hover:text-foreground"} />
+    </a>
+  </li>
+  <li>
+    <a
+      href="https://www.linkedin.com/in/timothy-machnacki-172b58257"
+      target="_blank"
+      aria-label="Tim Machnacki's LinkedIn (opens in a new tab)"
+      title="LinkedIn"
+    >
+      <LinkedIn class={"size-7 text-muted-foreground hover:text-foreground"} />
+    </a>
+  </li>
+  <li>
+    <a
+      href="mailto:machnackit@gmail.com"
+      target="_blank"
+      aria-label="Email Tim Machnacki"
+      title="Email"
+    >
+      <Envelope class={"size-7 text-muted-foreground hover:text-foreground"} />
+    </a>
+  </li>
+</ul>

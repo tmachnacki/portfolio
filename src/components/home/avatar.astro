@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { cn } from "@/lib/utils";
+import avatar from "@/assets/avatar.webp";
 
 interface Props {
   class?: string;
@@ -15,7 +16,7 @@ const { class: className } = Astro.props;
   )}
 >
   <Image
-    src="/avatar.webp"
+    src={avatar}
     alt="Portrait of Tim Machnacki"
     width={160}
     height={160}

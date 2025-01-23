@@ -11,9 +11,7 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   prefix: "",
   theme: {
-    aspectRatio: {
-      "4/3": "4 / 3",
-    },
+
     container: {
       center: true,
       padding: "2rem",
@@ -22,6 +20,9 @@ export default {
       },
     },
     extend: {
+      aspectRatio: {
+        "4/3": "4 / 3",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

@@ -1,4 +1,9 @@
 ---
+import { Image } from "astro:assets";
+import { cn } from "@/lib/utils";
+
+import TechListItem from "./tech-list-item.astro";
+
 import React from "../icons/react.astro";
 import Tailwind from "../icons/tailwind.astro";
 import Next from "../icons/next.astro";
@@ -9,11 +14,6 @@ import Mongo from "../icons/mongo.astro";
 import Node from "../icons/node.astro";
 import Figma from "../icons/figma.astro";
 import Stripe from "../icons/stripe.png";
-
-import TechListItem from "./tech-list-item.astro";
-
-import { cn } from "@/lib/utils";
-import { Image } from "astro:assets";
 ---
 
 <ul class="mt-16 grid w-full grid-cols-1 gap-3 md:grid-cols-2">

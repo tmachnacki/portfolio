@@ -16,14 +16,8 @@ const circleClassName =
 <div
   class="relative flex h-[440px] w-full flex-col items-center justify-center overflow-visible bg-transparent"
 >
-  <!-- <span
-    class="pointer-events-none bg-gradient-to-b from-black to-gray-300 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-background"
-  >
-    Tech
-  </span> -->
 
   {/* Inner Circles */}
-
   <OrbitingCircles
     className={`circle-inner size-12 from-fuchsia-500 ${circleClassName}`}
     duration={20}
@@ -33,7 +27,7 @@ const circleClassName =
     pathClassName={pathClassName}
     tooltipLabel="Astro"
     tooltipGradientClassName="via-fuchsia-500 shadow-md shadow-fuchsia-500/50"
-    client:only="react"
+    client:load
   >
     <AstroIcon class="size-6" />
   </OrbitingCircles>
@@ -47,7 +41,7 @@ const circleClassName =
     pathClassName={pathClassName}
     tooltipLabel="React"
     tooltipGradientClassName="via-cyan-600 shadow-md shadow-cyan-600/50"
-    client:only="react"
+    client:load
   >
     <React class="size-6" />
   </OrbitingCircles>
@@ -61,7 +55,7 @@ const circleClassName =
     pathClassName={pathClassName}
     tooltipLabel="TailwindCSS"
     tooltipGradientClassName="via-sky-500 shadow-md shadow-sky-500/50"
-    client:only="react"
+    client:load
   >
     <Tailwind class="size-6" />
   </OrbitingCircles>
@@ -76,7 +70,7 @@ const circleClassName =
     pathClassName={pathClassName}
     tooltipLabel="Typescript"
     tooltipGradientClassName="via-blue-500 shadow-md shadow-blue-500/50"
-    client:only="react"
+    client:load
   >
     <Typescript class="size-6" />
   </OrbitingCircles>
@@ -90,7 +84,7 @@ const circleClassName =
     pathClassName={pathClassName}
     tooltipLabel="NextJS"
     tooltipGradientClassName="via-white shadow-md shadow-white/50"
-    client:only="react"
+    client:load
   >
     <Next class="size-6" />
   </OrbitingCircles>
@@ -104,7 +98,7 @@ const circleClassName =
     pathClassName={pathClassName}
     tooltipLabel="Firebase"
     tooltipGradientClassName="via-yellow-500 shadow-md shadow-yellow-500/50"
-    client:only="react"
+    client:load
   >
     <Firebase class="size-6" />
   </OrbitingCircles>
@@ -118,13 +112,13 @@ const circleClassName =
     pathClassName={pathClassName}
     tooltipLabel="MongoDB"
     tooltipGradientClassName="via-green-500 shadow-md shadow-green-500/50"
-    client:only="react"
+    client:load
   >
     <Mongo class="size-7 fill-green-600 stroke-green-900" />
   </OrbitingCircles>
 </div>
 
-<script>
+<script is:inline>
   // pause orbit animations on hover
   const innerCircles = document.querySelectorAll(".circle-inner");
   innerCircles.forEach((circle) => {

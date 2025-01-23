@@ -1,9 +1,10 @@
 ---
 import Card from "../card.astro";
+import Skill from "../skill.astro";
+
 import ArrowTr from "../icons/arrow-tr.astro";
 import Check from "../icons/check.astro";
 import Square from "../icons/square.astro";
-import Skill from "../skill.astro";
 
 export interface Props {
   timePeriod: string;
@@ -21,45 +22,38 @@ const { timePeriod, logo, badge, title, company, companyUrl, bullets, skills } =
 
 <Card>
   <header
-    class="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-zinc-500 sm:col-span-2"
+    class="z-10 mb-2 mt-0.5 text-xs font-semibold uppercase tracking-wide text-zinc-500 sm:col-span-2"
     aria-label={timePeriod}
   >
     {timePeriod}
   </header>
-  <div class="z-10 sm:col-span-6 space-y-4">
-    <h3 class="font-medium leading-snug text-foreground">
-      <div>
-        <a
-          class="inline-flex items-center font-medium leading-tight hover:text-primary focus-visible:text-primary group/link text-base"
-          href={companyUrl}
-          target="_blank"
-          rel="noreferrer noopener"
-          aria-label={`${title} at ${company} (opens in a new tab)`}
-        >
-          <span>
-            {title} ·
-            <span class="inline-block">{company}</span>
-          </span>
-          <ArrowTr
-            class="ml-2 size-3 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
-            aria-hidden="true"
-          />
-        </a>
-      </div>
+  <div class="z-10 sm:col-span-6">
+    <h3 class="text-base font-medium leading-tight text-foreground flex items-center mb-3">
+      <a
+        class="group/link inline-flex items-center hover:text-primary focus-visible:text-primary motion-reduce:transition-none"
+        href={companyUrl}
+        target="_blank"
+        rel="noreferrer noopener"
+        aria-label={`${title} at ${company} (opens in a new tab)`}
+      >
+        <span>
+          {title} ·
+          <span class="inline-block">{company}</span>
+        </span>
+        <ArrowTr
+          class="ml-2 size-3 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 motion-reduce:transition-none"
+          aria-hidden="true"
+        />
+      </a>
+
+      {badge && <span class="ml-3 text-xs bg-transparent bg-gradient-to-b from-muted to-transparent border text-muted-foreground font-normal rounded-full px-4 h-5 inline-flex items-center">{badge}</span>}
     </h3>
-    <ul class="text-sm leading-snug text-muted-foreground space-y-1.5">
+    <ul
+      class="list-disc space-y-1.5 pl-4 text-sm leading-snug text-muted-foreground mb-2"
+    >
       {
         bullets.map((bullet) => (
-          <li class="flex items-start gap-2">
-            {/* <Check class="size-4 flex-shrink-0 text-primary/70 group-hover:text-primary transition duration-200" /> */}
-            <span
-              aria-hidden="true"
-              class="grayscale group-hover:grayscale-0 leading-none"
-            >
-              👉
-            </span>
-            {bullet}
-          </li>
+          <li class="list-item items-start gap-2">{bullet}</li>
         ))
       }
     </ul>
@@ -69,7 +63,7 @@ const { timePeriod, logo, badge, title, company, companyUrl, bullets, skills } =
           <li class="mr-1.5 mt-2">
             <Skill
               label={skill}
-              class=" lg:group-hover:border-primary lg:group-hover:shadow-md lg:group-hover:shadow-primary/20  lg:group-hover:text-indigo-400 transition"
+              class="transition lg:group-hover:border-primary/50 lg:group-hover:text-indigo-400 lg:group-hover:shadow-md lg:group-hover:shadow-primary/20"
             />
           </li>
         ))

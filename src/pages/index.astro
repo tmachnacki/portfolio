@@ -1,23 +1,29 @@
 ---
+// root
 import Layout from "@/layouts/Layout.astro";
 import "@/styles/globals.css";
 
+// data
+import { EXPERIENCE } from "@/data/experience";
+import { PROJECTS } from "@/data/projects";
+
+// client components
 import Spotlight from "@/components/client/spotlight";
 import About from "@/components/client/about.tsx";
+
+// astro components
 import Avatar from "@/components/home/avatar.astro";
 import OrbitingTech from "@/components/home/orbiting-tech.astro";
 import TechList from "@/components/home/tech-list.astro";
 import SectionHeader from "@/components/section-header.astro";
-import { EXPERIENCE } from "@/data/experience";
 import Experience from "@/components/home/experience.astro";
+import SocialLinks from "@/components/home/social-links.astro";
 import Button from "@/components/ui/button.astro";
-import Projects from "@/components/home/projects.astro";
+import Project from "@/components/home/project.astro";
+
+// icons
 import Pin from "@/components/icons/pin.astro";
-import Github from "@/components/icons/github.astro";
-import LinkedIn from "@/components/icons/linkedin.astro";
-import Envelope from "@/components/icons/envelope.astro";
 import ButtonLink from "@/components/ui/button-link.astro";
-import GPTIcon from "@/components/icons/gpt.astro";
 ---
 
 <Layout>
@@ -33,13 +39,15 @@ import GPTIcon from "@/components/icons/gpt.astro";
   </div>
 
   <div
-    class="container relative min-h-svh min-w-[400px] lg:grid lg:grid-cols-10 lg:gap-24"
+    class="container relative min-h-svh min-w-[360px] lg:grid lg:grid-cols-10 lg:gap-24"
   >
     <!-- hero -->
     <header
       class="relative w-full lg:sticky lg:top-0 lg:col-span-4 lg:flex lg:max-h-screen lg:flex-col lg:justify-between lg:py-24"
     >
-      <div class="relative flex flex-grow flex-col items-start gap-8 text-left">
+      <div
+        class="relative flex flex-grow flex-col items-start gap-12 text-left"
+      >
         <div class="flex flex-row gap-6">
           <!-- <Avatar /> -->
           <div class="flex-grow-1 flex-shrink-0">
@@ -58,25 +66,24 @@ import GPTIcon from "@/components/icons/gpt.astro";
             </span>
           </div>
         </div>
-        <About client:load>
-          <Avatar class="h-10 w-10 flex-shrink-0 rounded-full" />
-        </About>
+        <SocialLinks class="flex lg:hidden" />
+        <About client:load />
       </div>
 
       <nav
-        class="absolute left-0 top-1/2 hidden flex-shrink-0 flex-grow text-zinc-500 lg:block"
+        class="absolute left-0 top-[35rem] hidden flex-shrink-0 flex-grow text-zinc-500 lg:block"
         aria-label="In page jump links"
       >
-        <ul class="w-max space-y-4">
+        <ul class="w-max">
           <li class="relative">
             <a
               id="skills-nav"
               href="#skills"
-              class="group flex items-center gap-4 text-sm font-semibold uppercase tracking-widest transition-all hover:text-foreground [&.active]:text-foreground"
+              class="group flex items-center gap-4 py-2 text-sm font-semibold uppercase tracking-widest transition-all duration-100 hover:text-foreground motion-reduce:transition-none [&.active]:text-foreground"
             >
               <span
                 aria-hidden="true"
-                class="h-px w-10 bg-zinc-500 transition-all duration-100 group-hover:w-16 group-hover:bg-foreground group-[&.active]:w-16 group-[&.active]:bg-foreground"
+                class="h-px w-10 bg-zinc-500 transition-all duration-100 group-hover:w-16 group-hover:bg-foreground group-[&.active]:w-16 group-[&.active]:bg-foreground motion-reduce:transition-none"
               ></span>
               <span>Skills</span>
             </a>
@@ -85,11 +92,11 @@ import GPTIcon from "@/components/icons/gpt.astro";
             <a
               id="experience-nav"
               href="#experience"
-              class="group flex items-center gap-4 text-sm font-semibold uppercase tracking-widest transition-all hover:text-foreground [&.active]:text-foreground"
+              class="group flex items-center gap-4 py-2 text-sm font-semibold uppercase tracking-widest transition-all duration-100 hover:text-foreground motion-reduce:transition-none [&.active]:text-foreground"
             >
               <span
                 aria-hidden="true"
-                class="h-px w-10 bg-zinc-500 transition-all duration-100 group-hover:w-16 group-hover:bg-foreground group-[&.active]:w-16 group-[&.active]:bg-foreground"
+                class="h-px w-10 bg-zinc-500 transition-all duration-100 group-hover:w-16 group-hover:bg-foreground group-[&.active]:w-16 group-[&.active]:bg-foreground motion-reduce:transition-none"
               ></span>
               <span>Experience</span>
             </a>
@@ -98,11 +105,11 @@ import GPTIcon from "@/components/icons/gpt.astro";
             <a
               id="projects-nav"
               href="#projects"
-              class="group flex items-center gap-4 text-sm font-semibold uppercase tracking-widest transition-all hover:text-foreground [&.active]:text-foreground"
+              class="group flex items-center gap-4 py-2 text-sm font-semibold uppercase tracking-widest transition-all duration-100 hover:text-foreground motion-reduce:transition-none [&.active]:text-foreground"
             >
               <span
                 aria-hidden="true"
-                class="h-px w-10 bg-zinc-500 transition-all duration-100 group-hover:w-16 group-hover:bg-foreground group-[&.active]:w-16 group-[&.active]:bg-foreground"
+                class="h-px w-10 bg-zinc-500 transition-all duration-100 group-hover:w-16 group-hover:bg-foreground group-[&.active]:w-16 group-[&.active]:bg-foreground motion-reduce:transition-none"
               ></span>
               <span>Projects</span>
             </a>
@@ -110,52 +117,7 @@ import GPTIcon from "@/components/icons/gpt.astro";
         </ul>
       </nav>
 
-      <ul class="flex flex-shrink-0 items-center gap-4">
-        <li>
-          <ButtonLink
-            gradient={"full"}
-            class={"rounded-full px-5"}
-            href={"/resume.pdf"}
-            target={"_blank"}
-            aria-label={"Tim Machnacki's Resume (opens in a new tab)"}
-          >
-            Resume
-          </ButtonLink>
-        </li>
-        <li>
-          <a
-            href="https://github.com/tmachnacki"
-            target="_blank"
-            aria-label="Tim Machnacki's Github (opens in a new tab)"
-          >
-            <Github
-              class={"size-6 text-muted-foreground hover:text-foreground"}
-            />
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://www.linkedin.com/in/timothy-machnacki-172b58257"
-            target="_blank"
-            aria-label="Tim Machnacki's LinkedIn (opens in a new tab)"
-          >
-            <LinkedIn
-              class={"size-7 text-muted-foreground hover:text-foreground"}
-            />
-          </a>
-        </li>
-        <li>
-          <a
-            href="mailto:machnackit@gmail.com"
-            target="_blank"
-            aria-label="Email Tim Machnacki"
-          >
-            <Envelope
-              class={"size-7 text-muted-foreground hover:text-foreground"}
-            />
-          </a>
-        </li>
-      </ul>
+      <SocialLinks class="hidden lg:flex" />
     </header>
 
     <!-- content -->
@@ -181,18 +143,16 @@ import GPTIcon from "@/components/icons/gpt.astro";
         data-observable="true"
       >
         <SectionHeader title="Experience" />
-        <div>
-          <ol class="group/list space-y-12">
-            <!-- experience cards -->
-            {
-              EXPERIENCE.map((experience) => (
-                <li>
-                  <Experience {...experience} />
-                </li>
-              ))
-            }
-          </ol>
-        </div>
+        <!-- experience cards -->
+        <ol class="group/list space-y-16 lg:space-y-8">
+          {
+            EXPERIENCE.map((experience) => (
+              <li id={experience.company}>
+                <Experience {...experience} />
+              </li>
+            ))
+          }
+        </ol>
       </section>
 
       <!-- Projects -->
@@ -203,10 +163,24 @@ import GPTIcon from "@/components/icons/gpt.astro";
         data-observable="true"
       >
         <SectionHeader title="Projects" />
-        <Projects />
+        <!-- project cards -->
+        <ol class="group/list space-y-16 lg:space-y-8">
+          {
+            PROJECTS.map((project) => (
+              <li id={project.title}>
+                <Project {...project} />
+              </li>
+            ))
+          }
+        </ol>
 
-        <div>
-          <a href="/projects/archive/">view archive</a>
+        <div class="mt-12 flex w-full items-center justify-center">
+          <ButtonLink
+            variant={"outline"}
+            gradient={"full"}
+            class="w-full max-w-40 rounded-full "
+            href="/projects/archive/">View More</ButtonLink
+          >
         </div>
       </section>
     </main>

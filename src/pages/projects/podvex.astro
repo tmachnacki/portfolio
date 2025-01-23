@@ -19,13 +19,13 @@ import Skill from "@/components/skill.astro";
 import TechStack from "@/components/project-details/tech-stack.astro";
 import AccordionItem from "@/components/ui/accordion-item.astro";
 
-const { title, description, features, thumbnail, images, skills, actions } =
+const { title, subtitle, description, features, thumbnail, images, skills, actions } =
   PROJECTS[0];
 ---
 
 <Layout title={`${title} | Tim Machnacki`}>
   <!-- back -->
-  <!-- <a href="/" class="absolute left-0 top-0">Back</a> -->
+  <a href="/" class="absolute left-0 top-0">Back</a>
 
   <main class="container w-full md:grid md:grid-cols-10 md:gap-12">
     <!-- left column -->

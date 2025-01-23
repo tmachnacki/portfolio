@@ -29,14 +29,8 @@ export const PROJECTS: ProjectProps[] = [
   {
     title: "Podvex",
     date: "Aug. 2024",
-    description: "A modern podcast streaming platform",
-    features: [
-      "Light and dark modes",
-      "Responsive design",
-      "Subscription payments",
-      "Real-time database updates",
-      "Multi-voice AI text-to-speech generation",
-    ],
+    subtitle: "A podcast streaming platform",
+    description: "A podcast streaming platform featuring light and dark modes, responsive design, subscription payments, real-time database updates, audio playback controls, and multi-voice AI text-to-speech generation.",
     thumbnail: HomeDarkLight,
     images: [
       {
@@ -141,12 +135,8 @@ export const PROJECTS: ProjectProps[] = [
   {
     title: "ShareBase",
     date: "Aug. 2024",
-    description: "A modern social media platform",
-    features: [
-      "Light and dark modes",
-      "Responsive design",
-      "Real-time messaging",
-    ],
+    subtitle: "A social media platform",
+    description: "A social media platform featuring light and dark modes, responsive design, and real-time messaging. Users can create and edit posts, follow others, tag friends, add comments, send messages, and more.",
     thumbnail: HomeDarkLight,
     images: [
       {
