@@ -34,7 +34,7 @@
 
 @layer base {
   * {
-    @apply scroll-smooth border-border selection:bg-primary selection:text-primary-foreground;
+    @apply border-border selection:bg-primary selection:text-primary-foreground;
   }
   body {
     @apply bg-background text-foreground antialiased;

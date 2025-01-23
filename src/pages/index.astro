@@ -17,6 +17,7 @@ import Github from "@/components/icons/github.astro";
 import LinkedIn from "@/components/icons/linkedin.astro";
 import Envelope from "@/components/icons/envelope.astro";
 import ButtonLink from "@/components/ui/button-link.astro";
+import GPTIcon from "@/components/icons/gpt.astro";
 ---
 
 <Layout>
@@ -24,7 +25,11 @@ import ButtonLink from "@/components/ui/button-link.astro";
   <div
     class="absolute inset-0 flex h-[500px] w-full items-center justify-center lg:fixed"
   >
-    <Spotlight fill="var(--indigo-300)" className="absolute -z-10" />
+    <Spotlight
+      fill="var(--indigo-300)"
+      className="absolute -z-10"
+      client:idle
+    />
   </div>
 
   <div
@@ -45,7 +50,7 @@ import ButtonLink from "@/components/ui/button-link.astro";
               <h1>Tim Machnacki</h1>
             </a>
             <h2 class="mb-2 text-lg text-foreground text-zinc-300 lg:text-xl">
-              Front End Engineer
+              Frontend Software Engineer
             </h2>
             <span class="flex items-center gap-2 text-sm text-muted-foreground">
               <Pin class={"size-4"} />
@@ -53,11 +58,13 @@ import ButtonLink from "@/components/ui/button-link.astro";
             </span>
           </div>
         </div>
-        <About client:load />
+        <About client:load>
+          <Avatar class="h-10 w-10 flex-shrink-0 rounded-full" />
+        </About>
       </div>
 
       <nav
-        class="absolute left-0 top-1/2 hidden flex-shrink-0 flex-grow text-muted-foreground lg:block"
+        class="absolute left-0 top-1/2 hidden flex-shrink-0 flex-grow text-zinc-500 lg:block"
         aria-label="In page jump links"
       >
         <ul class="w-max space-y-4">
@@ -65,11 +72,11 @@ import ButtonLink from "@/components/ui/button-link.astro";
             <a
               id="skills-nav"
               href="#skills"
-              class="group/nav-link flex items-center gap-2 transition-all [&.active]:text-foreground"
+              class="group flex items-center gap-4 text-sm font-semibold uppercase tracking-widest transition-all hover:text-foreground [&.active]:text-foreground"
             >
               <span
                 aria-hidden="true"
-                class="h-px w-0 bg-gradient-to-r from-primary/10 via-primary to-primary/10 opacity-0 transition-all duration-300 group-[&.active]/nav-link:w-24 group-[&.active]/nav-link:opacity-100"
+                class="h-px w-10 bg-zinc-500 transition-all duration-100 group-hover:w-16 group-hover:bg-foreground group-[&.active]:w-16 group-[&.active]:bg-foreground"
               ></span>
               <span>Skills</span>
             </a>
@@ -78,15 +85,27 @@ import ButtonLink from "@/components/ui/button-link.astro";
             <a
               id="experience-nav"
               href="#experience"
-              class="transition-all [&.active]:text-foreground">Experience</a
+              class="group flex items-center gap-4 text-sm font-semibold uppercase tracking-widest transition-all hover:text-foreground [&.active]:text-foreground"
             >
+              <span
+                aria-hidden="true"
+                class="h-px w-10 bg-zinc-500 transition-all duration-100 group-hover:w-16 group-hover:bg-foreground group-[&.active]:w-16 group-[&.active]:bg-foreground"
+              ></span>
+              <span>Experience</span>
+            </a>
           </li>
           <li class="relative">
             <a
               id="projects-nav"
               href="#projects"
-              class="transition-all [&.active]:text-foreground">Projects</a
+              class="group flex items-center gap-4 text-sm font-semibold uppercase tracking-widest transition-all hover:text-foreground [&.active]:text-foreground"
             >
+              <span
+                aria-hidden="true"
+                class="h-px w-10 bg-zinc-500 transition-all duration-100 group-hover:w-16 group-hover:bg-foreground group-[&.active]:w-16 group-[&.active]:bg-foreground"
+              ></span>
+              <span>Projects</span>
+            </a>
           </li>
         </ul>
       </nav>
