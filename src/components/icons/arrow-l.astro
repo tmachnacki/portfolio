@@ -1,7 +1,9 @@
 ---
 import { cn } from "@/lib/utils";
 import type { HTMLAttributes } from "astro/types";
+
 interface Props extends HTMLAttributes<"svg"> {}
+
 const { class: className, ...props } = Astro.props;
 ---
 
@@ -18,6 +20,5 @@ const { class: className, ...props } = Astro.props;
   class={cn("size-6", className)}
   {...props}
 >
-  <path d="M7 7h10v10"></path>
-  <path d="M7 17 17 7"></path>
+  <path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path>
 </svg>

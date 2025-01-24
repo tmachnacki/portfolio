@@ -1,14 +1,16 @@
 ---
+import { Image } from "astro:assets";
+
 import Card from "../card.astro";
 import Skill from "../skill.astro";
+import Link from "../ui/link.astro";
 
 import ArrowTr from "../icons/arrow-tr.astro";
 import Check from "../icons/check.astro";
-import Square from "../icons/square.astro";
 
 export interface Props {
   timePeriod: string;
-  logo?: string;
+  logo?: ImageMetadata;
   badge?: string;
   title: string;
   company: string;
@@ -30,18 +32,15 @@ const { timePeriod, logo, badge, title, company, companyUrl, bullets, skills } =
   <div class="z-10 sm:col-span-6">
     <h3 class="text-base font-medium leading-tight text-foreground flex items-center mb-3">
       <a
-        class="group/link inline-flex items-center hover:text-primary focus-visible:text-primary motion-reduce:transition-none"
+        class="group/link inline-flex items-baseline motion-reduce:transition-none hover:underline"
         href={companyUrl}
         target="_blank"
         rel="noreferrer noopener"
-        aria-label={`${title} at ${company} (opens in a new tab)`}
+        aria-label={`${company} (opens in a new tab)`}
       >
-        <span>
-          {title} ·
-          <span class="inline-block">{company}</span>
-        </span>
+        {`${title} · ${company}`}
         <ArrowTr
-          class="ml-2 size-3 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 motion-reduce:transition-none"
+          class="ml-2 size-[14px] translate-y-0.5 transition-transform group-hover/link:-translate-y-0 group-hover/link:translate-x-0.5 motion-reduce:transition-none"
           aria-hidden="true"
         />
       </a>
@@ -49,7 +48,7 @@ const { timePeriod, logo, badge, title, company, companyUrl, bullets, skills } =
       {badge && <span class="ml-3 text-xs bg-transparent bg-gradient-to-b from-muted to-transparent border text-muted-foreground font-normal rounded-full px-4 h-5 inline-flex items-center">{badge}</span>}
     </h3>
     <ul
-      class="list-disc space-y-1.5 pl-4 text-sm leading-snug text-muted-foreground mb-2"
+      class="list-disc space-y-1 pl-4 text-sm leading-snug text-muted-foreground mb-2"
     >
       {
         bullets.map((bullet) => (

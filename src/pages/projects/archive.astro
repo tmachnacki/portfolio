@@ -1,17 +1,37 @@
 ---
-import Layout from "@/layouts/Layout.astro";
 import "@/styles/globals.css";
+import Layout from "@/layouts/Layout.astro";
+import PageTitle from "@/components/page-title.astro";
+import ArrowL from "@/components/icons/arrow-l.astro";
+import ProjectCard from "@/components/project-archive/project-card.astro";
 ---
 
-<Layout title="Archive | Tim Machnacki">
-  <div class="container min-h-screen">
-    <a
-      href="/"
-      class="mb-2 block bg-opacity-50 bg-gradient-to-b from-foreground to-zinc-300 bg-clip-text text-4xl font-bold tracking-tight text-transparent lg:text-5xl"
-    >
-      <h1>Tim Machnacki</h1>
-    </a>
+<Layout title="Projects | Tim Machnacki">
+  <div class="page-container relative min-h-svh lg:py-24">
+    <header class="flex flex-col gap-2 mb-16">
+      <a
+        href="/"
+        class="group inline-flex w-max items-center gap-2 text-base text-muted-foreground hover:text-foreground hover:underline"
+        data-astro-prefetch
+      >
+        <ArrowL
+          class="size-4 transition-transform duration-100 group-hover:-translate-x-1 motion-reduce:transition-none"
+        />
+        Tim Machnacki
+      </a>
 
-    Sample
+      <PageTitle>Projects</PageTitle>
+    </header>
+
+    <main class="w-full ">
+      <ul class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <ProjectCard />
+        <ProjectCard />
+        <ProjectCard />
+        <ProjectCard />
+        <ProjectCard />
+        <ProjectCard />
+      </ul>
+    </main>
   </div>
 </Layout>

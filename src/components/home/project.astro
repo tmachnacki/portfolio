@@ -12,6 +12,7 @@ import SquareTr from "../icons/square-tr.astro";
 import Github from "../icons/github.astro";
 import Planet from "../ui/planet.astro";
 import Live from "../icons/live.astro";
+import ArrowTr from "../icons/arrow-tr.astro";
 
 export interface ProjectImage {
   label: string;
@@ -74,7 +75,25 @@ const {
   <div class="z-10 sm:col-span-6">
     <div class="mb-3 text-base font-medium leading-tight text-foreground">
       <h3>
-        {title}
+        {
+          actions?.demo ? (
+            <a
+              class="group/link inline-flex items-baseline motion-reduce:transition-none hover:underline"
+              href={actions.source}
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label={`${title} live demo (opens in a new tab)`}
+            >
+              {title}
+              <ArrowTr
+                class="ml-2 size-[14px] translate-y-0.5 transition-transform group-hover/link:-translate-y-0 group-hover/link:translate-x-0.5 motion-reduce:transition-none"
+                aria-hidden="true"
+              />
+            </a>
+          ) : (
+            title
+          )
+        }
       </h3>
       <!-- <p class="text-zinc-500">{subtitle}</p> -->
     </div>
@@ -127,14 +146,14 @@ const {
 
     {
       actions && (
-        <ul class="mb-4 flex flex-wrap *:mr-2 *:mt-2 text-foreground">
+        <ul class="mb-4 flex flex-wrap text-foreground *:mr-2 *:mt-2">
           {actions.source && (
             <li>
               <Planet
                 as={"a"}
                 href={actions.source}
                 class={
-                  "size-10 hover:border-muted-foreground focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring "
+                  "size-10 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                 }
                 target="_blank"
                 rel="noreferrer noopener"
@@ -151,7 +170,9 @@ const {
               <Planet
                 as={"a"}
                 href={actions.demo}
-                class={"size-10 hover:border-muted-foreground focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"}
+                class={
+                  "size-10 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                }
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label={`${title} live demo (opens in a new tab)`}
@@ -167,7 +188,9 @@ const {
               <Planet
                 as={"a"}
                 href={actions.details}
-                class={"size-10 hover:border-muted-foreground focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"}
+                class={
+                  "size-10 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                }
                 aria-label={`${title} project details`}
                 title={"Details"}
                 data-astro-prefetch
