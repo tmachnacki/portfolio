@@ -8,10 +8,10 @@ import Button from "../ui/button.astro";
 import Link from "../ui/link.astro";
 
 import Source from "../icons/source.astro";
-import Globe from "../icons/globe.astro";
 import SquareTr from "../icons/square-tr.astro";
 import Github from "../icons/github.astro";
 import Planet from "../ui/planet.astro";
+import Live from "../icons/live.astro";
 
 export interface ProjectImage {
   label: string;
@@ -157,7 +157,7 @@ const {
                 aria-label={`${title} live demo (opens in a new tab)`}
                 title={"Live Demo"}
               >
-                <Globe class="size-5" />
+                <Live class="size-5" />
               </Planet>
             </li>
           )}
