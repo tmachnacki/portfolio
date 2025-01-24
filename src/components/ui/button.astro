@@ -1,10 +1,10 @@
 ---
 import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
-import type { HTMLAttributes } from "astro/types";
+import type { HTMLTag, Polymorphic } from "astro/types";
 
 export const buttonVariants = cva(
-  "cursor-pointer inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 motion-reduce:transition-none",
+  "cursor-pointer inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 motion-reduce:transition-none",
   {
     variants: {
       variant: {
@@ -29,7 +29,7 @@ export const buttonVariants = cva(
       },
       gradient: {
         default: "",
-        full: "relative group/button bg-background/10 backdrop-blur-sm hover:bg-gradient-to-b hover:from-primary/10 hover:to-primary/0 hover:bg-transparent transition duration-300 border border-border hover:border-primary/30",
+        primary: "relative group/button bg-background/10 backdrop-blur-sm hover:bg-gradient-to-b hover:from-primary/10 hover:to-primary/0 hover:bg-transparent transition duration-300 border border-border hover:border-primary/30",
       },
     },
     defaultVariants: {
@@ -40,25 +40,25 @@ export const buttonVariants = cva(
   },
 );
 
-interface Props
-  extends HTMLAttributes<"button">,
-    VariantProps<typeof buttonVariants> {}
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & 
+  VariantProps<typeof buttonVariants>
+
 const {
   variant,
   size,
   gradient,
-
+  as: Tag = "button",
   class: className,
   ...props
 } = Astro.props;
 ---
 
-<button
+<Tag
   class={cn(buttonVariants({ variant, size, gradient, className }))}
   {...props}
 >
   {
-    gradient === "full" && (
+    gradient === "primary" && (
       <span class="absolute -top-px left-[20%] h-px w-[60%] bg-gradient-to-r from-indigo-500/10 via-indigo-500 to-indigo-500/10 opacity-0 transition-opacity duration-300 group-hover/button:opacity-100" />
     )
   }
@@ -66,8 +66,8 @@ const {
   <slot />
 
   {
-    gradient === "full" && (
+    gradient === "primary" && (
       <span class="absolute -bottom-px left-[20%] h-px w-[60%] bg-gradient-to-r from-indigo-500/10 via-indigo-500 to-indigo-500/10 transition-opacity duration-300 group-hover/button:opacity-0" />
     )
   }
-</button>
+</Tag>

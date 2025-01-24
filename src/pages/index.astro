@@ -23,7 +23,7 @@ import Project from "@/components/home/project.astro";
 
 // icons
 import Pin from "@/components/icons/pin.astro";
-import ButtonLink from "@/components/ui/button-link.astro";
+import ArrowR from "@/components/icons/arrow-r.astro";
 ---
 
 <Layout>
@@ -175,12 +175,16 @@ import ButtonLink from "@/components/ui/button-link.astro";
         </ol>
 
         <div class="mt-12 flex w-full items-center justify-center">
-          <ButtonLink
+          <Button
+            as={"a"}
             variant={"outline"}
-            gradient={"full"}
-            class="w-full max-w-40 rounded-full "
-            href="/projects/archive/">View More</ButtonLink
+            gradient={"primary"}
+            class="w-full max-w-40 rounded-full group"
+            href="/projects/archive/"
           >
+            View More
+            <ArrowR class="size-4 ml-2 group-hover:translate-x-1 transition-all duration-100 motion-reduce:transition-none" />
+          </Button>
         </div>
       </section>
     </main>

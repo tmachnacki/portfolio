@@ -1,12 +1,14 @@
 ---
 import { cn } from "@/lib/utils";
+import type { HTMLAttributes } from "astro/types";
+import Planet from "../ui/planet.astro";
 
-interface Props {
+interface Props extends HTMLAttributes<"li"> {
   name: string;
   description: string;
   backgroundGradientClassName: string;
   borderGradientClassName: string;
-  planetGradientClassName: string;
+  planetClassName: string;
 }
 
 const {
@@ -14,7 +16,7 @@ const {
   description,
   backgroundGradientClassName,
   borderGradientClassName,
-  planetGradientClassName,
+  planetClassName,
   ...props
 } = Astro.props;
 ---
@@ -24,6 +26,7 @@ const {
     "group relative flex w-full flex-row items-center gap-4 rounded-md border border-white/10 bg-transparent p-4 hover:bg-gradient-to-b cursor-default select-none motion-reduce:transition-none",
     backgroundGradientClassName,
   )}
+  {...props}
 >
   <span
     aria-hidden="true"
@@ -31,14 +34,10 @@ const {
       "absolute -top-[1px] left-[10%] h-[2px] w-[80%] bg-gradient-to-r from-transparent to-transparent transition-all duration-300 opacity-0 group-hover:opacity-100 motion-reduce:transition-none",
       borderGradientClassName,
     )}></span>
-  <div
-    class={cn(
-      "size-12 flex items-center justify-center bg-gradient-to-br from-zinc-400 to-black via-zinc-950 bg-background rounded-full border flex-shrink-0",
-      planetGradientClassName,
-    )}
-  >
+
+  <Planet class={planetClassName}>
     <slot />
-  </div>
+  </Planet>
   <div class="flex flex-col">
     <h3 class="text-base font-medium text-foreground">{name}</h3>
     <p class="text-sm text-muted-foreground">{description}</p>

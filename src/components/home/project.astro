@@ -4,13 +4,14 @@ import { Image } from "astro:assets";
 
 import Card from "../card.astro";
 import Skill from "../skill.astro";
-import ButtonLink from "../ui/button-link.astro";
+import Button from "../ui/button.astro";
 import Link from "../ui/link.astro";
 
 import Source from "../icons/source.astro";
 import Globe from "../icons/globe.astro";
 import SquareTr from "../icons/square-tr.astro";
 import Github from "../icons/github.astro";
+import Planet from "../ui/planet.astro";
 
 export interface ProjectImage {
   label: string;
@@ -64,8 +65,9 @@ const {
       src={thumbnail!}
       alt={`${title} screenshot`}
       width={1600}
-      height={900}
+      height={1200}
       class="h-auto w-full rounded-sm object-cover transition"
+      draggable="false"
     />
   </div>
 
@@ -81,8 +83,9 @@ const {
       src={thumbnail!}
       alt={`${title} screenshot`}
       width={1600}
-      height={900}
-      class="block h-auto w-full max-w-48 rounded-sm object-cover transition sm:hidden sm:max-w-none mb-3"
+      height={1200}
+      class="mb-3 block h-auto w-full max-w-48 rounded-sm object-cover transition sm:hidden sm:max-w-none"
+      draggable="false"
     />
 
     {
@@ -124,51 +127,54 @@ const {
 
     {
       actions && (
-        <ul class="mb-4 flex flex-wrap *:mr-2 *:mt-2">
+        <ul class="mb-4 flex flex-wrap *:mr-2 *:mt-2 text-foreground">
           {actions.source && (
-            <ButtonLink
-              href={actions.source}
-              class={
-                "h-9 rounded-full bg-gradient-to-t from-muted to-transparent text-sm hover:bg-accent"
-              }
-              variant={"outline"}
-              target="_blank"
-              rel="noreferrer noopener"
-              aria-label={`${title} source code on Github (opens in a new tab)`}
-            >
-              <Github class="mr-2 size-4" />
-              Github
-            </ButtonLink>
+            <li>
+              <Planet
+                as={"a"}
+                href={actions.source}
+                class={
+                  "size-10 hover:border-muted-foreground focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring "
+                }
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label={`${title} source code on Github (opens in a new tab)`}
+                title={"Github"}
+              >
+                <Github class="size-5" />
+              </Planet>
+            </li>
           )}
 
           {actions.demo && (
-            <ButtonLink
-              href={actions.demo}
-              class={
-                "h-9 rounded-full bg-gradient-to-t from-muted to-transparent text-sm hover:bg-accent"
-              }
-              variant={"outline"}
-              target="_blank"
-              rel="noreferrer noopener"
-              aria-label={`${title} (opens in a new tab)`}
-            >
-              <Globe class="mr-2 size-4" />
-              Demo
-            </ButtonLink>
+            <li>
+              <Planet
+                as={"a"}
+                href={actions.demo}
+                class={"size-10 hover:border-muted-foreground focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"}
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label={`${title} live demo (opens in a new tab)`}
+                title={"Live Demo"}
+              >
+                <Globe class="size-5" />
+              </Planet>
+            </li>
           )}
 
           {actions.details && (
-            <ButtonLink
-              href={actions.details}
-              class={
-                "h-9 rounded-full bg-gradient-to-t from-muted to-transparent text-sm hover:bg-accent"
-              }
-              variant={"outline"}
-              data-astro-prefetch
-            >
-              <SquareTr class="mr-2 size-4" />
-              Details
-            </ButtonLink>
+            <li>
+              <Planet
+                as={"a"}
+                href={actions.details}
+                class={"size-10 hover:border-muted-foreground focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"}
+                aria-label={`${title} project details`}
+                title={"Details"}
+                data-astro-prefetch
+              >
+                <SquareTr class="size-5" />
+              </Planet>
+            </li>
           )}
         </ul>
       )

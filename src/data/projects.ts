@@ -180,16 +180,28 @@ export const PROJECTS: ProjectProps[] = [
         description: "UI framework",
       },
       {
-        name: "Firebase",
-        description: "Document-based database",
-      },
-      {
         name: "Tailwind CSS",
         description: "Utility-first CSS framework",
       },
       {
         name: "shadcn/ui",
         description: "Components",
+      },
+      {
+        name: "Zustand",
+        description: "State management",
+      },
+      {
+        name: "React Router",
+        description: "Client-side routing",
+      },
+      {
+        name: "Firebase",
+        description: "Backend",
+      },
+      {
+        name: "Vite",
+        description: "Frontend tooling",
       },
       {
         name: "Vercel",
