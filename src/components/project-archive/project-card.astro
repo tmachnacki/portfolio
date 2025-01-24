@@ -2,12 +2,21 @@
 import { cn } from "@/lib/utils";
 import type { HTMLAttributes } from "astro/types";
 
-interface Props extends HTMLAttributes<"li"> {}
+import Card from "../card.astro";
 
+interface Props extends HTMLAttributes<"li"> {}
 const { class: className, ...props } = Astro.props;
 ---
 
-<li class={cn("w-full border bg-gradient-to-br from-zinc-800/90 to-background  p-4 rounded-md text-muted-foreground", className)} {...props}>
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae perferendis tempora laboriosam amet aperiam necessitatibus accusantium iusto cum natus asperiores, facere eius sequi eligendi atque numquam fugiat autem hic vitae?  
-
+<li class={cn("w-full", className)} {...props}>
+  <Card class={"block border "}>
+    <div class="w-full">
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste quidem ut
+        voluptatem eligendi voluptates facilis debitis tempora minima cumque ea
+        tenetur illo, neque numquam eveniet amet aspernatur deleniti quos
+        commodi.
+      </p>
+    </div>
+  </Card>
 </li>

@@ -5,7 +5,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/client/ui/tooltip";
+} from "@/components/ui/tooltip";
 
 export interface OrbitingCirclesProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;

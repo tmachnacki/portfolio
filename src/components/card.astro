@@ -8,12 +8,12 @@ const { class: className, ...props } = Astro.props;
 
 <div
   class={cn(
-    "group relative grid transition-all sm:grid-cols-8 sm:gap-8 lg:hover:!opacity-100 lg:group-hover/list:opacity-50 rounded-md p-0 lg:p-6 lg:hover:bg-zinc-900/30 lg:hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:hover:backdrop-blur-md lg:hover:drop-shadow-lg motion-reduce:transition-none",
+    "group relative grid transition-all sm:grid-cols-8 sm:gap-8 lg:hover:!opacity-100 lg:group-hover/list:opacity-50 rounded-md p-0 lg:p-6 lg:hover:bg-gradient-to-b lg:hover:from-zinc-400/10 lg:hover:to-zinc-900/50 lg:hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:hover:backdrop-blur-md lg:hover:drop-shadow-lg motion-reduce:transition-none duration-200",
     className,
   )}
 >
   <span
-    class="duration-400 absolute -top-0 left-[0.5rem] z-10 hidden h-px w-[calc(100%-1rem)] bg-gradient-to-r from-indigo-500/10 via-indigo-500 to-indigo-500/10 opacity-0 transition-opacity group-hover:opacity-100 motion-reduce:transition-none lg:block"
+    class="duration-400 absolute -top-0 left-[0.5rem] z-10 hidden h-px w-[calc(100%-1rem)] bg-gradient-to-r from-primary/10 via-primary to-primary/10 opacity-0 transition-opacity group-hover:opacity-100 motion-reduce:transition-none lg:block"
     aria-hidden="true"
   >
   </span>

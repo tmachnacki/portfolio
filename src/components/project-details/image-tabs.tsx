@@ -3,16 +3,16 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/components/client/ui/tabs";
-import { MockBrowser } from "./mock-browser";
+} from "@/components/ui/tabs";
+import { MockBrowser } from "./mock-browser.tsx";
 import type { ProjectImage } from "@/components/home/project.astro";
-import { Compare } from "./compare";
+import { Compare } from "./compare.tsx";
 import {
   Tooltip,
   TooltipProvider,
   TooltipTrigger,
   TooltipContent,
-} from "./ui/tooltip";
+} from "@/components/ui/tooltip";
 import { useEffect, useRef, useState, type UIEvent } from "react";
 import { cn } from "@/lib/utils";
 

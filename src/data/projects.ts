@@ -137,7 +137,7 @@ export const PROJECTS: ProjectProps[] = [
     date: "Aug. 2024",
     subtitle: "A social media platform",
     description: "A social media platform featuring light and dark modes, responsive design, and real-time messaging. Users can create and edit posts, follow others, tag friends, add comments, send messages, and more.",
-    thumbnail: HomeDarkLight,
+    thumbnail: HomeDarkLight_SB,
     images: [
       {
         label: "Home",

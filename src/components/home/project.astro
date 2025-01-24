@@ -33,6 +33,7 @@ export interface Props {
   description?: string;
   features?: string[];
   thumbnail?: ImageMetadata;
+  thumbnailWide?: ImageMetadata;
   images?: ProjectImage[];
   skills?: {
     name: string;
@@ -60,14 +61,14 @@ const {
 
 <Card class="">
   <div
-    class="relative z-10 mb-2 mt-1 hidden overflow-hidden rounded-sm sm:col-span-2 sm:block"
+    class="relative z-10 mb-2 mt-1 hidden overflow-hidden rounded-sm sm:col-span-2 sm:block h-max border"
   >
     <Image
       src={thumbnail!}
       alt={`${title} screenshot`}
       width={1600}
       height={1200}
-      class="h-auto w-full rounded-sm object-cover transition"
+      class="h-auto w-full rounded-sm object-cover"
       draggable="false"
     />
   </div>
@@ -136,7 +137,7 @@ const {
             <li class="mr-1.5 mt-2">
               <Skill
                 label={skill.name}
-                class="transition lg:group-hover:border-primary/50 lg:group-hover:text-indigo-400 lg:group-hover:shadow-md lg:group-hover:shadow-primary/10"
+                class="transition duration-100 lg:group-hover:border-primary/50 lg:group-hover:text-indigo-400 lg:group-hover:shadow-md lg:group-hover:shadow-primary/10"
               />
             </li>
           ))}
@@ -191,7 +192,7 @@ const {
                 class={
                   "size-10 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                 }
-                aria-label={`${title} project details`}
+                aria-label={`${title} project details page`}
                 title={"Details"}
                 data-astro-prefetch
               >
