@@ -31,6 +31,9 @@ import HomeDarkWide_SB from "@/assets/sharebase/home-dark-wide.webp";
 import Home_V2 from "@/assets/v2/home.webp";
 import HomeWide_V2 from "@/assets/v2/home-wide.webp";
 
+// v1
+import HomeWide_V1 from "@/assets/v1/home-wide.webp";
+
 export const PROJECTS: ProjectProps[] = [
   {
     title: "Podvex",
@@ -255,5 +258,26 @@ export const PROJECTS: ProjectProps[] = [
     actions: {
       source: "https://github.com/tmachnacki/portfolio",
     },
+  },
+  {
+    title: "Portfolio V1 (Deprecated)",
+    date: "2023",
+    description: "A static portfolio site hosted on Github Pages",
+    thumbnailWide: HomeWide_V1,
+    actions: {
+      source: "https://github.com/tmachnacki/portfolio",
+      demo: "https://tmachnacki.github.io",
+    },
+    skills: [
+      {
+        name: "HTML",
+      },
+      {
+        name: "CSS",
+      },
+      {
+        name: "JavaScript",
+      },
+    ],
   },
 ];
