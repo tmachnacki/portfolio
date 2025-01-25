@@ -13,6 +13,7 @@ import Github from "../icons/github.astro";
 import Planet from "../ui/planet.astro";
 import Live from "../icons/live.astro";
 import ArrowTr from "../icons/arrow-tr.astro";
+import More from "../icons/more.astro";
 
 export interface ProjectImage {
   label: string;
@@ -33,7 +34,7 @@ export interface Props {
   description?: string;
   features?: string[];
   thumbnail?: ImageMetadata;
-  thumbnailWide?: ImageMetadata;
+  thumbnailWide: ImageMetadata;
   images?: ProjectImage[];
   skills?: {
     name: string;
@@ -62,7 +63,7 @@ const {
 
 <Card class="">
   <div
-    class="relative z-10 mb-2 mt-1 hidden h-max overflow-hidden rounded-sm border group-hover:ring-2 group-hover:ring-muted-foreground sm:col-span-2 sm:block"
+    class="relative z-10 mb-2 mt-1 hidden h-max overflow-hidden rounded-sm border border-border group-hover:border-zinc-600 sm:col-span-2 sm:block"
   >
     <Image
       src={thumbnail!}
@@ -80,17 +81,19 @@ const {
         {
           actions?.demo ? (
             <a
-              class="group/link inline-flex items-baseline hover:underline motion-reduce:transition-none"
+              class="group/link inline-block items-baseline hover:text-primary motion-reduce:transition-none"
               href={actions.demo}
               target="_blank"
               rel="noreferrer noopener"
               aria-label={`${title} live demo (opens in a new tab)`}
             >
-              {title}
-              <ArrowTr
-                class="ml-2 size-[14px] translate-y-0.5 transition-transform group-hover/link:-translate-y-0 group-hover/link:translate-x-0.5 motion-reduce:transition-none"
-                aria-hidden="true"
-              />
+              <span class="inline-block">
+                {title}
+                <ArrowTr
+                  class="inline-block size-[14px] transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 motion-reduce:transition-none"
+                  aria-hidden="true"
+                />
+              </span>
             </a>
           ) : (
             title
@@ -185,10 +188,10 @@ const {
                   "size-10 transition duration-100 hover:!opacity-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring group-hover/actions:opacity-50 motion-reduce:transition-none"
                 }
                 aria-label={`${title} project details page`}
-                title={"Details"}
+                title={"More Details"}
                 data-astro-prefetch
               >
-                <SquareTr class="size-5" />
+                <More class="size-5" />
               </Planet>
             </li>
           )}

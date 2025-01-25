@@ -1,22 +1,124 @@
 ---
+import { Image } from "astro:assets";
+import type { Props as ProjectProps } from "@/components/home/project.astro";
 import { cn } from "@/lib/utils";
-import type { HTMLAttributes } from "astro/types";
 
 import Card from "../card.astro";
+import Button from "../ui/button.astro";
+import Github from "../icons/github.astro";
+import Planet from "../ui/planet.astro";
+import Live from "../icons/live.astro";
+import More from "../icons/more.astro";
 
-interface Props extends HTMLAttributes<"li"> {}
-const { class: className, ...props } = Astro.props;
+interface Props extends ProjectProps {}
+const {
+  title,
+  date,
+  subtitle,
+  description,
+  features,
+  thumbnail,
+  thumbnailWide,
+  images,
+  skills,
+  actions,
+} = Astro.props;
 ---
 
-<li class={cn("w-full", className)} {...props}>
-  <Card class={"block border "}>
-    <div class="w-full">
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste quidem ut
-        voluptatem eligendi voluptates facilis debitis tempora minima cumque ea
-        tenetur illo, neque numquam eveniet amet aspernatur deleniti quos
-        commodi.
-      </p>
-    </div>
-  </Card>
-</li>
+<div
+  class={"group h-full relative block transition-all lg:hover:!opacity-100 lg:group-hover/list:opacity-50 rounded-md p-4 sm:p-6 bg-gradient-to-b from-zinc-500/20 to-zinc-900/50 shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:backdrop-blur-md hover:drop-shadow-lg motion-reduce:transition-none duration-200"}
+>
+  <span
+    class="duration-400 absolute -top-0 left-[0.5rem] z-10 block h-px w-[calc(100%-1rem)] bg-gradient-to-r from-primary/10 via-primary to-primary/10 opacity-0 transition-opacity group-hover:opacity-100 motion-reduce:transition-none"
+    aria-hidden="true"
+  >
+  </span>
+
+  <div class="flex h-full flex-col justify-between">
+    <header class="mb-6 flex-grow">
+      <div
+        class="mb-6 h-auto w-full overflow-hidden rounded-md border transition-all duration-200 group-hover:border-zinc-700 motion-reduce:transition-none"
+      >
+        <Image
+          src={thumbnailWide}
+          alt={`${title} thumbnail`}
+          class={"h-auto w-full object-cover object-center rounded-md"}
+          width={1920}
+          height={1080}
+        />
+      </div>
+
+      <div class="mb-2 flex items-start justify-between">
+        <h3 class="text-base font-medium text-foreground">{title}</h3>
+        {
+          actions && (
+            <ul class="flex -translate-y-1.5 items-start gap-1.5">
+              {actions.source && (
+                <li>
+                  <Button
+                    as={"a"}
+                    href={actions.source}
+                    variant={"outline"}
+                    size={"iconXs"}
+                    class={"bg-background"}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    aria-label={`${title} source code on Github (opens in a new tab)`}
+                    title={"Github"}
+                  >
+                    <Github class="size-4" />
+                  </Button>
+                </li>
+              )}
+              {actions.demo && (
+                <li>
+                  <Button
+                    as={"a"}
+                    href={actions.demo}
+                    variant={"outline"}
+                    size={"iconXs"}
+                    class={"bg-background"}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    aria-label={`${title} live demo (opens in a new tab)`}
+                    title={"Live Demo"}
+                  >
+                    <Live class="size-4" />
+                  </Button>
+                </li>
+              )}
+              {actions.details && (
+                <li>
+                  <Button
+                    as={"a"}
+                    href={actions.details}
+                    variant={"outline"}
+                    size={"iconXs"}
+                    class={"bg-background"}
+                  >
+                    <More class="size-4" />
+                  </Button>
+                </li>
+              )}
+            </ul>
+          )
+        }
+      </div>
+      <p class="text-sm leading-tight text-muted-foreground">{description}</p>
+    </header>
+
+    <footer>
+      {
+        skills && (
+          <ul class="flex flex-wrap gap-1.5">
+            {skills.map((skill) => (
+              <li class="inline-flex h-5 items-center rounded-full border px-2 font-mono text-xs text-muted-foreground group-hover:border-primary/30">
+                {skill.name}
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </footer>
+  </div>
+</div>

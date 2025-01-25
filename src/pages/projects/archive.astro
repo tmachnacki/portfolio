@@ -1,6 +1,9 @@
 ---
 import "@/styles/globals.css";
 import Layout from "@/layouts/Layout.astro";
+
+import { PROJECTS } from "@/data/projects";
+
 import PageTitle from "@/components/page-title.astro";
 import ArrowL from "@/components/icons/arrow-l.astro";
 import ProjectCard from "@/components/project-archive/project-card.astro";
@@ -8,7 +11,7 @@ import ProjectCard from "@/components/project-archive/project-card.astro";
 
 <Layout title="Projects | Tim Machnacki">
   <div class="page-container relative min-h-svh lg:py-24">
-    <header class="flex flex-col gap-2 mb-16">
+    <header class="mb-2 flex flex-col">
       <a
         href="/"
         class="group inline-flex w-max items-center gap-2 text-base text-muted-foreground hover:text-foreground hover:underline"
@@ -19,19 +22,23 @@ import ProjectCard from "@/components/project-archive/project-card.astro";
         />
         Tim Machnacki
       </a>
-
-      <PageTitle>Projects</PageTitle>
     </header>
 
-    <main class="w-full ">
-      <ul class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 group/list">
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-      </ul>
+    <main class="w-full">
+      <article class="w-full">
+        <PageTitle class="mb-16">My Projects</PageTitle>
+        <ul
+          class="group/list grid w-full grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3"
+        >
+          {
+            PROJECTS.map((project) => (
+              <li class="w-full" id={project.title}>
+                <ProjectCard {...project} />
+              </li>
+            ))
+          }
+        </ul>
+      </article>
     </main>
   </div>
 </Layout>

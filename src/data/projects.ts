@@ -14,6 +14,7 @@ import HomeLight_PV from "@/assets/podvex/home-light.webp";
 import PodcastDetails_PV from "@/assets/podvex/podcast-details.webp";
 import Profile_PV from "@/assets/podvex/profile.webp";
 import Signup_PV from "@/assets/podvex/signup.webp";
+import HomeDarkWide_PV from "@/assets/podvex/home-dark-wide.webp";
 
 // sharebase assets
 import Auth_SB from "@/assets/sharebase/auth.webp";
@@ -24,9 +25,11 @@ import HomeDark_SB from "@/assets/sharebase/home-dark.webp";
 import HomeLight_SB from "@/assets/sharebase/home-light.webp";
 import Messages_SB from "@/assets/sharebase/messages.webp";
 import Profile_SB from "@/assets/sharebase/profile.webp";
+import HomeDarkWide_SB from "@/assets/sharebase/home-dark-wide.webp";
 
 // v2
 import Home_V2 from "@/assets/v2/home.webp";
+import HomeWide_V2 from "@/assets/v2/home-wide.webp";
 
 export const PROJECTS: ProjectProps[] = [
   {
@@ -36,6 +39,7 @@ export const PROJECTS: ProjectProps[] = [
     description:
       "A podcast streaming platform featuring light and dark modes, responsive design, subscription payments, real-time database updates, audio playback controls, and multi-voice AI text-to-speech generation.",
     thumbnail: HomeDark_PV,
+    thumbnailWide: HomeDarkWide_PV,
     images: [
       {
         label: "Home",
@@ -143,6 +147,7 @@ export const PROJECTS: ProjectProps[] = [
     description:
       "A social media platform featuring light and dark modes, responsive design, and real-time messaging. Users can create and edit posts, follow others, tag friends, add comments, send messages, and more.",
     thumbnail: HomeDark_SB,
+    thumbnailWide: HomeDarkWide_SB,
     images: [
       {
         label: "Home",
@@ -225,6 +230,7 @@ export const PROJECTS: ProjectProps[] = [
     subtitle: "My portfolio website",
     description: "You're already here! Take a look around.",
     thumbnail: Home_V2,
+    thumbnailWide: HomeWide_V2,
     skills: [
       {
         name: "TypeScript",
