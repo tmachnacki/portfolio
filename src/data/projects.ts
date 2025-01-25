@@ -25,12 +25,16 @@ import HomeLight_SB from "@/assets/sharebase/home-light.webp";
 import Messages_SB from "@/assets/sharebase/messages.webp";
 import Profile_SB from "@/assets/sharebase/profile.webp";
 
+// v2
+import Home_V2 from "@/assets/v2/home.webp";
+
 export const PROJECTS: ProjectProps[] = [
   {
     title: "Podvex",
     date: "Aug. 2024",
     subtitle: "A podcast streaming platform",
-    description: "A podcast streaming platform featuring light and dark modes, responsive design, subscription payments, real-time database updates, audio playback controls, and multi-voice AI text-to-speech generation.",
+    description:
+      "A podcast streaming platform featuring light and dark modes, responsive design, subscription payments, real-time database updates, audio playback controls, and multi-voice AI text-to-speech generation.",
     thumbnail: HomeDarkLight,
     images: [
       {
@@ -136,7 +140,8 @@ export const PROJECTS: ProjectProps[] = [
     title: "ShareBase",
     date: "Aug. 2024",
     subtitle: "A social media platform",
-    description: "A social media platform featuring light and dark modes, responsive design, and real-time messaging. Users can create and edit posts, follow others, tag friends, add comments, send messages, and more.",
+    description:
+      "A social media platform featuring light and dark modes, responsive design, and real-time messaging. Users can create and edit posts, follow others, tag friends, add comments, send messages, and more.",
     thumbnail: HomeDarkLight_SB,
     images: [
       {
@@ -212,6 +217,37 @@ export const PROJECTS: ProjectProps[] = [
       demo: "https://sharebase.vercel.app/",
       source: "https://github.com/tmachnacki/sharebase",
       details: "/projects/sharebase",
+    },
+  },
+  {
+    title: "Portfolio V2",
+    date: "Jan. 2025",
+    subtitle: "My portfolio website",
+    description: "You're already here! Take a look around.",
+    thumbnail: Home_V2,
+    skills: [
+      {
+        name: "TypeScript",
+      },
+      {
+        name: "Astro",
+        description: "Server-first web framework",
+      },
+      {
+        name: "React",
+        description: "UI framework",
+      },
+      {
+        name: "Tailwind CSS",
+        description: "Utility-first CSS framework",
+      },
+      {
+        name: "Vercel",
+        description: "Hosting",
+      },
+    ],
+    actions: {
+      source: "https://github.com/tmachnacki/portfolio",
     },
   },
 ];
