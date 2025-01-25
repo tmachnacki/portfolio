@@ -53,9 +53,7 @@ import ArrowR from "@/components/icons/arrow-r.astro";
           <!-- <Avatar /> -->
           <div class="flex-grow-1 flex-shrink-0">
             <PageTitle class="mb-2">
-              <a href="/">
-                Tim Machnacki
-              </a>
+              <a href="/"> Tim Machnacki </a>
             </PageTitle>
             <h2 class="mb-2 text-lg text-foreground text-zinc-300 lg:text-xl">
               Frontend Software Engineer
@@ -179,12 +177,14 @@ import ArrowR from "@/components/icons/arrow-r.astro";
             as={"a"}
             variant={"outline"}
             gradient={"primary"}
-            class="w-full max-w-40 rounded-full group"
+            class="group w-full max-w-40 rounded-full"
             href="/projects/archive/"
             data-astro-prefetch
           >
             View More
-            <ArrowR class="size-4 ml-2 group-hover:translate-x-1 transition-all duration-100 motion-reduce:transition-none" />
+            <ArrowR
+              class="ml-2 size-4 transition-all duration-100 group-hover:translate-x-1 motion-reduce:transition-none"
+            />
           </Button>
         </div>
       </section>

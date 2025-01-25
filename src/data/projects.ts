@@ -1,19 +1,19 @@
 import type { Props as ProjectProps } from "@/components/home/project.astro";
 
 // podvex assets
-import Account from "@/assets/podvex/account.webp";
-import Billing from "@/assets/podvex/billing.webp";
-import Checkout from "@/assets/podvex/checkout.webp";
-import Create from "@/assets/podvex/create.webp";
-import Discover from "@/assets/podvex/discover.webp";
-import GetVerified from "@/assets/podvex/get-verified.webp";
-import History from "@/assets/podvex/history.webp";
-import HomeDarkLight from "@/assets/podvex/home-dark-light.webp";
-import HomeDark from "@/assets/podvex/home-dark.webp";
-import HomeLight from "@/assets/podvex/home-light.webp";
-import PodcastDetails from "@/assets/podvex/podcast-details.webp";
-import Profile from "@/assets/podvex/profile.webp";
-import Signup from "@/assets/podvex/signup.webp";
+import Account_PV from "@/assets/podvex/account.webp";
+import Billing_PV from "@/assets/podvex/billing.webp";
+import Checkout_PV from "@/assets/podvex/checkout.webp";
+import Create_PV from "@/assets/podvex/create.webp";
+import Discover_PV from "@/assets/podvex/discover.webp";
+import GetVerified_PV from "@/assets/podvex/get-verified.webp";
+import History_PV from "@/assets/podvex/history.webp";
+import HomeDarkLight_PV from "@/assets/podvex/home-dark-light.webp";
+import HomeDark_PV from "@/assets/podvex/home-dark.webp";
+import HomeLight_PV from "@/assets/podvex/home-light.webp";
+import PodcastDetails_PV from "@/assets/podvex/podcast-details.webp";
+import Profile_PV from "@/assets/podvex/profile.webp";
+import Signup_PV from "@/assets/podvex/signup.webp";
 
 // sharebase assets
 import Auth_SB from "@/assets/sharebase/auth.webp";
@@ -35,58 +35,58 @@ export const PROJECTS: ProjectProps[] = [
     subtitle: "A podcast streaming platform",
     description:
       "A podcast streaming platform featuring light and dark modes, responsive design, subscription payments, real-time database updates, audio playback controls, and multi-voice AI text-to-speech generation.",
-    thumbnail: HomeDarkLight,
+    thumbnail: HomeDark_PV,
     images: [
       {
         label: "Home",
-        image: HomeDarkLight,
+        image: HomeDarkLight_PV,
         compare: true,
         compareImages: {
           labelOne: "Home (Dark)",
-          imageOne: HomeDark,
+          imageOne: HomeDark_PV,
           labelTwo: "Home (Light)",
-          imageTwo: HomeLight,
+          imageTwo: HomeLight_PV,
         },
       },
       {
         label: "Create",
-        image: Create,
+        image: Create_PV,
       },
       {
         label: "Podcast Details",
-        image: PodcastDetails,
+        image: PodcastDetails_PV,
       },
       {
         label: "Profile",
-        image: Profile,
+        image: Profile_PV,
       },
       {
         label: "Discover",
-        image: Discover,
+        image: Discover_PV,
       },
       {
         label: "History",
-        image: History,
+        image: History_PV,
       },
       {
         label: "Get Verified",
-        image: GetVerified,
+        image: GetVerified_PV,
       },
       {
         label: "Checkout",
-        image: Checkout,
+        image: Checkout_PV,
       },
       {
         label: "Billing",
-        image: Billing,
+        image: Billing_PV,
       },
       {
         label: "Account",
-        image: Account,
+        image: Account_PV,
       },
       {
         label: "Signup",
-        image: Signup,
+        image: Signup_PV,
       },
     ],
     skills: [
@@ -142,7 +142,7 @@ export const PROJECTS: ProjectProps[] = [
     subtitle: "A social media platform",
     description:
       "A social media platform featuring light and dark modes, responsive design, and real-time messaging. Users can create and edit posts, follow others, tag friends, add comments, send messages, and more.",
-    thumbnail: HomeDarkLight_SB,
+    thumbnail: HomeDark_SB,
     images: [
       {
         label: "Home",

@@ -1,6 +1,8 @@
 ---
 import "@/styles/globals.css";
-import "@fontsource/poppins";
+import "@fontsource-variable/geist";
+import geist from "@fontsource-variable/geist/files/geist-latin-wght-normal.woff2?url";
+
 import Grid from "@/components/grid.astro";
 import Particles from "@/components/particles";
 interface Props {
@@ -13,9 +15,20 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta
+      name="description"
+      content="Tim Machnacki's frontend software engineer portfolio"
+    />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={geist}
+      crossorigin="anonymous"
+    />
+
     <meta name="generator" content={Astro.generator} />
     <title>{title ? title : "Tim Machnacki"}</title>
   </head>
@@ -38,10 +51,6 @@ const { title } = Astro.props;
     <slot />
   </body>
   <style is:global>
-    :root {
-      font-family: "Poppins", sans-serif;
-    }
-
     *::-webkit-scrollbar {
       width: 8px;
       height: 8px;

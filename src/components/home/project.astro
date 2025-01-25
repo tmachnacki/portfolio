@@ -75,13 +75,13 @@ const {
   </div>
 
   <div class="z-10 sm:col-span-6">
-    <div class="text-base font-medium leading-tight text-foreground">
+    <div class="text-lg font-medium leading-tight text-foreground">
       <h3>
         {
           actions?.demo ? (
             <a
               class="group/link inline-flex items-baseline hover:underline motion-reduce:transition-none"
-              href={actions.source}
+              href={actions.demo}
               target="_blank"
               rel="noreferrer noopener"
               aria-label={`${title} live demo (opens in a new tab)`}
@@ -102,7 +102,7 @@ const {
 
     {
       description && (
-        <p class="mt-3 text-sm text-muted-foreground">{description}</p>
+        <p class="mt-2 text-sm text-muted-foreground">{description}</p>
       )
     }
 

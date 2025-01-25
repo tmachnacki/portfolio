@@ -13,7 +13,7 @@
     "@astrojs/check": "^0.9.4",
     "@astrojs/react": "^4.1.4",
     "@astrojs/tailwind": "^5.1.4",
-    "@fontsource/poppins": "^5.0.15",
+    "@fontsource-variable/geist": "^5.0.1",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-tabs": "^1.1.0",
     "@radix-ui/react-tooltip": "^1.1.2",
