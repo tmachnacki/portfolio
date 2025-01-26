@@ -1,11 +1,6 @@
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MockBrowser } from "./mock-browser.tsx";
-import type { ProjectImage } from "@/components/home/project.astro";
+import type { ProjectImage } from "@/data/projects";
 import { Compare } from "./compare.tsx";
 import {
   Tooltip,
