@@ -1,4 +1,5 @@
-import type { Props as ProjectProps } from "@/components/home/project.astro";
+// import type { Props as ProjectProps } from "@/components/home/project.astro";
+import React from "@/components/icons/tech/react.astro";
 
 // podvex assets
 import Account_PV from "@/assets/podvex/account.webp";
@@ -33,6 +34,49 @@ import HomeWide_V2 from "@/assets/v2/home-wide.webp";
 
 // v1
 import HomeWide_V1 from "@/assets/v1/home-wide.webp";
+
+// twitter sentiment
+import Results_TS from "@/assets/twitter-sentiment/results.webp";
+
+// graphblog
+import HomeWide_GB from "@/assets/graph-blog/home-wide.webp";
+
+export interface ProjectImage {
+  label: string;
+  image: ImageMetadata;
+  compare?: boolean;
+  compareImages?: {
+    labelOne: string;
+    imageOne: ImageMetadata;
+    labelTwo: string;
+    imageTwo: ImageMetadata;
+  };
+}
+
+export interface ProjectSkill {
+  name: string;
+  description?: string;
+  icon?: any;
+}
+
+export interface ProjectProps {
+  title: string;
+  date?: string;
+  subtitle?: string;
+  description?: string;
+  features?: string[];
+  thumbnail?: ImageMetadata;
+  thumbnailWide: ImageMetadata;
+  images?: ProjectImage[];
+  skills?: ProjectSkill[];
+  actions?: {
+    demo?: string; // hosted url
+    source?: string; // github repo url
+    details?: string; // project details page
+    writeup?: string; // project writeup - twitter sentiment
+    poster?: string; // project poster - twitter sentiment
+  };
+}
 
 export const PROJECTS: ProjectProps[] = [
   {
@@ -231,7 +275,8 @@ export const PROJECTS: ProjectProps[] = [
     title: "Portfolio V2",
     date: "Jan. 2025",
     subtitle: "My portfolio website",
-    description: "You're already here! Take a look around.",
+    description:
+      "You're already here! Take a look around. Built by yours truly in Cursor IDE.",
     thumbnail: Home_V2,
     thumbnailWide: HomeWide_V2,
     skills: [
@@ -240,19 +285,15 @@ export const PROJECTS: ProjectProps[] = [
       },
       {
         name: "Astro",
-        description: "Server-first web framework",
       },
       {
         name: "React",
-        description: "UI framework",
       },
       {
         name: "Tailwind CSS",
-        description: "Utility-first CSS framework",
       },
       {
         name: "Vercel",
-        description: "Hosting",
       },
     ],
     actions: {
@@ -262,7 +303,7 @@ export const PROJECTS: ProjectProps[] = [
   {
     title: "Portfolio V1 (Deprecated)",
     date: "2023",
-    description: "A static portfolio site hosted on Github Pages",
+    description: "A static portfolio site hosted on Github Pages.",
     thumbnailWide: HomeWide_V1,
     actions: {
       source: "https://github.com/tmachnacki/portfolio",
@@ -277,6 +318,64 @@ export const PROJECTS: ProjectProps[] = [
       },
       {
         name: "JavaScript",
+      },
+    ],
+  },
+  {
+    title: "Twitter Sentiment",
+    date: "2022",
+    description:
+      "A web app that analyzes Twitter sentiment over time. The app retrieves and classifies tweets matching a user-provided topic and time-frame then displays the sentiment data in a line graph as well as the query's frequency in a bar graph. This was a 5-person project for EECS 486 WN2022. See the writeup and poster for more details.",
+    thumbnailWide: Results_TS,
+    skills: [
+      {
+        name: "Python",
+      },
+      {
+        name: "Flask",
+      },
+      {
+        name: "matplotlib",
+      },
+      {
+        name: "Bootstrap",
+      },
+      {
+        name: "Formal Writing",
+      },
+    ],
+    actions: {
+      source: "https://github.com/tmachnacki/twitter-sentiment",
+      writeup: "/report.pdf",
+      poster: "/poster.pdf",
+    },
+  },
+  {
+    title: "GraphBlog",
+    date: "2023",
+    description:
+      "A modern, responsive CMS blog app complete with featured posts carousel, recent posts, categories, full markdown articles, author information, functional comments, and more.",
+    thumbnailWide: HomeWide_GB,
+    actions: {
+      source: "https://github.com/tmachnacki/graphBlog",
+      demo: "https://graph-blog-tau.vercel.app/",
+    },
+    skills: [
+      {
+        name: "JavaScript",
+      },
+      {
+        name: "React",
+        description: "UI framework",
+      },
+      {
+        name: "NextJS",
+      },
+      {
+        name: "Tailwind CSS",
+      },
+      {
+        name: "Vercel",
       },
     ],
   },

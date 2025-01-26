@@ -81,7 +81,7 @@ import ArrowR from "@/components/icons/arrow-r.astro";
             <a
               id="skills-nav"
               href="#skills"
-              class="group flex items-center gap-4 py-2 text-sm font-semibold uppercase tracking-widest transition-all duration-100 hover:text-foreground motion-reduce:transition-none [&.active]:text-foreground"
+              class="group flex items-center gap-4 py-2 text-sm font-medium uppercase tracking-wider transition-all duration-100 hover:text-foreground motion-reduce:transition-none [&.active]:text-foreground"
             >
               <span
                 aria-hidden="true"
@@ -94,7 +94,7 @@ import ArrowR from "@/components/icons/arrow-r.astro";
             <a
               id="experience-nav"
               href="#experience"
-              class="group flex items-center gap-4 py-2 text-sm font-semibold uppercase tracking-widest transition-all duration-100 hover:text-foreground motion-reduce:transition-none [&.active]:text-foreground"
+              class="group flex items-center gap-4 py-2 text-sm font-medium uppercase tracking-wider transition-all duration-100 hover:text-foreground motion-reduce:transition-none [&.active]:text-foreground"
             >
               <span
                 aria-hidden="true"
@@ -107,7 +107,7 @@ import ArrowR from "@/components/icons/arrow-r.astro";
             <a
               id="projects-nav"
               href="#projects"
-              class="group flex items-center gap-4 py-2 text-sm font-semibold uppercase tracking-widest transition-all duration-100 hover:text-foreground motion-reduce:transition-none [&.active]:text-foreground"
+              class="group flex items-center gap-4 py-2 text-sm font-medium uppercase tracking-wider transition-all duration-100 hover:text-foreground motion-reduce:transition-none [&.active]:text-foreground"
             >
               <span
                 aria-hidden="true"
@@ -168,7 +168,7 @@ import ArrowR from "@/components/icons/arrow-r.astro";
         <!-- project cards -->
         <ol class="group/list space-y-16 lg:space-y-8">
           {
-            PROJECTS.map((project) => (
+            PROJECTS.slice(0, 3).map((project) => (
               <li id={project.title}>
                 <Project {...project} />
               </li>

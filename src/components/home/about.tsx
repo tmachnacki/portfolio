@@ -1,4 +1,10 @@
-import { Children, useEffect, useLayoutEffect, useState, type ReactNode } from "react";
+import {
+  Children,
+  useEffect,
+  useLayoutEffect,
+  useState,
+  type ReactNode,
+} from "react";
 import { cn } from "@/lib/utils";
 
 import TypingText from "./typing-text";
@@ -29,13 +35,13 @@ const About = ({ children }: { children?: ReactNode }) => {
   }, [beginGPTResponse]);
 
   return (
-    <div className="flex lg:h-auto lg:min-h-0 w-full flex-col gap-8 px-4 min-h-40">
-      <div className="-me-4 ps-4 flex w-full max-w-lg gap-3 self-end lg:max-w-sm">
-        <div className="w-full flex-grow rounded-2xl bg-muted px-4 py-2 text-muted-foreground flex items-center ">
+    <div className="flex min-h-40 w-full flex-col gap-8 px-4 lg:h-auto lg:min-h-0">
+      <div className="-me-4 flex w-full max-w-lg gap-3 self-end ps-4 lg:max-w-sm">
+        <div className="flex w-full flex-grow items-center rounded-2xl bg-muted px-4 py-2 text-muted-foreground">
           {showTypingText ? (
             <TypingText
               text={`Write me an "about" section for my frontend software engineer portfolio without using any jargon or buzzwords, like "passionate".`}
-              className="w-full text-left text-sm"
+              className="w-full text-left font-sans text-sm"
               grow={true}
               repeat={false}
               hideCursorOnComplete={true}
@@ -43,7 +49,7 @@ const About = ({ children }: { children?: ReactNode }) => {
               onComplete={() => setBeginGPTResponse(true)}
             />
           ) : (
-            <p className="text-sm align-middle">Message ChatGPT</p>
+            <p className="align-middle text-sm">Message ChatGPT</p>
           )}
         </div>
         <div className="aspect-square h-10 w-10 flex-shrink-0 overflow-hidden rounded-full">
@@ -56,7 +62,7 @@ const About = ({ children }: { children?: ReactNode }) => {
       </div>
 
       {beginGPTResponse && (
-        <div className="-ms-4 pe-4 flex w-auto max-w-lg gap-3 self-start lg:max-w-sm">
+        <div className="-ms-4 flex w-auto max-w-lg gap-3 self-start pe-4 lg:max-w-sm">
           <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border">
             <GPTIcon
               className={cn(
@@ -71,7 +77,7 @@ const About = ({ children }: { children?: ReactNode }) => {
             >
               <TypingText
                 text={`I build things for the web.`}
-                className="w-full text-left text-sm"
+                className="w-full text-left font-sans text-sm"
                 grow={true}
                 repeat={false}
                 hideCursorOnComplete={true}

@@ -1,4 +1,5 @@
 ---
+import type { ProjectProps as Props } from "@/data/projects";
 import type { HTMLAttributes } from "astro/types";
 import { Image } from "astro:assets";
 
@@ -14,38 +15,7 @@ import Planet from "../ui/planet.astro";
 import Live from "../icons/live.astro";
 import ArrowTr from "../icons/arrow-tr.astro";
 import More from "../icons/more.astro";
-
-export interface ProjectImage {
-  label: string;
-  image: ImageMetadata;
-  compare?: boolean;
-  compareImages?: {
-    labelOne: string;
-    imageOne: ImageMetadata;
-    labelTwo: string;
-    imageTwo: ImageMetadata;
-  };
-}
-
-export interface Props {
-  title: string;
-  date?: string;
-  subtitle?: string;
-  description?: string;
-  features?: string[];
-  thumbnail?: ImageMetadata;
-  thumbnailWide: ImageMetadata;
-  images?: ProjectImage[];
-  skills?: {
-    name: string;
-    description?: string;
-  }[];
-  actions?: {
-    demo?: string; // hosted url
-    source?: string; // github repo url
-    details?: string; // project details page
-  };
-}
+import ArrowR from "../icons/arrow-r.astro";
 
 const {
   title,
@@ -76,7 +46,7 @@ const {
   </div>
 
   <div class="z-10 sm:col-span-6">
-    <div class="text-lg font-medium leading-tight text-foreground">
+    <div class="text-base font-medium leading-tight text-foreground">
       <h3>
         {
           actions?.demo ? (
@@ -132,7 +102,7 @@ const {
             <li class="mr-1.5 mt-2">
               <Skill
                 label={skill.name}
-                class="transition duration-100 lg:group-hover:border-primary/50 lg:group-hover:text-indigo-400 lg:group-hover:shadow-md lg:group-hover:shadow-primary/10"
+                class="transition duration-100 lg:group-hover:border-primary/50 lg:group-hover:shadow-md lg:group-hover:shadow-primary/20"
               />
             </li>
           ))}
@@ -149,14 +119,14 @@ const {
                 as={"a"}
                 href={actions.source}
                 class={
-                  "size-10 transition duration-100 hover:!opacity-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring group-hover/actions:opacity-50 motion-reduce:transition-none"
+                  "size-9 transition duration-100 hover:!opacity-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring group-hover/actions:opacity-50 motion-reduce:transition-none"
                 }
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label={`${title} source code on Github (opens in a new tab)`}
                 title={"Github"}
               >
-                <Github class="size-5" />
+                <Github class="size-[18px]" />
               </Planet>
             </li>
           )}
@@ -167,14 +137,14 @@ const {
                 as={"a"}
                 href={actions.demo}
                 class={
-                  "size-10 transition duration-100 hover:!opacity-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring group-hover/actions:opacity-50 motion-reduce:transition-none"
+                  "size-9 transition duration-100 hover:!opacity-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring group-hover/actions:opacity-50 motion-reduce:transition-none"
                 }
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label={`${title} live demo (opens in a new tab)`}
                 title={"Live Demo"}
               >
-                <Live class="size-5" />
+                <Live class="size-[18px]" />
               </Planet>
             </li>
           )}
@@ -185,13 +155,13 @@ const {
                 as={"a"}
                 href={actions.details}
                 class={
-                  "size-10 transition duration-100 hover:!opacity-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring group-hover/actions:opacity-50 motion-reduce:transition-none"
+                  "size-9 transition duration-100 hover:!opacity-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring group-hover/actions:opacity-50 motion-reduce:transition-none"
                 }
                 aria-label={`${title} project details page`}
                 title={"More Details"}
                 data-astro-prefetch
               >
-                <More class="size-5" />
+                <ArrowR class="size-[18px]" />
               </Planet>
             </li>
           )}

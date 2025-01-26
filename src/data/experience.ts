@@ -1,6 +1,15 @@
-import type { Props as ExperienceProps } from "@/components/home/experience.astro";
-
 import Signs365Logo from "@/assets/experience/signs-logo.png";
+
+export interface ExperienceProps {
+  timePeriod: string;
+  logo?: ImageMetadata;
+  badge?: string;
+  title: string;
+  company: string;
+  companyUrl: string;
+  bullets: string[];
+  skills: string[];
+}
 
 export const EXPERIENCE: ExperienceProps[] = [
   {

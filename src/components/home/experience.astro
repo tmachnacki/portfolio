@@ -1,23 +1,12 @@
 ---
+import type { ExperienceProps as Props } from "@/data/experience";
 import { Image } from "astro:assets";
 
 import Card from "../card.astro";
 import Skill from "../skill.astro";
-import Link from "../ui/link.astro";
 
 import ArrowTr from "../icons/arrow-tr.astro";
-import Check from "../icons/check.astro";
 
-export interface Props {
-  timePeriod: string;
-  logo?: ImageMetadata;
-  badge?: string;
-  title: string;
-  company: string;
-  companyUrl: string;
-  bullets: string[];
-  skills: string[];
-}
 const { timePeriod, logo, badge, title, company, companyUrl, bullets, skills } =
   Astro.props;
 ---
@@ -38,7 +27,7 @@ const { timePeriod, logo, badge, title, company, companyUrl, bullets, skills } =
   </header>
   <div class="z-10 sm:col-span-6">
     <h3
-      class="mb-2 flex items-center text-lg font-medium leading-tight text-foreground"
+      class="mb-2 flex items-center text-base font-medium leading-tight text-foreground"
     >
       <a
         class="group/link m-0 inline-block items-baseline text-wrap hover:text-primary motion-reduce:transition-none"
@@ -61,7 +50,7 @@ const { timePeriod, logo, badge, title, company, companyUrl, bullets, skills } =
 
       {
         badge && (
-          <span class="ml-3 hidden h-5 items-center rounded-full border bg-transparent bg-gradient-to-b from-muted to-transparent px-4 pb-0.5 text-xs font-normal leading-none text-muted-foreground sm:inline-flex">
+          <span class="ml-3 hidden h-5 items-center self-start rounded-full border bg-transparent bg-gradient-to-b from-muted to-transparent px-4 pb-0.5 text-xs font-normal leading-none text-muted-foreground sm:inline-flex">
             {badge}
           </span>
         )
@@ -82,7 +71,7 @@ const { timePeriod, logo, badge, title, company, companyUrl, bullets, skills } =
           <li class="mr-1.5 mt-2">
             <Skill
               label={skill}
-              class="transition lg:group-hover:border-primary/50 lg:group-hover:text-indigo-400 lg:group-hover:shadow-md lg:group-hover:shadow-primary/20"
+              class="transition lg:group-hover:border-primary/50 lg:group-hover:shadow-md lg:group-hover:shadow-primary/20"
             />
           </li>
         ))

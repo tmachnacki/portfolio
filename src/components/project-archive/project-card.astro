@@ -1,16 +1,14 @@
 ---
 import { Image } from "astro:assets";
-import type { Props as ProjectProps } from "@/components/home/project.astro";
-import { cn } from "@/lib/utils";
+import type { ProjectProps as Props } from "@/data/projects";
 
-import Card from "../card.astro";
 import Button from "../ui/button.astro";
 import Github from "../icons/github.astro";
-import Planet from "../ui/planet.astro";
 import Live from "../icons/live.astro";
-import More from "../icons/more.astro";
+import FileText from "../icons/file-text.astro";
+import FileImage from "../icons/file-image.astro";
+import ArrowR from "../icons/arrow-r.astro";
 
-interface Props extends ProjectProps {}
 const {
   title,
   date,
@@ -37,19 +35,21 @@ const {
   <div class="flex h-full flex-col justify-between">
     <header class="mb-6 flex-grow">
       <div
-        class="mb-6 h-auto w-full overflow-hidden rounded-md border transition-all duration-200 group-hover:border-zinc-700 motion-reduce:transition-none"
+        class="aspect-16/9 mb-6 flex h-auto w-full items-center justify-center overflow-hidden rounded-md border transition-all duration-200 group-hover:border-zinc-700 motion-reduce:transition-none"
       >
         <Image
           src={thumbnailWide}
           alt={`${title} thumbnail`}
-          class={"h-auto w-full object-cover object-center rounded-md"}
+          class={"h-auto w-full object-cover object-center aspect-16/9"}
           width={1920}
           height={1080}
         />
       </div>
 
-      <div class="mb-2 flex items-start justify-between">
-        <h3 class="text-base font-medium text-foreground">{title}</h3>
+      <div class="mb-2 flex items-start justify-between gap-2">
+        <h3 class="text-base font-medium leading-tight text-foreground">
+          {title}
+        </h3>
         {
           actions && (
             <ul class="flex -translate-y-1.5 items-start gap-1.5">
@@ -95,8 +95,45 @@ const {
                     variant={"outline"}
                     size={"iconXs"}
                     class={"bg-background/80"}
+                    aria-label={`${title} project details page`}
+                    title={"More Details"}
+                    data-astro-prefetch
                   >
-                    <More class="size-4" />
+                    <ArrowR class="size-4" />
+                  </Button>
+                </li>
+              )}
+              {actions.writeup && (
+                <li>
+                  <Button
+                    as={"a"}
+                    href={actions.writeup}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    variant={"outline"}
+                    size={"iconXs"}
+                    class={"bg-background/80"}
+                    aria-label={`${title} writeup (opens in a new tab)`}
+                    title={"Writeup"}
+                  >
+                    <FileText class="size-4" />
+                  </Button>
+                </li>
+              )}
+              {actions.poster && (
+                <li>
+                  <Button
+                    as={"a"}
+                    href={actions.poster}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    variant={"outline"}
+                    size={"iconXs"}
+                    class={"bg-background/80"}
+                    aria-label={`${title} poster (opens in a new tab)`}
+                    title={"Poster"}
+                  >
+                    <FileImage class="size-4" />
                   </Button>
                 </li>
               )}
@@ -112,7 +149,7 @@ const {
         skills && (
           <ul class="flex flex-wrap gap-1.5">
             {skills.map((skill) => (
-              <li class="inline-flex h-5 items-center rounded-full border px-2 font-mono text-xs text-muted-foreground group-hover:border-primary/30">
+              <li class="inline-flex h-5 items-center rounded-full border px-2 text-xs text-muted-foreground group-hover:border-primary/30">
                 {skill.name}
               </li>
             ))}

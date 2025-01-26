@@ -19,12 +19,13 @@ export default {
       },
     },
     fontFamily: {
-      sans: ["Geist", ...defaultTheme.fontFamily.sans],
-      mono: [...defaultTheme.fontFamily.mono],
+      sans: ["Geist Variable", ...defaultTheme.fontFamily.sans],
+      mono: ["Geist Mono Variable", ...defaultTheme.fontFamily.mono],
     },
     extend: {
       aspectRatio: {
         "4/3": "4 / 3",
+        "16/9": "16 / 9",
       },
       colors: {
         border: "hsl(var(--border))",

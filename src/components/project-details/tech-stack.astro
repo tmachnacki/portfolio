@@ -1,11 +1,9 @@
 ---
+import type { ProjectSkill } from "@/data/projects";
 import Skill from "../skill.astro";
 
 interface Props {
-  skills?: {
-    name: string;
-    description?: string;
-  }[];
+  skills?: ProjectSkill[];
 }
 
 const { skills, ...props } = Astro.props;

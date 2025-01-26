@@ -6,15 +6,13 @@ type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }>;
 
 const { class: className, as: Tag = "div", ...props } = Astro.props;
 
-export const planetClassNames = (className: string) => cn(
-  "size-12 inline-flex items-center justify-center bg-gradient-to-br from-zinc-400 to-black via-zinc-950 rounded-full border flex-shrink-0 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
-  className,
-);
+export const planetClassNames = (className: string) =>
+  cn(
+    "size-11 inline-flex items-center justify-center bg-gradient-to-br from-zinc-400 to-black via-zinc-950 rounded-full border flex-shrink-0 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
+    className,
+  );
 ---
 
-<Tag
-  class={planetClassNames(className)}
-  {...props}
->
+<Tag class={planetClassNames(className)} {...props}>
   <slot />
 </Tag>
