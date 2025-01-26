@@ -1,0 +1,18 @@
+---
+import { cn } from "@/lib/utils";
+import type { HTMLAttributes } from "astro/types";
+interface Props extends HTMLAttributes<"svg"> {}
+const { class: className, ...props } = Astro.props;
+---
+
+<svg
+  height="64"
+  role="img"
+  viewBox="0 0 74 64"
+  aria-label="Vercel logomark"
+  class={cn("size-6", className)}
+  {...props}
+>
+  <path d="M37.5896 0.25L74.5396 64.25H0.639648L37.5896 0.25Z" fill="white"
+  ></path>
+</svg>

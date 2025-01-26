@@ -1,6 +1,3 @@
-// import type { Props as ProjectProps } from "@/components/home/project.astro";
-import React from "@/components/icons/tech/react.astro";
-
 // podvex assets
 import Account_PV from "@/assets/podvex/account.webp";
 import Billing_PV from "@/assets/podvex/billing.webp";
@@ -40,6 +37,12 @@ import Results_TS from "@/assets/twitter-sentiment/results.webp";
 
 // graphblog
 import HomeWide_GB from "@/assets/graph-blog/home-wide.webp";
+
+// asm
+import HomeWide_ASM from "@/assets/asm/home-wide.webp";
+
+// cc
+import HomeWide_CC from "@/assets/cc/home-wide.webp";
 
 export interface ProjectImage {
   label: string;
@@ -276,7 +279,7 @@ export const PROJECTS: ProjectProps[] = [
     date: "Jan. 2025",
     subtitle: "My portfolio website",
     description:
-      "You're already here! Take a look around. Built by yours truly in Cursor IDE.",
+      "You're already here! Take a look around. Built by yours truly in VSCode.",
     thumbnail: Home_V2,
     thumbnailWide: HomeWide_V2,
     skills: [
@@ -325,7 +328,7 @@ export const PROJECTS: ProjectProps[] = [
     title: "Twitter Sentiment",
     date: "2022",
     description:
-      "A web app that analyzes Twitter sentiment over time. The app retrieves and classifies tweets matching a user-provided topic and time-frame then displays the sentiment data in a line graph as well as the query's frequency in a bar graph. This was a 5-person project for EECS 486 WN2022. See the writeup and poster for more details.",
+      "A web app that analyzes Twitter sentiment over time. The app retrieves and classifies tweets matching a user-provided topic and time-frame then displays the sentiment data in a line graph as well as the query's frequency in a bar graph. This was a 5-person project for EECS 486. See the writeup and poster for more details.",
     thumbnailWide: Results_TS,
     skills: [
       {
@@ -362,9 +365,6 @@ export const PROJECTS: ProjectProps[] = [
     },
     skills: [
       {
-        name: "JavaScript",
-      },
-      {
         name: "React",
         description: "UI framework",
       },
@@ -378,5 +378,59 @@ export const PROJECTS: ProjectProps[] = [
         name: "Vercel",
       },
     ],
+  },
+  {
+    title: "AntiSocialMedia",
+    date: "2023",
+    description:
+      "A MERN stack social media app featuring light and dark modes, responsive design, media uploads, and more.",
+    thumbnailWide: HomeWide_ASM,
+    skills: [
+      {
+        name: "MongoDB",
+      },
+      {
+        name: "Express",
+      },
+      {
+        name: "React",
+      },
+      {
+        name: "NodeJS",
+      },
+      {
+        name: "MUI",
+      },
+    ],
+    actions: {
+      source: "https://github.com/tmachnacki/MERN-AntiSocialMedia",
+    },
+  },
+  {
+    title: "Coursework Calculator",
+    date: "2021",
+    description:
+      "An SPA to help University of Michigan students calculate their upcoming coursework load using data scraped from UMich Atlas. Users can add and remove courses from their backpack and/or schedule, then view the calculated estimation of hours/week. This was a 4-person project for EECS 493.",
+    thumbnailWide: HomeWide_CC,
+    skills: [
+      {
+        name: "Vue",
+      },
+      {
+        name: "Vuetify",
+      },
+      {
+        name: "Python",
+      },
+      {
+        name: "Beautiful Soup",
+      },
+      {
+        name: "Flask",
+      },
+    ],
+    actions: {
+      source: "https://github.com/tmachnacki/coursework-calculator",
+    },
   },
 ];
