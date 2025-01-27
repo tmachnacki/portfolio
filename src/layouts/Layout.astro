@@ -2,6 +2,7 @@
 import "@/styles/globals.css";
 import "@fontsource-variable/geist";
 import geistWoff2 from "@fontsource-variable/geist/files/geist-latin-wght-normal.woff2";
+import geistExtWoff2 from "@fontsource-variable/geist/files/geist-latin-ext-wght-normal.woff2";
 
 import Grid from "@/components/grid.astro";
 import Particles from "@/components/particles";
@@ -26,6 +27,13 @@ const { title } = Astro.props;
       as="font"
       type="font/woff2"
       href={geistWoff2}
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={geistExtWoff2}
       crossorigin="anonymous"
     />
 
