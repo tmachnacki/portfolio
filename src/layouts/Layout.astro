@@ -2,7 +2,6 @@
 import "@/styles/globals.css";
 import "@fontsource-variable/geist";
 import geistWoff2 from "@fontsource-variable/geist/files/geist-latin-wght-normal.woff2";
-import geistExtWoff2 from "@fontsource-variable/geist/files/geist-latin-ext-wght-normal.woff2";
 
 import Grid from "@/components/grid.astro";
 import Particles from "@/components/particles";
@@ -29,23 +28,14 @@ const { title } = Astro.props;
       href={geistWoff2}
       crossorigin="anonymous"
     />
-    <link
-      rel="preload"
-      as="font"
-      type="font/woff2"
-      href={geistExtWoff2}
-      crossorigin="anonymous"
-    />
-
     <meta name="generator" content={Astro.generator} />
     <title>{title ? title : "Tim Machnacki"}</title>
   </head>
-  <body class="custom-scrollbar no-scrollbar relative z-10">
+  <body class="custom-scrollbar no-scrollbar relative z-10 bg-background font-sans text-foreground antialiased">
     <Particles
       client:idle
       color="#4338ca"
       className="fixed z-0 h-full w-full"
-      transition:persist
     />
     <div
       class="absolute inset-0 -z-10 flex h-[500px] w-full items-center justify-center lg:fixed"
@@ -58,51 +48,4 @@ const { title } = Astro.props;
     </div>
     <slot />
   </body>
-  <style is:global>
-    :root {
-      font-family: "Geist Variable", sans-serif;
-    }
-
-    *::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
-    }
-
-    *::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    *::-webkit-scrollbar-thumb {
-      background: #3f3f46;
-      border-radius: 8px;
-    }
-
-    *::-webkit-scrollbar-thumb:hover {
-      background: #52525b;
-    }
-
-    *::-webkit-scrollbar-thumb:active {
-      background: #71717a;
-    }
-
-    .scrollbar-opacity-0::-webkit-scrollbar-thumb {
-      opacity: 0;
-      transition: opacity;
-    }
-
-    .scrollbar-opacity-100::-webkit-scrollbar-thumb {
-      opacity: 1;
-      transition: opacity;
-    }
-
-    .no-visible-scrollbar {
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .no-visible-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-  </style>
 </html>

@@ -18,6 +18,9 @@ export default {
         "2xl": "1400px",
       },
     },
+    fontFamily: {
+      sans: ["Geist Variable", ...defaultTheme.fontFamily.sans],
+    },
     extend: {
       aspectRatio: {
         "4/3": "4 / 3",

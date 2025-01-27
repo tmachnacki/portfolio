@@ -8,8 +8,9 @@ import { EXPERIENCE } from "@/data/experience";
 import { PROJECTS } from "@/data/projects";
 
 // client components
-import Spotlight from "@/components/spotlight";
-import About from "@/components/home/about";
+import Spotlight from "@/components/home/spotlight";
+// import About from "@/components/home/about";
+import About from "@/components/home/about.astro";
 
 // astro components
 // import Avatar from "@/components/home/avatar.astro";
@@ -47,7 +48,7 @@ import ArrowR from "@/components/icons/arrow-r.astro";
       class="relative w-full lg:sticky lg:top-0 lg:col-span-4 lg:flex lg:max-h-screen lg:flex-col lg:justify-between lg:py-24"
     >
       <div
-        class="relative flex flex-grow flex-col items-start gap-12 text-left"
+        class="relative flex flex-col items-start gap-12 text-left"
       >
         <div class="flex flex-row gap-6">
           <!-- <Avatar /> -->
@@ -69,11 +70,11 @@ import ArrowR from "@/components/icons/arrow-r.astro";
           </div>
         </div>
         <SocialLinks class="flex lg:hidden" />
-        <About client:load />
+        <About />
       </div>
 
       <nav
-        class="absolute left-0 top-[35rem] hidden flex-shrink-0 flex-grow text-zinc-500 lg:block"
+        class="hidden flex-shrink-0 flex-grow text-zinc-500 lg:block mt-24"
         aria-label="In page jump links"
       >
         <ul class="w-max">
@@ -81,7 +82,7 @@ import ArrowR from "@/components/icons/arrow-r.astro";
             <a
               id="skills-nav"
               href="#skills"
-              class="group flex items-center gap-4 py-2 text-sm font-medium uppercase tracking-wider transition-all duration-100 hover:text-foreground motion-reduce:transition-none [&.active]:text-foreground"
+              class="active group flex items-center gap-4 py-2 text-sm font-medium uppercase tracking-wider transition-all duration-100 hover:text-foreground motion-reduce:transition-none [&.active]:text-foreground"
             >
               <span
                 aria-hidden="true"
@@ -197,17 +198,17 @@ import ArrowR from "@/components/icons/arrow-r.astro";
 </Layout>
 
 <!-- scrollspy -->
-<script is:inline>
+<script>
   const threshold = 0.75;
 
-  const changeNav = (entries, observer) => {
-    entries.forEach((entry) => {
+  const changeNav = (entries: any[], observer: any) => {
+    entries.forEach((entry: { isIntersecting: any; intersectionRatio: number; target: { getAttribute: (arg0: string) => any; }; }) => {
       if (entry.isIntersecting && entry.intersectionRatio >= threshold) {
         document.querySelector(".active")?.classList.remove("active");
         const id = entry.target.getAttribute("id");
         const newLink = document
-          .querySelector(`[href="#${id}"]`)
-          .classList.add("active");
+          ?.querySelector(`[href="#${id}"]`)
+          ?.classList.add("active");
       }
     });
   };

@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets";
+
+import avatar from "@/assets/avatar-cropped.jpg";
+
+import GPT from "@/components/icons/tech/gpt.astro";
+---
+
+<div class="flex w-full flex-col gap-8 px-0">
+  <div class="flex w-full max-w-lg gap-2 self-end pl-12 lg:max-w-sm">
+    <p
+      class="flex w-full flex-grow items-center rounded-2xl bg-muted px-4 py-2 text-sm text-muted-foreground"
+    >
+      {
+        `Write me an "about" section for my frontend software engineer portfolio without using any jargon or buzzwords, like "passionate".`
+      }
+    </p>
+    <div
+      class="h-10 w-10 flex-shrink-0 overflow-hidden rounded-full border bg-muted"
+    >
+      <Image
+        src={avatar}
+        alt="Portrait of Tim Machnacki"
+        class="h-full w-full scale-110 object-cover object-center"
+      />
+    </div>
+  </div>
+
+  <div class="flex w-auto max-w-lg gap-2 self-start pr-12 lg:max-w-sm">
+    <div
+      class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border"
+    >
+      <GPT class="size-5 flex-shrink-0" />
+    </div>
+
+    <p
+      class="flex min-h-10 w-full items-center rounded-2xl border bg-transparent px-4 py-2 text-sm text-muted-foreground"
+    >
+      I build things for the web.
+    </p>
+  </div>
+</div>

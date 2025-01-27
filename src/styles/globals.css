@@ -30,14 +30,53 @@
     --chart-5: 340 75% 55%;
     --radius: 0.5rem;
   }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: #3f3f46;
+    border-radius: 8px;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: #52525b;
+  }
+
+  *::-webkit-scrollbar-thumb:active {
+    background: #71717a;
+  }
+
+  .scrollbar-opacity-0::-webkit-scrollbar-thumb {
+    opacity: 0;
+    transition: opacity;
+  }
+
+  .scrollbar-opacity-100::-webkit-scrollbar-thumb {
+    opacity: 1;
+    transition: opacity;
+  }
+
+  .no-visible-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .no-visible-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @layer base {
   * {
     @apply border-border selection:bg-primary selection:text-primary-foreground;
-  }
-  body {
-    @apply bg-background font-sans text-foreground antialiased;
   }
 }
 
