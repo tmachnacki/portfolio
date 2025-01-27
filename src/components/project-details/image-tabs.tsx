@@ -53,24 +53,27 @@ export const ImageTabs = ({
         <TabsContent
           value={image.label}
           key={`${image.label}-content`}
-          className="rounded-lg"
+          className="overflow-hidden"
         >
           <MockBrowser url={projectUrl}>
-            <div className="m-0 aspect-4/3 h-auto w-full overflow-hidden rounded-b-lg animate-in fade-in-0">
-              {image.compare && image.compareImages && (
+            <div className="m-0 aspect-4/3 h-auto w-full overflow-hidden rounded-b-lg animate-in fade-in-0" draggable={false}>
+              {image.compare && image.compareImages ? (
                 <Compare
-                  firstImage={image.compareImages.imageOne.src}
-                  secondImage={image.compareImages.imageTwo.src}
+                  firstImage={image.compareImages.imageOne}
+                  firstImageAlt={image.compareImages.labelOne}
+                  secondImage={image.compareImages.imageTwo}
+                  secondImageAlt={image.compareImages.labelTwo}
+                />
+              ) : (
+                <img
+                  src={image.image.src}
+                  alt={image.label}
+                  className="w-full h-auto object-cover object-center"
+                  // width={1600}
+                  // height={1200}
+                  draggable={false}
                 />
               )}
-              <img
-                src={image.image.src}
-                alt={image.label}
-                className="object-cover object-center"
-                // width={1600}
-                // height={1200}
-                draggable={false}
-              />
             </div>
           </MockBrowser>
         </TabsContent>
@@ -125,7 +128,7 @@ export const ImageTabs = ({
                 <img
                   src={image.image.src}
                   alt={image.label}
-                  className="object-cover object-center"
+                  className="w-full h-auto object-cover object-center"
                   draggable={false}
                   // width={400}
                   // height={300}

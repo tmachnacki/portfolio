@@ -1,6 +1,16 @@
 ---
+import { cn } from "@/lib/utils";
 import type { ProjectSkill } from "@/data/projects";
 import Skill from "../skill.astro";
+import Planet from "../ui/planet.astro";
+
+// icons
+import Typescript from "@/components/icons/tech/typescript.astro";
+import React from "@/components/icons/tech/react.astro";
+import Tailwind from "@/components/icons/tech/tailwind.astro";
+import NextJS from "@/components/icons/tech/next.astro";
+import Shadcn from "@/components/icons/tech/shadcn.astro";
+import Stripe from "@/components/icons/tech/stripe.png";
 
 interface Props {
   skills?: ProjectSkill[];
@@ -13,13 +23,19 @@ const { skills, ...props } = Astro.props;
   {
     skills &&
       skills.map((skill) => (
-        <li class="grid grid-cols-2 items-center border-b-[1px] border-border/50 py-2 first:pt-0 last:border-b-0 last:pb-0">
-          <Skill label={skill.name} />
-          {skill.description && (
-            <p class="text-xs uppercase text-muted-foreground">
-              {skill.description}
-            </p>
-          )}
+        <li class="flex items-start justify-start gap-2 border-b-[1px] border-border/50 py-2 first:pt-0 last:border-b-0 last:pb-0">
+          {skill.name === "TypeScript" && <Planet class="size-10 from-blue-500"><Typescript class="size-5" /></Planet>}
+          {skill.name === "React" && <Planet class="size-10 from-cyan-600"><React class="size-5" /></Planet>}
+          {skill.name === "Tailwind CSS" && <Planet class="size-10 from-sky-500"><Tailwind class="size-5" /></Planet>}
+          {skill.name === "shadcn/ui" && <Planet class="size-10 from-zinc-400"><Shadcn class="size-5" /></Planet>}
+          {skill.name === "NextJS" && <Planet class="size-10 from-zinc-400"><NextJS class="size-5" /></Planet>}
+          <div class="flex flex-grow flex-col">
+            {/* <Skill label={skill.name} /> */}
+            <h4 class="text-sm font-medium text-foreground">{skill.name}</h4>
+            {skill.description && (
+              <p class="text-xs text-muted-foreground">{skill.description}</p>
+            )}
+          </div>
         </li>
       ))
   }

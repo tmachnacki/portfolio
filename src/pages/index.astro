@@ -20,12 +20,14 @@ import SectionHeader from "@/components/home/section-header.astro";
 import Experience from "@/components/home/experience.astro";
 import SocialLinks from "@/components/home/social-links.astro";
 import Button from "@/components/ui/button.astro";
+import { buttonVariants } from "@/components/ui/button.astro";
 import Project from "@/components/home/project.astro";
 import PageTitle from "@/components/page-title.astro";
 
 // icons
 import Pin from "@/components/icons/pin.astro";
 import ArrowR from "@/components/icons/arrow-r.astro";
+import { cn } from "@/lib/utils";
 ---
 
 <Layout>
@@ -47,9 +49,7 @@ import ArrowR from "@/components/icons/arrow-r.astro";
     <header
       class="relative w-full lg:sticky lg:top-0 lg:col-span-4 lg:flex lg:max-h-screen lg:flex-col lg:justify-between lg:py-24"
     >
-      <div
-        class="relative flex flex-col items-start gap-12 text-left"
-      >
+      <div class="relative flex flex-col items-start gap-12 text-left">
         <div class="flex flex-row gap-6">
           <!-- <Avatar /> -->
           <div class="flex-grow-1 flex-shrink-0">
@@ -74,7 +74,7 @@ import ArrowR from "@/components/icons/arrow-r.astro";
       </div>
 
       <nav
-        class="hidden flex-shrink-0 flex-grow text-zinc-500 lg:block mt-24"
+        class="mt-24 hidden flex-shrink-0 flex-grow text-zinc-500 lg:block"
         aria-label="In page jump links"
       >
         <ul class="w-max">
@@ -178,19 +178,30 @@ import ArrowR from "@/components/icons/arrow-r.astro";
         </ol>
 
         <div class="mt-12 flex w-full items-center justify-center">
-          <Button
-            as={"a"}
-            variant={"outline"}
-            gradient={"primary"}
-            class="group w-full max-w-40 rounded-full"
-            href="/projects/archive/"
+          <!-- prefteched links must be rendered directly as <a> tags -->
+          <a
+            class={cn(
+              buttonVariants({
+                variant: "outline",
+                size: "default",
+                gradient: "primary",
+                class: "group w-full max-w-40 rounded-full",
+              }),
+            )}
+            href="/projects"
             data-astro-prefetch
           >
+            <span
+              class="absolute -top-px left-[20%] h-px w-[60%] bg-gradient-to-r from-primary/10 via-primary to-primary/10 opacity-0 transition-opacity duration-300 group-hover/button:opacity-100 motion-reduce:transition-none"
+            ></span>
             View More
             <ArrowR
               class="ml-2 size-4 transition-all duration-100 group-hover:translate-x-1 motion-reduce:transition-none"
             />
-          </Button>
+            <span
+              class="absolute -bottom-px left-[20%] h-px w-[60%] bg-gradient-to-r from-primary/10 via-primary to-primary/10 transition-opacity duration-300 group-hover/button:opacity-0 motion-reduce:transition-none"
+            ></span>
+          </a>
         </div>
       </section>
     </main>
@@ -202,15 +213,21 @@ import ArrowR from "@/components/icons/arrow-r.astro";
   const threshold = 0.75;
 
   const changeNav = (entries: any[], observer: any) => {
-    entries.forEach((entry: { isIntersecting: any; intersectionRatio: number; target: { getAttribute: (arg0: string) => any; }; }) => {
-      if (entry.isIntersecting && entry.intersectionRatio >= threshold) {
-        document.querySelector(".active")?.classList.remove("active");
-        const id = entry.target.getAttribute("id");
-        const newLink = document
-          ?.querySelector(`[href="#${id}"]`)
-          ?.classList.add("active");
-      }
-    });
+    entries.forEach(
+      (entry: {
+        isIntersecting: any;
+        intersectionRatio: number;
+        target: { getAttribute: (arg0: string) => any };
+      }) => {
+        if (entry.isIntersecting && entry.intersectionRatio >= threshold) {
+          document.querySelector(".active")?.classList.remove("active");
+          const id = entry.target.getAttribute("id");
+          const newLink = document
+            ?.querySelector(`[href="#${id}"]`)
+            ?.classList.add("active");
+        }
+      },
+    );
   };
 
   const options = {

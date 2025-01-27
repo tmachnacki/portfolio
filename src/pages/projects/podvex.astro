@@ -17,28 +17,105 @@ import Live from "@/components/icons/live.astro";
 import { ProjectAccordion } from "@/components/project-details/project-accordion";
 import Skill from "@/components/skill.astro";
 import TechStack from "@/components/project-details/tech-stack.astro";
-import AccordionItem from "@/components/ui/accordion-item.astro";
+import AccordionItem from "@/components/project-details/accordion-item.astro";
 import PageTitle from "@/components/page-title.astro";
+import ArrowL from "@/components/icons/arrow-l.astro";
 
 const {
   title,
-  subtitle,
   description,
-  features,
   thumbnail,
   images,
   skills,
+  features,
   actions,
 } = PROJECTS[0];
 ---
 
 <Layout title={`${title} | Tim Machnacki`}>
-  <!-- back -->
-  <a href="/" class="absolute left-0 top-0">Back</a>
-
-  <main class="page-container w-full md:grid md:grid-cols-10 md:gap-12">
+  <main
+    class="page-container relative w-full lg:grid lg:grid-cols-10 lg:gap-12"
+  >
     <!-- left column -->
-    <section class="w-full md:col-span-7">
+    <section class="w-full lg:col-span-3 lg:py-24">
+      <div class="mb-16 scroll-mt-16">
+        <a
+          href="/"
+          class="group inline-flex w-max items-center gap-2 text-base text-muted-foreground hover:text-foreground hover:underline"
+          data-astro-prefetch
+        >
+          <ArrowL
+            class="size-4 transition-transform duration-100 group-hover:-translate-x-1 motion-reduce:transition-none"
+          />
+          Tim Machnacki
+        </a>
+        <PageTitle class="mb-2">{title}</PageTitle>
+        <p class="hidden text-base text-muted-foreground md:block">
+          {description}
+        </p>
+
+        {
+          actions && (
+            <ul class="flex items-center gap-2 mt-6">
+              {actions?.source && (
+                <li>
+                  <Button
+                    as={"a"}
+                    variant={"outline"}
+                    class={
+                      "group/action relative w-full rounded-full transition"
+                    }
+                    href={actions?.source}
+                    target={"_blank"}
+                  >
+                    <Github class={"mr-2 size-4"} />
+                    Source
+                  </Button>
+                </li>
+              )}
+              {actions?.demo && (
+                <li>
+                  <Button
+                    as={"a"}
+                    variant={"outline"}
+                    class={
+                      "group/action relative w-full rounded-full transition"
+                    }
+                    href={actions?.demo}
+                    target={"_blank"}
+                  >
+                    <Live class={"mr-2 size-4"} />
+                    Demo
+                  </Button>
+                </li>
+              )}
+            </ul>
+          )
+        }
+
+        <ProjectAccordion
+          accordionClassName="mt-6"
+          features={features}
+          client:load
+        >
+          <TechStack skills={skills} slot={"tech"} />
+        </ProjectAccordion>
+
+        <!-- <div class="relative z-10 w-full mt-6">
+          <AccordionItem
+            id="accordion-item-1"
+            triggerId="accordion-trigger-1"
+            contentId="accordion-content-1"
+          >
+            <span slot="trigger">Tech Stack</span>
+            <TechStack skills={skills} slot={"content"} />
+          </AccordionItem>
+        </div> -->
+      </div>
+    </section>
+
+    <!-- right column -->
+    <section class="w-full lg:col-span-7">
       <!-- <h1 class="lg:hidden text-2xl">{title}</h1> -->
       <!-- <p class="lg:hidden text-zinc-500 text-base">{description}</p> -->
 
@@ -53,58 +130,5 @@ const {
         />
       </div>
     </section>
-
-    <!-- right column -->
-    <section class="w-full md:col-span-3 lg:py-24">
-      <div class="mb-16 scroll-mt-16">
-        <PageTitle class="">{title}</PageTitle>
-        <p class="hidden text-lg text-zinc-500 md:block">{description}</p>
-
-        {
-          actions?.source && (
-            <Button
-              as={"a"}
-              variant={"outline"}
-              class={"group/action relative w-full rounded-full transition"}
-              href={actions?.source}
-              target={"_blank"}
-            >
-              <Github class={"mr-2 size-4"} />
-              Source
-            </Button>
-          )
-        }
-        {
-          actions?.demo && (
-            <Button
-              as={"a"}
-              variant={"outline"}
-              class={"group/action relative w-full rounded-full transition"}
-              href={actions?.demo}
-              target={"_blank"}
-            >
-              <Live class={"mr-2 size-4"} />
-              Demo
-            </Button>
-          )
-        }
-
-        <!-- <ProjectAccordion>
-          <TechStack skills={skills} slot={"tech-stack"} />
-        </ProjectAccordion> -->
-        <div class="relative z-10 w-full">
-          <AccordionItem
-            id="accordion-item-1"
-            triggerId="accordion-trigger-1"
-            contentId="accordion-content-1"
-          >
-            <span slot="trigger">Tech Stack</span>
-            <TechStack skills={skills} slot={"content"} />
-          </AccordionItem>
-        </div>
-      </div>
-    </section>
   </main>
 </Layout>
-
-<!-- <script></script> -->

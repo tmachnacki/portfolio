@@ -1,18 +1,20 @@
+import type { ProjectSkill } from "@/data/projects";
+
 import { cn } from "@/lib/utils";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "../ui/accordion";
+} from "@/components/ui/accordion";
 
 export interface ProjectAccordionProps {
   accordionClassName?: string;
   accordionItemClassName?: string;
   accordionTriggerClassName?: string;
   accordionContentClassName?: string;
-  techStack?: React.ReactNode;
-  features?: React.ReactNode;
+  tech?: any;
+  features?: string[];
 }
 
 export const ProjectAccordion = ({
@@ -20,7 +22,7 @@ export const ProjectAccordion = ({
   accordionItemClassName,
   accordionTriggerClassName,
   accordionContentClassName,
-  techStack,
+  tech,
   features,
 }: ProjectAccordionProps) => {
   return (
@@ -28,13 +30,13 @@ export const ProjectAccordion = ({
       className={cn("relative z-10", accordionClassName)}
       type="multiple"
     >
-      {techStack && (
+      {tech && (
         <AccordionItem value="tech-stack" className={accordionItemClassName}>
           <AccordionTrigger className={accordionTriggerClassName}>
             Tech Stack
           </AccordionTrigger>
           <AccordionContent className={accordionContentClassName}>
-            {techStack}
+            {tech}
           </AccordionContent>
         </AccordionItem>
       )}
@@ -45,7 +47,11 @@ export const ProjectAccordion = ({
             Features
           </AccordionTrigger>
           <AccordionContent className={accordionContentClassName}>
-            {features}
+            <ul>
+              {features.map((feature) => (
+                <li key={feature}>{feature}</li>
+              ))}
+            </ul>
           </AccordionContent>
         </AccordionItem>
       )}

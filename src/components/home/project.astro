@@ -12,6 +12,7 @@ import Source from "../icons/source.astro";
 import SquareTr from "../icons/square-tr.astro";
 import Github from "../icons/github.astro";
 import Planet from "../ui/planet.astro";
+import { planetClassNames } from "../ui/planet.astro";
 import Live from "../icons/live.astro";
 import ArrowTr from "../icons/arrow-tr.astro";
 import More from "../icons/more.astro";
@@ -33,7 +34,7 @@ const {
 
 <Card class="">
   <div
-    class="relative z-10 mb-2 mt-1 hidden h-max overflow-hidden rounded-sm border border-border lg:group-hover:border-zinc-600 sm:col-span-2 sm:block"
+    class="relative z-10 mb-2 mt-1 hidden h-max overflow-hidden rounded-sm border border-border transition duration-100 motion-reduce:transition-none sm:col-span-2 sm:block lg:group-hover:border-zinc-600"
   >
     <Image
       src={thumbnail!}
@@ -102,7 +103,7 @@ const {
             <li class="mr-1.5 mt-2">
               <Skill
                 label={skill.name}
-                class="transition duration-100 lg:group-hover:border-primary/50 lg:group-hover:shadow-md lg:group-hover:shadow-primary/20"
+                class="lg:group-hover:border-primary/50 lg:group-hover:bg-background lg:group-hover:shadow-md lg:group-hover:shadow-primary/20"
               />
             </li>
           ))}
@@ -151,18 +152,17 @@ const {
 
           {actions.details && (
             <li>
-              <Planet
-                as={"a"}
+              <a
                 href={actions.details}
-                class={
-                  "size-9 transition duration-100 hover:!opacity-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring group-hover/actions:opacity-50 motion-reduce:transition-none"
-                }
+                class={planetClassNames(
+                  "size-9 transition duration-100 hover:!opacity-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring group-hover/actions:opacity-50 motion-reduce:transition-none",
+                )}
                 aria-label={`${title} project details page`}
                 title={"More Details"}
                 data-astro-prefetch
               >
                 <ArrowR class="size-[18px]" />
-              </Planet>
+              </a>
             </li>
           )}
         </ul>

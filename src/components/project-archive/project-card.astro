@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import type { ProjectProps as Props } from "@/data/projects";
 
 import Button from "../ui/button.astro";
+import { buttonVariants } from "../ui/button.astro";
 import Github from "../icons/github.astro";
 import Live from "../icons/live.astro";
 import FileText from "../icons/file-text.astro";
@@ -24,7 +25,7 @@ const {
 ---
 
 <div
-  class={"group h-full relative block transition-all lg:hover:!opacity-100 lg:group-hover/list:opacity-50 rounded-md p-4 sm:p-6 bg-gradient-to-b from-zinc-500/20 to-zinc-900/50 shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:backdrop-blur-md hover:drop-shadow-lg motion-reduce:transition-none duration-200"}
+  class={"group h-full relative block transition-all lg:hover:!opacity-100 lg:group-hover/list:opacity-50 rounded-md p-4 sm:p-6 bg-gradient-to-b from-zinc-500/20 to-zinc-900/50 shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] hover:backdrop-blur-md hover:drop-shadow-lg motion-reduce:transition-none duration-100"}
 >
   <span
     class="duration-400 absolute -top-0 left-[0.5rem] z-10 block h-px w-[calc(100%-1rem)] bg-gradient-to-r from-primary/10 via-primary to-primary/10 opacity-0 transition-opacity group-hover:opacity-100 motion-reduce:transition-none"
@@ -35,7 +36,7 @@ const {
   <div class="flex h-full flex-col justify-between">
     <header class="mb-6 flex-grow">
       <div
-        class="aspect-16/9 mb-6 flex h-auto w-full items-center justify-center overflow-hidden rounded-md border transition-all duration-200 group-hover:border-zinc-700 motion-reduce:transition-none"
+        class="mb-6 flex aspect-16/9 h-auto w-full items-center justify-center overflow-hidden rounded-md border transition-all duration-100 group-hover:border-zinc-700 motion-reduce:transition-none"
       >
         <Image
           src={thumbnailWide}
@@ -43,6 +44,8 @@ const {
           class={"h-auto w-full object-cover object-center aspect-16/9"}
           width={1920}
           height={1080}
+          loading={"eager"}
+          decoding={"sync"}
         />
       </div>
 
@@ -89,18 +92,15 @@ const {
               )}
               {actions.details && (
                 <li>
-                  <Button
-                    as={"a"}
+                  <a
                     href={actions.details}
-                    variant={"outline"}
-                    size={"iconXs"}
-                    class={"bg-background/80"}
+                    class={buttonVariants({ variant: "outline", size: "iconXs", gradient: "default", class: "bg-background/80" })}
                     aria-label={`${title} project details page`}
                     title={"More Details"}
                     data-astro-prefetch
                   >
                     <ArrowR class="size-4" />
-                  </Button>
+                  </a>
                 </li>
               )}
               {actions.writeup && (
@@ -149,7 +149,7 @@ const {
         skills && (
           <ul class="flex flex-wrap gap-1.5">
             {skills.map((skill) => (
-              <li class="inline-flex h-5 items-center rounded-full border px-2 text-xs text-muted-foreground group-hover:border-primary/30">
+              <li class="inline-flex h-5 items-center rounded-full border px-2 text-xs text-muted-foreground group-hover:border-primary/50">
                 {skill.name}
               </li>
             ))}

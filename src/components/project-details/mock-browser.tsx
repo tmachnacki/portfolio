@@ -14,11 +14,12 @@ export const MockBrowser = ({
   return (
     <div
       className={cn(
-        "w-full rounded-lg border border-border bg-background/50 backdrop-blur overflow-hidden",
+        "w-full rounded-lg border border-border bg-transparent backdrop-blur overflow-hidden",
         className
       )}
       {...props}
       aria-label="Browser mockup"
+      draggable={false}
     >
       <div className="relative w-full h-10 bg-border flex items-center gap-4 justify-between sm:justify-center px-4 ">
         <div className="sm:absolute sm:left-4 sm:top-1/2 sm:-translate-y-[50%] flex items-center gap-2">
