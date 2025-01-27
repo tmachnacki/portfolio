@@ -1,8 +1,7 @@
 ---
 import "@/styles/globals.css";
 import "@fontsource-variable/geist";
-import "@fontsource-variable/geist-mono";
-import geist from "@fontsource-variable/geist/files/geist-latin-wght-normal.woff2?url";
+import geistWoff2 from "@fontsource-variable/geist/files/geist-latin-wght-normal.woff2";
 
 import Grid from "@/components/grid.astro";
 import Particles from "@/components/particles";
@@ -26,7 +25,7 @@ const { title } = Astro.props;
       rel="preload"
       as="font"
       type="font/woff2"
-      href={geist}
+      href={geistWoff2}
       crossorigin="anonymous"
     />
 
@@ -52,6 +51,10 @@ const { title } = Astro.props;
     <slot />
   </body>
   <style is:global>
+    :root {
+      font-family: "Geist Variable", sans-serif;
+    }
+
     *::-webkit-scrollbar {
       width: 8px;
       height: 8px;
