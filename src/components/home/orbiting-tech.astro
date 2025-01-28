@@ -2,11 +2,13 @@
 import OrbitingCircles from "@/components/home/orbiting-circles";
 import React from "../icons/tech/react.astro";
 import Tailwind from "../icons/tech/tailwind.astro";
+import Shadcn from "../icons/tech/shadcn.astro";
 import Next from "../icons/tech/next.astro";
 import Typescript from "../icons/tech/typescript.astro";
 import AstroIcon from "../icons/tech/astro-icon.astro";
 import Firebase from "../icons/tech/firebase.astro";
 import Mongo from "../icons/tech/mongo.astro";
+import Node from "../icons/tech/node.astro";
 
 const pathClassName = "stroke-primary/20 z-10 animate-pulse";
 const circleClassName =
@@ -14,28 +16,28 @@ const circleClassName =
 ---
 
 <div
-  class="relative flex h-[400px] w-full flex-col items-center justify-center overflow-hidden bg-transparent"
+  class="relative z-20 flex h-[360px] w-full flex-col items-center justify-center overflow-visible bg-transparent"
 >
   {/* Inner Circles */}
   <OrbitingCircles
-    className={`circle-inner size-12 from-fuchsia-500 ${circleClassName}`}
+    className={`circle-inner size-12 from-zinc-400 ${circleClassName}`}
     duration={20}
-    radius={80}
+    radius={60}
     delay={7}
     angle={120}
     pathClassName={pathClassName}
-    tooltipLabel="Astro"
-    tooltipGradientClassName="via-fuchsia-500 shadow-md shadow-fuchsia-500/50"
+    tooltipLabel="shadcn/ui"
+    tooltipGradientClassName="via-zinc-400 shadow-md shadow-zinc-400/50"
     client:load
   >
-    <AstroIcon class="size-6" />
+    <Shadcn class="size-6" />
   </OrbitingCircles>
 
   <OrbitingCircles
     className={`circle-inner size-12 from-cyan-600 ${circleClassName}`}
     duration={20}
     delay={14}
-    radius={80}
+    radius={60}
     angle={240}
     pathClassName={pathClassName}
     tooltipLabel="React"
@@ -49,7 +51,7 @@ const circleClassName =
     className={`circle-inner size-12 from-sky-500 ${circleClassName}`}
     duration={20}
     delay={21}
-    radius={80}
+    radius={60}
     angle={360}
     pathClassName={pathClassName}
     tooltipLabel="TailwindCSS"
@@ -62,7 +64,7 @@ const circleClassName =
   {/* Outer Circles (reverse) */}
   <OrbitingCircles
     className={`circle-outer size-12 from-blue-500 ${circleClassName}`}
-    radius={170}
+    radius={140}
     duration={20}
     delay={5}
     reverse
@@ -76,7 +78,7 @@ const circleClassName =
 
   <OrbitingCircles
     className={`circle-outer size-12 from-zinc-400 ${circleClassName}`}
-    radius={170}
+    radius={140}
     duration={20}
     delay={10}
     reverse
@@ -89,31 +91,31 @@ const circleClassName =
   </OrbitingCircles>
 
   <OrbitingCircles
-    className={`circle-outer size-12 from-yellow-500 ${circleClassName}`}
-    radius={170}
+    className={`circle-outer size-12 from-fuchsia-500 ${circleClassName}`}
+    radius={140}
     duration={20}
     delay={15}
     reverse
     pathClassName={pathClassName}
-    tooltipLabel="Firebase"
-    tooltipGradientClassName="via-yellow-500 shadow-md shadow-yellow-500/50"
+    tooltipLabel="Astro"
+    tooltipGradientClassName="via-fuchsia-500 shadow-md shadow-fuchsia-500/50"
     client:load
   >
-    <Firebase class="size-6" />
+    <AstroIcon class="size-6" />
   </OrbitingCircles>
 
   <OrbitingCircles
-    className={`circle-outer size-12 from-green-500 ${circleClassName}`}
-    radius={170}
+    className={`circle-outer size-12 from-lime-500 ${circleClassName}`}
+    radius={140}
     duration={20}
     delay={20}
     reverse
     pathClassName={pathClassName}
-    tooltipLabel="MongoDB"
-    tooltipGradientClassName="via-green-500 shadow-md shadow-green-500/50"
+    tooltipLabel="NodeJS"
+    tooltipGradientClassName="via-lime-500 shadow-md shadow-lime-500/50"
     client:load
   >
-    <Mongo class="size-7 fill-green-600 stroke-green-900" />
+    <Node class="size-6" />
   </OrbitingCircles>
 </div>
 

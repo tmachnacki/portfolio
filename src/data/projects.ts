@@ -1,13 +1,3 @@
-// icons
-import Typescript from "@/components/icons/tech/typescript.astro";
-import React from "@/components/icons/tech/react.astro";
-import NextJS from "@/components/icons/tech/next.astro";
-import TailwindCSS from "@/components/icons/tech/tailwind.astro";
-import Shadcn from "@/components/icons/tech/shadcn.astro";
-import Convex from "@/components/icons/tech/convex.astro";
-import Stripe from "@/components/icons/tech/stripe.png";
-import Vercel from "@/components/icons/tech/vercel.astro";
-
 // podvex assets
 import Account_PV from "@/assets/podvex/account.webp";
 import Billing_PV from "@/assets/podvex/billing.webp";
@@ -157,17 +147,14 @@ export const PROJECTS: ProjectProps[] = [
       {
         name: "TypeScript",
         description: "Less bad JavaScript",
-        icon: Typescript,
       },
       {
         name: "React",
         description: "UI framework",
-        icon: React,
       },
       {
         name: "NextJS",
         description: "Fullstack React framework",
-        icon: NextJS,
       },
       {
         name: "Tailwind CSS",
@@ -176,7 +163,6 @@ export const PROJECTS: ProjectProps[] = [
       {
         name: "shadcn/ui",
         description: "Components",
-        icon: Shadcn,
       },
       {
         name: "Convex",
@@ -189,7 +175,6 @@ export const PROJECTS: ProjectProps[] = [
       {
         name: "Stripe",
         description: "Payment processing",
-        icon: Stripe,
       },
       {
         name: "Unreal Speech AI",
@@ -198,7 +183,6 @@ export const PROJECTS: ProjectProps[] = [
       {
         name: "Vercel",
         description: "Hosting",
-        icon: Vercel,
       },
     ],
     actions: {

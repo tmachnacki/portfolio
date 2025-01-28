@@ -33,13 +33,9 @@ import { cn } from "@/lib/utils";
 <Layout>
   <!-- background effects-->
   <div
-    class="absolute inset-0 flex h-[500px] w-full items-center justify-center lg:fixed"
+    class="absolute inset-0 flex h-[500px] w-full items-center justify-center overflow-hidden lg:fixed"
   >
-    <Spotlight
-      fill="var(--indigo-300)"
-      className="absolute -z-10"
-      client:idle
-    />
+    <Spotlight fill="var(--indigo-300)" client:idle />
   </div>
 
   <div

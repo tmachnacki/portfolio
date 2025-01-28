@@ -19,7 +19,7 @@ const { title } = Astro.props;
       name="description"
       content="Tim Machnacki's frontend software engineer portfolio"
     />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link
       rel="preload"
@@ -31,11 +31,13 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title ? title : "Tim Machnacki"}</title>
   </head>
-  <body class="custom-scrollbar no-scrollbar relative z-10 bg-background font-sans text-foreground antialiased">
+  <body
+    class="custom-scrollbar no-scrollbar relative z-10 bg-background font-sans text-foreground antialiased"
+  >
     <Particles
       client:idle
       color="#4338ca"
-      className="fixed z-0 h-full w-full"
+      className="fixed z-0 h-full w-full overflow-hidden"
     />
     <div
       class="absolute inset-0 -z-10 flex h-[500px] w-full items-center justify-center lg:fixed"
@@ -49,3 +51,47 @@ const { title } = Astro.props;
     <slot />
   </body>
 </html>
+
+<style is:global>
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: #3f3f46;
+    border-radius: 8px;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: #52525b;
+  }
+
+  *::-webkit-scrollbar-thumb:active {
+    background: #71717a;
+  }
+
+  .scrollbar-opacity-0::-webkit-scrollbar-thumb {
+    opacity: 0;
+    transition: opacity;
+  }
+
+  .scrollbar-opacity-100::-webkit-scrollbar-thumb {
+    opacity: 1;
+    transition: opacity;
+  }
+
+  .no-visible-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .no-visible-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+</style>
