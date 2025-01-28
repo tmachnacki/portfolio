@@ -166,7 +166,7 @@ export const PROJECTS: ProjectProps[] = [
       },
       {
         name: "Convex",
-        description: "Real-time backend",
+        description: "Real-time TS backend",
       },
       {
         name: "Clerk",
@@ -184,6 +184,17 @@ export const PROJECTS: ProjectProps[] = [
         name: "Vercel",
         description: "Hosting",
       },
+    ],
+    features: [
+      "Light and dark modes",
+      "Responsive design",
+      "Robust authentication",
+      "Podcast playback controls",
+      "Functional searching",
+      "Form validation",
+      "Image uploads",
+      "Multi-voice AI text-to-speech",
+
     ],
     actions: {
       demo: "https://podvex.vercel.app/",

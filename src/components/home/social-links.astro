@@ -11,6 +11,7 @@ const { class: className, ...props } = Astro.props;
 <ul class={cn("flex flex-shrink-0 items-center gap-4", className)} {...props}>
   <li>
     <Button
+      variant={"outline"}
       gradient={"primary"}
       as={"a"}
       class={"rounded-full px-5"}
@@ -46,7 +47,7 @@ const { class: className, ...props } = Astro.props;
       href="mailto:machnackit@gmail.com"
       target="_blank"
       aria-label="Email Tim Machnacki"
-      title="Email"
+      title="Email: machnackit@gmail.com"
     >
       <Envelope class={"size-6 text-muted-foreground hover:text-foreground"} />
     </a>

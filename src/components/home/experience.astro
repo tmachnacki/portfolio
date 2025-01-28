@@ -65,17 +65,19 @@ const { timePeriod, logo, badge, title, company, companyUrl, bullets, skills } =
         ))
       }
     </ul>
-    <ul class="flex flex-wrap" aria-label="Technologies used">
-      {
-        skills.map((skill) => (
-          <li class="mr-1.5 mt-2">
-            <Skill
-              label={skill}
-              class="lg:group-hover:border-primary/50 lg:group-hover:bg-background lg:group-hover:shadow-md lg:group-hover:shadow-primary/20"
-            />
-          </li>
-        ))
-      }
-    </ul>
+    {
+      skills && (
+        <ul class="flex flex-wrap" aria-label="Technologies used">
+          {skills.map((skill) => (
+            <li class="mr-1.5 mt-2">
+              <Skill
+                label={skill}
+                class="lg:group-hover:border-primary/50 lg:group-hover:bg-background lg:group-hover:shadow-md lg:group-hover:shadow-primary/20"
+              />
+            </li>
+          ))}
+        </ul>
+      )
+    }
   </div>
 </Card>

@@ -1,0 +1,57 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import ChevronRight from "@/components/icons/chevron-r.astro";
+
+interface Props extends HTMLAttributes<"header"> {
+  links: {
+    title: string;
+    href: string;
+    current: boolean;
+  }[];
+}
+
+const { links, class: className, ...props } = Astro.props;
+---
+
+<header class={className} {...props}>
+  <nav aria-label="Breadcrumb">
+    <ol
+      class="flex flex-wrap items-center gap-1.5 break-words text-sm text-muted-foreground sm:gap-2.5"
+    >
+      {
+        links.map((link, i) => {
+          const isLast = i === links.length - 1;
+
+          return (
+            <Fragment>
+              <li class="flex items-center gap-1.5">
+                {link.current ? (
+                  <span
+                    role="link"
+                    aria-disabled="true"
+                    aria-current="page"
+                    class="font-normal text-foreground"
+                  >
+                    {link.title}
+                  </span>
+                ) : (
+                  <a
+                    href={link.href}
+                    class="transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring motion-reduce:transition-none"
+                  >
+                    {link.title}
+                  </a>
+                )}
+              </li>
+              {!isLast && (
+                <li role="presentation" aria-hidden="true">
+                  <ChevronRight class="size-3.5 text-muted-foreground/80" />
+                </li>
+              )}
+            </Fragment>
+          );
+        })
+      }
+    </ol>
+  </nav>
+</header>

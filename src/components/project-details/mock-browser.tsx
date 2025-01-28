@@ -14,7 +14,7 @@ export const MockBrowser = ({
   return (
     <div
       className={cn(
-        "w-full rounded-lg border border-border bg-transparent backdrop-blur overflow-hidden",
+        "w-full rounded-lg bg-transparent backdrop-blur border",
         className
       )}
       {...props}

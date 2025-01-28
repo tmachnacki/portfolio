@@ -13,6 +13,9 @@ import NextJS from "@/components/icons/tech/next.astro";
 import Shadcn from "@/components/icons/tech/shadcn.astro";
 import Convex from "@/components/icons/tech/convex.astro";
 import Stripe from "@/components/icons/tech/stripe.png";
+import Clerk from "@/components/icons/tech/clerk.png";
+import AI from "@/components/icons/tech/ai.astro";
+import Vercel from "@/components/icons/tech/vercel.astro";
 
 interface Props {
   skills?: ProjectSkill[];
@@ -53,7 +56,7 @@ const { skills, ...props } = Astro.props;
           )}
           {skill.name === "Convex" && (
             <Planet class="size-10 from-orange-600">
-              <Convex class="size-5" />
+              <Convex class="size-7" />
             </Planet>
           )}
           {skill.name === "Stripe" && (
@@ -63,6 +66,26 @@ const { skills, ...props } = Astro.props;
                 alt="Stripe logo"
                 class="aspect-square size-5 rounded-sm"
               />
+            </Planet>
+          )}
+          {skill.name === "Clerk" && (
+            <Planet class="size-10 from-zinc-400">
+              <Image
+                src={Clerk}
+                alt="Clerk logo"
+                class="aspect-square size-5 rounded-sm"
+              />
+            </Planet>
+          )}
+          {skill.name === "Vercel" && (
+            <Planet class="size-10 from-zinc-400">
+              <Vercel class="size-4 -translate-y-0.5" />
+            </Planet>
+          )}
+
+          {skill.name === "Unreal Speech AI" && (
+            <Planet class="size-10 from-zinc-400">
+              <AI class="size-5" />
             </Planet>
           )}
 

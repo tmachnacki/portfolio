@@ -2,12 +2,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MockBrowser } from "./mock-browser.tsx";
 import type { ProjectImage } from "@/data/projects";
 import { Compare } from "./compare.tsx";
-import {
-  Tooltip,
-  TooltipProvider,
-  TooltipTrigger,
-  TooltipContent,
-} from "@/components/ui/tooltip";
 import { useEffect, useRef, useState, type UIEvent } from "react";
 import { cn } from "@/lib/utils";
 
@@ -53,10 +47,10 @@ export const ImageTabs = ({
         <TabsContent
           value={image.label}
           key={`${image.label}-content`}
-          className="overflow-hidden"
+          className="overflow-hidden rounded-lg"
         >
           <MockBrowser url={projectUrl}>
-            <div className="m-0 aspect-4/3 h-auto w-full overflow-hidden rounded-b-lg animate-in fade-in-0" draggable={false}>
+            <div className="m-0 aspect-4/3 h-auto w-full overflow-hidden rounded-b-lg animate-in fade-in-0 duration-300 motion-reduce:transition-none motion-reduce:animate-none" draggable={false}>
               {image.compare && image.compareImages ? (
                 <Compare
                   firstImage={image.compareImages.imageOne}
@@ -69,8 +63,6 @@ export const ImageTabs = ({
                   src={image.image.src}
                   alt={image.label}
                   className="w-full h-auto object-cover object-center"
-                  // width={1600}
-                  // height={1200}
                   draggable={false}
                 />
               )}
@@ -78,15 +70,6 @@ export const ImageTabs = ({
           </MockBrowser>
         </TabsContent>
       ))}
-
-      {/* <TooltipProvider delayDuration={400}>
-        <Tooltip key={`${image.label}-trigger`}>
-          <TooltipTrigger asChild></TooltipTrigger>
-          <TooltipContent side="bottom" sideOffset={8}>
-            {image.label}
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider> */}
 
       <div className="relative w-full" draggable={false}>
         <span
@@ -114,15 +97,14 @@ export const ImageTabs = ({
         >
           {images.map((image) => (
             <TabsTrigger
-              className="m-0 flex w-24 shrink-0 grow-0 flex-col space-y-2 p-0 hover:ring-2 hover:ring-ring/50"
+              className="m-0 flex w-24 shrink-0 grow-0 flex-col space-y-2 p-0 hover:ring-1 hover:ring-ring/50 group"
               value={image.label}
               draggable={false}
               title={image.label}
               key={`${image.label}-trigger`}
             >
-              {/* <p className="text-xs text-muted-foreground block">{image.label}</p> */}
               <div
-                className="block aspect-4/3 h-auto w-full overflow-hidden rounded-sm"
+                className="block aspect-4/3 h-auto w-full overflow-hidden rounded-sm group-data-[state=active]:ring-1 group-data-[state=active]:ring-ring"
                 draggable={false}
               >
                 <img
@@ -130,8 +112,6 @@ export const ImageTabs = ({
                   alt={image.label}
                   className="w-full h-auto object-cover object-center"
                   draggable={false}
-                  // width={400}
-                  // height={300}
                 />
               </div>
             </TabsTrigger>

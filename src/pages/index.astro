@@ -39,11 +39,11 @@ import { cn } from "@/lib/utils";
   </div>
 
   <div
-    class="page-container relative min-h-svh lg:grid lg:grid-cols-10 lg:gap-24"
+    class={cn("page-container relative min-h-svh lg:grid lg:grid-cols-10 lg:gap-24", "pt-12 lg:pt-0")}
   >
     <!-- hero -->
     <header
-      class="relative w-full lg:sticky lg:top-0 lg:col-span-4 lg:flex lg:max-h-screen lg:flex-col lg:justify-between lg:py-24"
+      class="relative w-full lg:sticky lg:top-0 lg:col-span-4 lg:flex lg:max-h-svh lg:flex-col lg:justify-between lg:py-24"
     >
       <div class="relative flex flex-col items-start gap-12 text-left">
         <div class="flex flex-row gap-6">
@@ -120,7 +120,7 @@ import { cn } from "@/lib/utils";
     </header>
 
     <!-- content -->
-    <main class="relative w-full py-24 lg:col-span-6">
+    <main class="relative w-full pt-24 lg:col-span-6 lg:py-24">
       <!-- about -->
       <section
         id="skills"
@@ -142,8 +142,42 @@ import { cn } from "@/lib/utils";
         data-observable="true"
       >
         <SectionHeader title="Experience" />
+
+        <!-- tabs -->
+        <div
+          role="tablist"
+          class="mb-8 grid h-10 w-full grid-cols-2 gap-1 rounded-md bg-muted p-1 text-muted-foreground backdrop-blur"
+        >
+          <button
+            id="work-tab"
+            role="tab"
+            aria-selected="true"
+            aria-controls="work-panel"
+            tabindex="0"
+            class="inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 aria-selected:bg-background aria-selected:text-foreground aria-selected:shadow-sm motion-reduce:transition-none"
+          >
+            Work
+          </button>
+          <button
+            id="education-tab"
+            role="tab"
+            aria-selected="false"
+            aria-controls="education-panel"
+            tabindex="-1"
+            class="inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 aria-selected:bg-background aria-selected:text-foreground aria-selected:shadow-sm motion-reduce:transition-none"
+          >
+            Education
+          </button>
+        </div>
+
         <!-- experience cards -->
-        <ol class="group/list space-y-16 lg:space-y-8">
+        <ol
+          id="work-panel"
+          role="tabpanel"
+          aria-labelledby="work-tab"
+          tabindex="0"
+          class="group/list space-y-16 lg:space-y-8"
+        >
           {
             EXPERIENCE.map((experience) => (
               <li id={experience.company}>
@@ -152,6 +186,24 @@ import { cn } from "@/lib/utils";
             ))
           }
         </ol>
+
+        <!-- education -->
+        <div
+          id="education-panel"
+          role="tabpanel"
+          aria-labelledby="education-tab"
+          tabindex="0"
+          class="hidden"
+          hidden
+        >
+          <Experience
+            timePeriod="2018 - 2022"
+            title="B.S., Computer Science"
+            company="University of Michigan"
+            companyUrl="https://umich.edu"
+            bullets={["Men's Club Lacrosse"]}
+          />
+        </div>
       </section>
 
       <!-- Projects -->
@@ -236,4 +288,73 @@ import { cn } from "@/lib/utils";
   sections.forEach((section) => {
     observer.observe(section);
   });
+</script>
+
+<!-- accessible tabs: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tab_role -->
+<script is:inline>
+  window.addEventListener("DOMContentLoaded", () => {
+    // Only handle one particular tablist; if you have multiple tab
+    // lists (might even be nested), you have to apply this code for each one
+    const tabList = document.querySelector('[role="tablist"]');
+    const tabs = tabList.querySelectorAll(':scope > [role="tab"]');
+
+    // Add a click event handler to each tab
+    tabs?.forEach((tab) => {
+      tab.addEventListener("click", changeTabs);
+    });
+
+    // Enable arrow navigation between tabs in the tab list
+    let tabFocus = 0;
+
+    tabList?.addEventListener("keydown", (e) => {
+      // Move right
+      if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+        tabs[tabFocus].setAttribute("tabindex", -1);
+        if (e.key === "ArrowRight") {
+          tabFocus++;
+          // If we're at the end, go to the start
+          if (tabFocus >= tabs.length) {
+            tabFocus = 0;
+          }
+          // Move left
+        } else if (e.key === "ArrowLeft") {
+          tabFocus--;
+          // If we're at the start, move to the end
+          if (tabFocus < 0) {
+            tabFocus = tabs.length - 1;
+          }
+        }
+
+        tabs[tabFocus].setAttribute("tabindex", 0);
+        tabs[tabFocus].focus();
+      }
+    });
+  });
+
+  function changeTabs(e) {
+    const targetTab = e.target;
+    const tabList = targetTab.parentNode;
+    const tabGroup = tabList.parentNode;
+
+    // Remove all current selected tabs
+    tabList
+      .querySelectorAll(':scope > [aria-selected="true"]')
+      .forEach((t) => t.setAttribute("aria-selected", false));
+
+    // Set this tab as selected
+    targetTab.setAttribute("aria-selected", true);
+
+    // Hide all tab panels
+    tabGroup.querySelectorAll(':scope > [role="tabpanel"]').forEach((p) => {
+      p.setAttribute("hidden", true);
+      p.classList.add("hidden");
+    });
+
+    // Show the selected panel
+    const currentPanel = tabGroup.querySelector(
+      `#${targetTab.getAttribute("aria-controls")}`,
+    );
+    currentPanel.removeAttribute("hidden");
+    currentPanel.classList.remove("hidden");
+  }
 </script>

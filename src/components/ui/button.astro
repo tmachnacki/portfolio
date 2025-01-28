@@ -8,7 +8,7 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default: "bg-foreground text-background hover:bg-foreground/90",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
@@ -29,7 +29,9 @@ export const buttonVariants = cva(
       },
       gradient: {
         default: "",
-        primary: "relative group/button bg-background/10 backdrop-blur-sm hover:bg-gradient-to-b hover:from-primary/10 hover:to-primary/0 hover:bg-transparent transition duration-300 border border-border hover:border-primary/30",
+        primary:
+          "relative group/button bg-background/10 backdrop-blur-sm hover:bg-gradient-to-b hover:from-primary/10 hover:to-primary/0 hover:bg-transparent transition duration-300 border border-border hover:border-primary/30",
+        zinc: "relative group/button bg-background/10 backdrop-blur-sm hover:bg-gradient-to-b hover:from-zinc-400/10 hover:to-zinc-400/0 hover:bg-transparent transition duration-300 border border-border hover:border-zinc-400/30",
       },
     },
     defaultVariants: {
@@ -40,8 +42,8 @@ export const buttonVariants = cva(
   },
 );
 
-type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & 
-  VariantProps<typeof buttonVariants>
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> &
+  VariantProps<typeof buttonVariants>;
 
 const {
   variant,
@@ -58,16 +60,30 @@ const {
   {...props}
 >
   {
-    gradient === "primary" && (
-      <span class="absolute -top-px left-[20%] h-px w-[60%] bg-gradient-to-r from-primary/10 via-primary to-primary/10 opacity-0 transition-opacity duration-300 group-hover/button:opacity-100 motion-reduce:transition-none" />
+    gradient && (
+      <span
+        class={cn(
+          "absolute -top-px left-[20%] h-px w-[60%] bg-gradient-to-r opacity-0 transition-opacity duration-300 group-hover/button:opacity-100 motion-reduce:transition-none",
+          gradient === "primary"
+            ? "from-primary/10 via-primary to-primary/10"
+            : "from-zinc-400/10 via-zinc-400 to-zinc-400/0",
+        )}
+      />
     )
   }
 
   <slot />
 
   {
-    gradient === "primary" && (
-      <span class="absolute -bottom-px left-[20%] h-px w-[60%] bg-gradient-to-r from-primary/10 via-primary to-primary/10 transition-opacity duration-300 group-hover/button:opacity-0 motion-reduce:transition-none" />
+    gradient && (
+      <span
+        class={cn(
+          "absolute -bottom-px left-[20%] h-px w-[60%] bg-gradient-to-r opacity-100 transition-opacity duration-300 group-hover/button:opacity-0 motion-reduce:transition-none",
+          gradient === "primary"
+            ? "from-primary/10 via-primary to-primary/10"
+            : "from-zinc-400/10 via-zinc-400 to-zinc-400/0",
+        )}
+      />
     )
   }
 </Tag>

@@ -32,7 +32,7 @@ const { title } = Astro.props;
     <title>{title ? title : "Tim Machnacki"}</title>
   </head>
   <body
-    class="custom-scrollbar no-scrollbar relative z-10 bg-background font-sans text-foreground antialiased"
+    class="custom-scrollbar no-scrollbar relative z-10 bg-background font-sans text-foreground antialiased min-w-[300px]"
   >
     <Particles
       client:idle

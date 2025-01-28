@@ -6,9 +6,9 @@ export interface ExperienceProps {
   badge?: string;
   title: string;
   company: string;
-  companyUrl: string;
+  companyUrl?: string;
   bullets: string[];
-  skills: string[];
+  skills?: string[];
 }
 
 export const EXPERIENCE: ExperienceProps[] = [

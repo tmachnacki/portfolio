@@ -7,38 +7,34 @@ import { PROJECTS } from "@/data/projects";
 import PageTitle from "@/components/page-title.astro";
 import ArrowL from "@/components/icons/arrow-l.astro";
 import ProjectCard from "@/components/project-archive/project-card.astro";
+import Breadcrumbs from "@/components/ui/breadcrumbs.astro";
 ---
 
 <Layout title="Projects | Tim Machnacki">
-  <div class="page-container relative min-h-svh lg:py-24">
-    <header class="mb-2 flex flex-col">
-      <a
-        href="/"
-        class="group inline-flex w-max items-center gap-2 text-base text-muted-foreground hover:text-foreground hover:underline"
-        data-astro-prefetch
-      >
-        <ArrowL
-          class="size-4 transition-transform duration-100 group-hover:-translate-x-1 motion-reduce:transition-none"
-        />
-        Tim Machnacki
-      </a>
-    </header>
-
-    <main class="w-full">
-      <article class="w-full">
-        <PageTitle class="mb-16">My Projects</PageTitle>
-        <ul
-          class="group/list grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
-        >
-          {
-            PROJECTS.map((project) => (
-              <li class="w-full" id={project.title}>
-                <ProjectCard {...project} />
-              </li>
-            ))
-          }
-        </ul>
-      </article>
-    </main>
+  <div class="absolute left-0 top-6 z-20 w-full lg:top-12">
+    <Breadcrumbs
+      links={[
+        { title: "Tim Machnacki", href: "/", current: false },
+        { title: "Projects", href: "/projects", current: true },
+      ]}
+      class={"relative w-full max-w-screen-xl mx-auto px-6 md:px-12 xl:px-20"}
+    />
   </div>
+
+  <main class="relative page-container w-full lg:py-24">
+    <article class="w-full">
+      <PageTitle class="mb-8 lg:mb-12">My Projects</PageTitle>
+      <ul
+        class="group/list grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
+      >
+        {
+          PROJECTS.map((project) => (
+            <li class="w-full" id={project.title}>
+              <ProjectCard {...project} />
+            </li>
+          ))
+        }
+      </ul>
+    </article>
+  </main>
 </Layout>
