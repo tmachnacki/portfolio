@@ -2,25 +2,19 @@
 import "@/styles/globals.css";
 import Layout from "@/layouts/Layout.astro";
 import { PROJECTS } from "@/data/projects";
-import { Image } from "astro:assets";
 import { ImageTabs } from "@/components/project-details/image-tabs";
+import { ProjectAccordion } from "@/components/project-details/project-accordion";
+import TechStack from "@/components/project-details/tech-stack.astro";
+import Features from "@/components/project-details/features.astro";
+
+import PageTitle from "@/components/page-title.astro";
 import Button from "@/components/ui/button.astro";
+import Breadcrumbs from "@/components/ui/breadcrumbs.astro";
+
 import Source from "@/components/icons/source.astro";
 import Github from "@/components/icons/github.astro";
 import Live from "@/components/icons/live.astro";
-// import {
-//   Accordion,
-//   AccordionContent,
-//   AccordionItem,
-//   AccordionTrigger,
-// } from "@/components/client/ui/accordion";
-import { ProjectAccordion } from "@/components/project-details/project-accordion";
-import Skill from "@/components/skill.astro";
-import TechStack from "@/components/project-details/tech-stack.astro";
-import AccordionItem from "@/components/project-details/accordion-item.astro";
-import PageTitle from "@/components/page-title.astro";
 import ArrowL from "@/components/icons/arrow-l.astro";
-import Breadcrumbs from "@/components/ui/breadcrumbs.astro";
 
 const {
   title,
@@ -35,7 +29,7 @@ const {
 ---
 
 <Layout title={`${title} | Tim Machnacki`}>
-  <div class="absolute left-0 top-6 lg:top-12 w-full lg:fixed z-20">
+  <div class="absolute left-0 top-6 z-20 w-full lg:fixed lg:top-12">
     <Breadcrumbs
       links={[
         { title: "Tim Machnacki", href: "/", current: false },
@@ -53,7 +47,7 @@ const {
     <div
       class="relative w-full lg:sticky lg:top-0 lg:col-span-7 lg:max-h-svh lg:py-24"
     >
-      <div class="block lg:hidden mb-6">
+      <div class="mb-6 block lg:hidden">
         <PageTitle class="mb-2 leading-none">{title}</PageTitle>
         <h2 class="text-base text-muted-foreground">
           {subtitle}
@@ -70,7 +64,6 @@ const {
     </div>
 
     <!-- right column -->
-
     <div class="relative w-full lg:col-span-3 lg:py-24">
       <div class="scroll-mt-16 lg:scroll-mt-24">
         <div class="hidden lg:block">
@@ -82,7 +75,7 @@ const {
 
         {
           actions && (
-            <ul class="mt-6 flex items-center gap-2">
+            <ul class="mt-6 grid grid-cols-2 gap-2">
               {actions?.source && (
                 <li>
                   <Button
@@ -94,6 +87,7 @@ const {
                     }
                     href={actions?.source}
                     target={"_blank"}
+                    aria-label={`${title} github (opens in new tab)`}
                   >
                     <Github class={"mr-2 size-4"} />
                     Source
@@ -111,6 +105,7 @@ const {
                     }
                     href={actions?.demo}
                     target={"_blank"}
+                    aria-label={`${title} demo (opens in new tab)`}
                   >
                     <Live class={"mr-2 size-4"} />
                     Demo
@@ -121,12 +116,9 @@ const {
           )
         }
 
-        <ProjectAccordion
-          accordionClassName="mt-6"
-          features={features}
-          client:load
-        >
-          <TechStack skills={skills} slot={"tech"} />
+        <ProjectAccordion accordionClassName="mt-6" client:load>
+          <TechStack skills={skills!} slot={"tech"} />
+          <Features features={features!} slot={"features"} />
         </ProjectAccordion>
       </div>
     </div>

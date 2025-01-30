@@ -14,7 +14,7 @@ export interface ProjectAccordionProps {
   accordionTriggerClassName?: string;
   accordionContentClassName?: string;
   tech?: any;
-  features?: string[];
+  features?: any;
 }
 
 export const ProjectAccordion = ({
@@ -47,11 +47,7 @@ export const ProjectAccordion = ({
             Features
           </AccordionTrigger>
           <AccordionContent className={accordionContentClassName}>
-            <ul>
-              {features.map((feature) => (
-                <li key={feature}>{feature}</li>
-              ))}
-            </ul>
+            {features}
           </AccordionContent>
         </AccordionItem>
       )}

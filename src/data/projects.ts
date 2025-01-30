@@ -59,7 +59,6 @@ export interface ProjectImage {
 export interface ProjectSkill {
   name: string;
   description?: string;
-  icon?: any;
 }
 
 export interface ProjectProps {
@@ -71,7 +70,7 @@ export interface ProjectProps {
   thumbnailWide: ImageMetadata;
   images?: ProjectImage[];
   skills?: ProjectSkill[];
-  features?: string[];
+  features?: { name: string; description: string }[];
   actions?: {
     demo?: string; // hosted url
     source?: string; // github repo url
@@ -87,7 +86,7 @@ export const PROJECTS: ProjectProps[] = [
     date: "Aug. 2024",
     subtitle: "A podcast streaming platform",
     description:
-      "A podcast streaming platform featuring light and dark modes, responsive design, subscription payments, real-time database updates, audio playback controls, and multi-voice AI text-to-speech generation.",
+      "A podcast streaming platform featuring light and dark modes, responsive design, subscription payments, real-time database updates, audio playback controls, multi-voice AI text-to-speech generation, and more.",
     thumbnail: HomeDark_PV,
     thumbnailWide: HomeDarkWide_PV,
     images: [
@@ -186,15 +185,74 @@ export const PROJECTS: ProjectProps[] = [
       },
     ],
     features: [
-      "Light and dark modes",
-      "Responsive design",
-      "Robust authentication",
-      "Podcast playback controls",
-      "Functional searching",
-      "Form validation",
-      "Image uploads",
-      "Multi-voice AI text-to-speech",
-
+      {
+        name: "Robust Authentication",
+        description:
+          "Secure authentication with Google OAuth and email OTP using Clerk",
+      },
+      {
+        name: "Account Management",
+        description: "Manage your account information with Clerk",
+      },
+      {
+        name: "Home Page",
+        description:
+          "Showcases trending podcasts, recent podcasts, top creators, and more",
+      },
+      {
+        name: "Podcast Player",
+        description:
+          "Features backward/forward controls, as well as mute/unmute functionality",
+      },
+      {
+        name: "Create Podcast page",
+        description:
+          "File uploads and text-to-speech audio generation with form validation",
+      },
+      {
+        name: "Multi-Voice AI",
+        description:
+          "Generate audio with 5 voice presets from Unreal Speech AI",
+      },
+      {
+        name: "Discover Page",
+        description: "Find new podcasts with search functionality",
+      },
+      {
+        name: "History Page",
+        description: "View your recently played podcasts",
+      },
+      {
+        name: "Library Page",
+        description: "View your saved podcasts",
+      },
+      {
+        name: "Podcast Details Page",
+        description:
+          "View podcast information, including creator details, number of plays, and transcript. Edit, delete, or get a link to share",
+      },
+      {
+        name: "Profile Page",
+        description:
+          "View a creator's number of listeners, number of plays, and podcasts",
+      },
+      {
+        name: "Get Verified Page",
+        description: "Choose a subscription plan to get a verified badge",
+      },
+      {
+        name: "Subscription Payments",
+        description:
+          "Manage billing information and create checkout sessions with Stripe's API integrations",
+      },
+      {
+        name: "Light and dark modes",
+        description: "Switch between light, dark, and system themes",
+      },
+      {
+        name: "Responsive design",
+        description: "The app is responsive and works on all devices",
+      },
     ],
     actions: {
       demo: "https://podvex.vercel.app/",

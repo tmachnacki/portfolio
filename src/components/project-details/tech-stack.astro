@@ -16,87 +16,118 @@ import Stripe from "@/components/icons/tech/stripe.png";
 import Clerk from "@/components/icons/tech/clerk.png";
 import AI from "@/components/icons/tech/ai.astro";
 import Vercel from "@/components/icons/tech/vercel.astro";
-
+import Firebase from "../icons/tech/firebase.astro";
+import Router from "../icons/tech/router.astro";
+import Vite from "../icons/tech/vite.astro";
+import Zustand from "../icons/tech/zustand.png";
 interface Props {
-  skills?: ProjectSkill[];
+  skills: ProjectSkill[];
 }
 
 const { skills, ...props } = Astro.props;
 ---
 
-<ul class="">
+<ul class="pb-2">
   {
-    skills &&
-      skills.map((skill) => (
-        <li class="flex items-start justify-start gap-2 border-b-[1px] border-border/50 py-3 first:pt-0 last:border-b-0 last:pb-0">
-          {skill.name === "TypeScript" && (
-            <Planet class="size-10 from-blue-500">
-              <Typescript class="size-5" />
-            </Planet>
-          )}
-          {skill.name === "React" && (
-            <Planet class="size-10 from-cyan-600">
-              <React class="size-5" />
-            </Planet>
-          )}
-          {skill.name === "NextJS" && (
-            <Planet class="size-10 from-zinc-400">
-              <NextJS class="size-5" />
-            </Planet>
-          )}
-          {skill.name === "Tailwind CSS" && (
-            <Planet class="size-10 from-sky-500">
-              <Tailwind class="size-5" />
-            </Planet>
-          )}
-          {skill.name === "shadcn/ui" && (
-            <Planet class="size-10 from-zinc-400">
-              <Shadcn class="size-5" />
-            </Planet>
-          )}
-          {skill.name === "Convex" && (
-            <Planet class="size-10 from-orange-600">
-              <Convex class="size-7" />
-            </Planet>
-          )}
-          {skill.name === "Stripe" && (
-            <Planet class="size-10 from-indigo-500">
-              <Image
-                src={Stripe}
-                alt="Stripe logo"
-                class="aspect-square size-5 rounded-sm"
-              />
-            </Planet>
-          )}
-          {skill.name === "Clerk" && (
-            <Planet class="size-10 from-zinc-400">
-              <Image
-                src={Clerk}
-                alt="Clerk logo"
-                class="aspect-square size-5 rounded-sm"
-              />
-            </Planet>
-          )}
-          {skill.name === "Vercel" && (
-            <Planet class="size-10 from-zinc-400">
-              <Vercel class="size-4 -translate-y-0.5" />
-            </Planet>
-          )}
+    skills.map((skill) => (
+      <li class="flex items-start justify-start gap-2 border-b-[1px] border-border/30 py-3 first:pt-0 last:border-b-0 last:pb-0">
+        {skill.name === "TypeScript" && (
+          <Planet class="size-10 from-blue-500">
+            <Typescript class="size-5" />
+          </Planet>
+        )}
+        {skill.name === "React" && (
+          <Planet class="size-10 from-cyan-600">
+            <React class="size-5" />
+          </Planet>
+        )}
+        {skill.name === "NextJS" && (
+          <Planet class="size-10 from-zinc-400">
+            <NextJS class="size-5" />
+          </Planet>
+        )}
+        {skill.name === "Tailwind CSS" && (
+          <Planet class="size-10 from-sky-500">
+            <Tailwind class="size-5" />
+          </Planet>
+        )}
+        {skill.name === "shadcn/ui" && (
+          <Planet class="size-10 from-zinc-400">
+            <Shadcn class="size-5" />
+          </Planet>
+        )}
+        {skill.name === "Convex" && (
+          <Planet class="size-10 from-orange-600">
+            <Convex class="size-7" />
+          </Planet>
+        )}
+        {skill.name === "Stripe" && (
+          <Planet class="size-10 from-indigo-500">
+            <Image
+              src={Stripe}
+              alt="Stripe logo"
+              class="aspect-square size-5 rounded-sm"
+            />
+          </Planet>
+        )}
+        {skill.name === "Clerk" && (
+          <Planet class="size-10 from-zinc-400">
+            <Image
+              src={Clerk}
+              alt="Clerk logo"
+              class="aspect-square size-5 rounded-sm"
+            />
+          </Planet>
+        )}
+        {skill.name === "Vercel" && (
+          <Planet class="size-10 from-zinc-400">
+            <Vercel class="size-4 -translate-y-0.5" />
+          </Planet>
+        )}
 
-          {skill.name === "Unreal Speech AI" && (
-            <Planet class="size-10 from-zinc-400">
-              <AI class="size-5" />
-            </Planet>
-          )}
+        {skill.name === "Unreal Speech AI" && (
+          <Planet class="size-10 from-zinc-400">
+            <AI class="size-5" />
+          </Planet>
+        )}
 
-          <div class="flex flex-grow flex-col">
-            {/* <Skill label={skill.name} /> */}
-            <h4 class="text-sm font-medium text-foreground">{skill.name}</h4>
-            {skill.description && (
-              <p class="text-xs text-muted-foreground">{skill.description}</p>
-            )}
-          </div>
-        </li>
-      ))
+        {skill.name === "Firebase" && (
+          <Planet class="size-10 from-yellow-500">
+            <Firebase class="size-5" />
+          </Planet>
+        )}
+
+        {skill.name === "React Router" && (
+          <Planet class="size-10 from-red-400">
+            <Router class="size-5" />
+          </Planet>
+        )}
+
+        {skill.name === "Vite" && (
+          <Planet class="size-10 from-sky-500">
+            <Vite class="size-5" />
+          </Planet>
+        )}
+
+        {skill.name === "Zustand" && (
+          <Planet class="size-10 from-yellow-950">
+            <Image
+              src={Zustand}
+              alt="Zustand logo"
+              class="aspect-square size-5 rounded-sm"
+            />
+          </Planet>
+        )}
+
+        <div class="flex flex-grow flex-col">
+          <h4 class="mb-0.5 text-sm font-medium text-foreground">
+            {skill.name}
+          </h4>
+          {skill.description && (
+            <p class="text-xs text-muted-foreground">{skill.description}</p>
+          )}
+        </div>
+      </li>
+    ))
   }
 </ul>
