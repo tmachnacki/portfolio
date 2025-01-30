@@ -30,7 +30,7 @@ const { skills, ...props } = Astro.props;
 <ul class="pb-2">
   {
     skills.map((skill) => (
-      <li class="flex items-start justify-start gap-2 border-b-[1px] border-border/30 py-3 first:pt-0 last:border-b-0 last:pb-0">
+      <li class="flex items-start justify-start gap-3 border-b-[1px] border-border/30 py-3 first:pt-0 last:border-b-0 last:pb-0">
         {skill.name === "TypeScript" && (
           <Planet class="size-10 from-blue-500">
             <Typescript class="size-5" />
