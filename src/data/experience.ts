@@ -20,7 +20,7 @@ export const EXPERIENCE: ExperienceProps[] = [
     companyUrl: "https://signs365.com",
     bullets: [
       "Lead UI design and implementation of new t-shirt ordering interface. Curated and documented over 35 UI components using Tailwind, headless UI libraries, and Storybook.",
-      "Increased client chat performance by 66%. Redesigned and implemented an improved chat user interface and added proper handling of loading and error states.",
+      "Increased client chat performance by 66%. Redesigned and implemented an improved chat user interface, adding proper handling of loading and error states.",
       "Successfully delivered a new 'Promos' page where users can claim promotional images and discounts from concept to completion within one week. 1,300 customers claimed the 4th of July promo after launching.",
     ],
     skills: [
