@@ -251,7 +251,7 @@ export const PROJECTS: ProjectProps[] = [
       },
       {
         name: "Responsive design",
-        description: "The app is responsive and works on all devices",
+        description: "A seamless experience on all devices",
       },
     ],
     actions: {
@@ -304,6 +304,7 @@ export const PROJECTS: ProjectProps[] = [
     skills: [
       {
         name: "TypeScript",
+        description: "Less bad JavaScript",
       },
       {
         name: "React",
@@ -327,7 +328,7 @@ export const PROJECTS: ProjectProps[] = [
       },
       {
         name: "Firebase",
-        description: "Backend",
+        description: "Backend as a service",
       },
       {
         name: "Vite",
@@ -336,6 +337,49 @@ export const PROJECTS: ProjectProps[] = [
       {
         name: "Vercel",
         description: "Hosting",
+      },
+    ],
+    features: [
+      {
+        name: "Home Page",
+        description:
+          "View latest posts in your feed, and discover new users to follow",
+      },
+      {
+        name: "Create Post",
+        description: "Add an image, caption, location, and tagged users, all with form validation",
+      },
+      {
+        name: "Post Interactions",
+        description: "Like, save, comment on, share, and edit posts",
+      },
+      {
+        name: "Post Details Page",
+        description: "A detailed view of a post, also display related content",
+      },
+      {
+        name: "Profile Page",
+        description: "View a user's profile, including their posts, followers, and following",
+      },
+      {
+        name: "Live Messaging",
+        description: "Send and receive messages with Firebase realtime database subscriptions",
+      },
+      {
+        name: "Explore Page",
+        description: "View posts from users you don't follow yet",
+      },
+      {
+        name: "Firebase BaaS",
+        description: "Firebase authentication with Google OAuth, Firestore document database, realtime database, and file storage",
+      },
+      {
+        name: "Light and dark modes",
+        description: "Switch between light, dark, and system themes",
+      },
+      {
+        name: "Responsive design",
+        description: "A seamless experience on all devices",
       },
     ],
     actions: {
@@ -349,7 +393,7 @@ export const PROJECTS: ProjectProps[] = [
     date: "Jan. 2025",
     subtitle: "My portfolio website",
     description:
-      "You're already here! Take a look around. Built by yours truly in VSCode.",
+      "You're already here! Take a look around. Built by yours truly in Visual Studio Code.",
     thumbnail: Home_V2,
     thumbnailWide: HomeWide_V2,
     skills: [
