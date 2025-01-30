@@ -49,7 +49,7 @@ const {
         />
       </div>
 
-      <div class="mb-4 flex items-baseline justify-between flex-wrap gap-2">
+      <div class="mb-4 flex flex-wrap items-baseline justify-between gap-2">
         <h3 class="text-base font-medium leading-tight text-foreground">
           {title}
         </h3>
@@ -94,7 +94,12 @@ const {
                 <li>
                   <a
                     href={actions.details}
-                    class={buttonVariants({ variant: "outline", size: "iconXs", gradient: "default", class: "bg-background/80" })}
+                    class={buttonVariants({
+                      variant: "outline",
+                      size: "iconXs",
+                      gradient: "default",
+                      class: "bg-background/80",
+                    })}
                     aria-label={`${title} project details page`}
                     title={"More Details"}
                     data-astro-prefetch

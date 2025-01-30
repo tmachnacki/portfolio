@@ -1,14 +1,22 @@
 ---
 import type { ExperienceProps as Props } from "@/data/experience";
-import { Image } from "astro:assets";
 
 import Card from "../card.astro";
 import Skill from "../skill.astro";
 
 import ArrowTr from "../icons/arrow-tr.astro";
 
-const { timePeriod, logo, badge, title, company, companyUrl, bullets, skills } =
-  Astro.props;
+const {
+  timePeriod,
+  logo,
+  badge,
+  title,
+  jobType,
+  company,
+  companyUrl,
+  bullets,
+  skills,
+} = Astro.props;
 ---
 
 <Card>
@@ -26,38 +34,44 @@ const { timePeriod, logo, badge, title, company, companyUrl, bullets, skills } =
     }
   </header>
   <div class="z-10 sm:col-span-6">
-    <h3
-      class="mb-2 flex items-center text-base font-medium leading-tight text-foreground"
-    >
-      <a
-        class="group/link m-0 inline-block items-baseline text-wrap hover:text-primary motion-reduce:transition-none"
-        href={companyUrl}
-        target="_blank"
-        rel="noreferrer noopener"
-        aria-label={`${company} (opens in a new tab)`}
+    <div class="mb-4">
+      <h3
+        class="flex flex-wrap items-baseline text-base font-medium leading-tight text-foreground"
       >
-        <span class="">
-          {`${title} ·`}
-        </span>
-        <span class="inline-block">
-          {`${company}`}
-          <ArrowTr
-            class="inline-block size-[14px] transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 motion-reduce:transition-none"
-            aria-hidden="true"
-          />
-        </span>
-      </a>
-
-      {
-        badge && (
-          <span class="ml-3 hidden h-5 items-center self-start rounded-full border bg-transparent bg-gradient-to-b from-muted to-transparent px-4 pb-0.5 text-xs font-normal leading-none text-muted-foreground sm:inline-flex">
-            {badge}
-          </span>
-        )
-      }
-    </h3>
+        {
+          companyUrl ? (
+            <a
+              class="group/link inline-block items-baseline text-wrap hover:text-primary motion-reduce:transition-none"
+              href={companyUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label={`${company} (opens in a new tab)`}
+            >
+              {company}
+              <ArrowTr
+                class="inline-block size-[14px] transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 motion-reduce:transition-none"
+                aria-hidden="true"
+              />
+            </a>
+          ) : (
+            company
+          )
+        }
+        {
+          badge && (
+            <span class="ml-3 hidden h-5 items-center self-start rounded-full border bg-transparent bg-gradient-to-b from-muted to-muted/20 px-4 pb-0.5 text-xs font-normal leading-none text-muted-foreground sm:inline-flex lg:group-hover:border-zinc-700 lg:group-hover:bg-background">
+              {badge}
+            </span>
+          )
+        }
+      </h3>
+      <h4 class="text-wrap text-sm font-medium text-muted-foreground/90">
+        {title}
+        {jobType && <span class="inline-block"> {jobType}</span>}
+      </h4>
+    </div>
     <ul
-      class="mb-2 list-disc space-y-1 pl-4 text-sm leading-snug text-muted-foreground"
+      class="mb-2 list-disc space-y-1 pl-4 text-sm leading-snug text-zinc-300/90"
     >
       {
         bullets.map((bullet) => (
@@ -72,7 +86,7 @@ const { timePeriod, logo, badge, title, company, companyUrl, bullets, skills } =
             <li class="mr-1.5 mt-2">
               <Skill
                 label={skill}
-                class="lg:group-hover:border-primary/50 lg:group-hover:bg-background lg:group-hover:shadow-md lg:group-hover:shadow-primary/20"
+                class="border-primary/50 bg-transparent lg:group-hover:bg-background lg:group-hover:shadow-md lg:group-hover:shadow-primary/20"
               />
             </li>
           ))}

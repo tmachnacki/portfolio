@@ -1,9 +1,9 @@
+import { useEffect, useRef, useState, type UIEvent } from "react";
+import type { ProjectImage } from "@/data/projects";
+import { cn } from "@/lib/utils";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MockBrowser } from "./mock-browser.tsx";
-import type { ProjectImage } from "@/data/projects";
 import { Compare } from "./compare.tsx";
-import { useEffect, useRef, useState, type UIEvent } from "react";
-import { cn } from "@/lib/utils";
 
 interface ImageTabProps {
   projectTitle: string;

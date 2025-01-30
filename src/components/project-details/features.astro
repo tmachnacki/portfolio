@@ -1,4 +1,5 @@
 ---
+import Check from "@/components/icons/check.astro";
 interface Props {
   features: { name: string; description: string }[];
 }
@@ -11,10 +12,10 @@ const { features, ...props } = Astro.props;
     features.map((feature) => (
       <li class="flex items-baseline justify-start gap-2 border-b-[1px] border-border/30 py-3 first:pt-0 last:border-b-0 last:pb-0">
         <div
-          class="inline-flex w-10 flex-shrink-0 -translate-y-0.5 items-center justify-center text-base"
+          class="inline-flex w-10 flex-shrink-0 items-center justify-center text-base"
           aria-hidden="true"
         >
-          👉
+          <Check class="size-4 translate-y-1 text-primary" />
         </div>
         <div class="flex flex-grow flex-col">
           <h4 class="mb-0.5 text-sm font-medium text-foreground">

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useReducedMotion } from "framer-motion";
 
 interface MousePosition {
   x: number;
@@ -29,7 +30,7 @@ function MousePosition(): MousePosition {
 interface ParticlesProps {
   className?: string;
   quantity?: number;
-  staticity?: number;
+  initialStaticity?: number;
   ease?: number;
   size?: number;
   refresh?: boolean;
@@ -57,7 +58,7 @@ function hexToRgb(hex: string): number[] {
 const Particles: React.FC<ParticlesProps> = ({
   className = "",
   quantity = 100,
-  staticity = 50,
+  initialStaticity = 50,
   ease = 50,
   size = 0.4,
   refresh = false,
@@ -73,6 +74,8 @@ const Particles: React.FC<ParticlesProps> = ({
   const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
   const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
+  const prefersReducedMotion = useReducedMotion();
+  const staticity = prefersReducedMotion ? Infinity : initialStaticity;
 
   useEffect(() => {
     if (canvasRef.current) {
@@ -93,7 +96,7 @@ const Particles: React.FC<ParticlesProps> = ({
 
   useEffect(() => {
     initCanvas();
-  }, [refresh]);
+  }, [refresh, prefersReducedMotion]);
 
   const initCanvas = () => {
     resizeCanvas();

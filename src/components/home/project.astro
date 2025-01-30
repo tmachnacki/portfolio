@@ -1,22 +1,16 @@
 ---
 import type { ProjectProps as Props } from "@/data/projects";
-import type { HTMLAttributes } from "astro/types";
 import { Image } from "astro:assets";
 
 import Card from "../card.astro";
 import Skill from "../skill.astro";
-import Button from "../ui/button.astro";
-import Link from "../ui/link.astro";
+import Button, { buttonVariants } from "../ui/button.astro";
 
-import Source from "../icons/source.astro";
-import SquareTr from "../icons/square-tr.astro";
 import Github from "../icons/github.astro";
-import Planet from "../ui/planet.astro";
-import { planetClassNames } from "../ui/planet.astro";
 import Live from "../icons/live.astro";
 import ArrowTr from "../icons/arrow-tr.astro";
-import More from "../icons/more.astro";
 import ArrowR from "../icons/arrow-r.astro";
+import { cn } from "@/lib/utils";
 
 const {
   title,
@@ -73,11 +67,7 @@ const {
       </h3>
     </div>
 
-    {
-      description && (
-        <p class="mt-2 text-sm text-muted-foreground">{description}</p>
-      )
-    }
+    {description && <p class="mt-2 text-sm text-zinc-300/90">{description}</p>}
 
     {
       skills && skills.length > 0 && (
@@ -86,7 +76,7 @@ const {
             <li class="mr-1.5 mt-2">
               <Skill
                 label={skill.name}
-                class="lg:group-hover:border-primary/50 lg:group-hover:bg-background lg:group-hover:shadow-md lg:group-hover:shadow-primary/20"
+                class="border-primary/50 bg-transparent lg:group-hover:bg-background lg:group-hover:shadow-md lg:group-hover:shadow-primary/20"
               />
             </li>
           ))}
@@ -99,37 +89,43 @@ const {
         <ul class="group/actions mt-5 flex w-max flex-wrap gap-2 text-foreground">
           {actions.source && (
             <li>
-              <Planet
+              <Button
                 as={"a"}
                 href={actions.source}
                 class={
-                  "size-9 transition duration-100 hover:!opacity-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring group-hover/actions:opacity-50 motion-reduce:transition-none"
+                  "bg-background hover:!opacity-100 group-hover/actions:opacity-50 lg:group-hover:border-zinc-400/30 lg:group-hover:shadow lg:group-hover:shadow-zinc-400/20"
                 }
+                variant={"outline"}
+                size={"iconSm"}
+                gradient={"zinc"}
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label={`${title} source code on Github (opens in a new tab)`}
                 title={"Github"}
               >
                 <Github class="size-[18px]" />
-              </Planet>
+              </Button>
             </li>
           )}
 
           {actions.demo && (
             <li>
-              <Planet
+              <Button
                 as={"a"}
                 href={actions.demo}
                 class={
-                  "size-9 transition duration-100 hover:!opacity-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring group-hover/actions:opacity-50 motion-reduce:transition-none"
+                  "bg-background hover:!opacity-100 group-hover/actions:opacity-50 lg:group-hover:border-zinc-400/30 lg:group-hover:shadow lg:group-hover:shadow-zinc-400/20"
                 }
+                variant={"outline"}
+                size={"iconSm"}
+                gradient={"zinc"}
                 target="_blank"
                 rel="noreferrer noopener"
-                aria-label={`${title} live demo (opens in a new tab)`}
+                aria-label={`${title} live demo(opens in a new tab)`}
                 title={"Live Demo"}
               >
                 <Live class="size-[18px]" />
-              </Planet>
+              </Button>
             </li>
           )}
 
@@ -137,19 +133,48 @@ const {
             <li>
               <a
                 href={actions.details}
-                class={planetClassNames(
-                  "size-9 transition duration-100 hover:!opacity-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring group-hover/actions:opacity-50 motion-reduce:transition-none",
+                class={cn(
+                  buttonVariants({
+                    variant: "outline",
+                    size: "iconSm",
+                    gradient: "zinc",
+                  }),
+                  "bg-background hover:!opacity-100 group-hover/actions:opacity-50 lg:group-hover:border-zinc-400/30 lg:group-hover:shadow lg:group-hover:shadow-zinc-400/20",
                 )}
                 aria-label={`${title} project details page`}
                 title={"More Details"}
                 data-astro-prefetch
               >
+                <span
+                  class={cn(
+                    "absolute -top-px left-[20%] h-px w-[60%] bg-gradient-to-r opacity-0 transition-opacity duration-300 group-hover/button:opacity-100 motion-reduce:transition-none",
+                    "from-zinc-400/10 via-zinc-400 to-zinc-400/0",
+                  )}
+                />
                 <ArrowR class="size-[18px]" />
+                <span
+                  class={cn(
+                    "absolute -bottom-px left-[20%] h-px w-[60%] bg-gradient-to-r opacity-100 transition-opacity duration-300 group-hover/button:opacity-0 motion-reduce:transition-none",
+                    "from-zinc-400/10 via-zinc-400 to-zinc-400/0",
+                  )}
+                />
               </a>
             </li>
           )}
         </ul>
       )
     }
+    <div
+      class="block sm:hidden overflow-hidden rounded-sm border lg:group-hover:border-zinc-600 aspect-16/9 w-full h-auto max-w-56 mt-5"
+    >
+      <Image
+        src={thumbnailWide}
+        alt={`${title} screenshot`}
+        width={1920}
+        height={1080}
+        class="h-auto w-full rounded-sm object-cover"
+        draggable="false"
+      />
+    </div>
   </div>
 </Card>

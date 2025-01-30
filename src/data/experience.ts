@@ -1,10 +1,9 @@
-import Signs365Logo from "@/assets/experience/signs-logo.png";
-
 export interface ExperienceProps {
   timePeriod: string;
   logo?: ImageMetadata;
   badge?: string;
   title: string;
+  jobType?: string;
   company: string;
   companyUrl?: string;
   bullets: string[];
@@ -14,8 +13,8 @@ export interface ExperienceProps {
 export const EXPERIENCE: ExperienceProps[] = [
   {
     timePeriod: "Mar. 2023 - Present",
-    logo: Signs365Logo,
-    title: "Frontend Software Engineer",
+    title: "Frontend Software Engineer ·",
+    jobType: "Full-Time",
     company: "Signs365",
     companyUrl: "https://signs365.com",
     bullets: [
@@ -39,9 +38,9 @@ export const EXPERIENCE: ExperienceProps[] = [
   },
   {
     timePeriod: "Aug. 2023 - Present",
-    // logo: "",
     badge: "alpha",
-    title: "Web Developer",
+    title: "Web Developer ·",
+    jobType: "Freelance",
     company: "Recruiting Arena",
     companyUrl: "https://google.com",
     bullets: [
@@ -53,8 +52,8 @@ export const EXPERIENCE: ExperienceProps[] = [
   },
   {
     timePeriod: "April 2023",
-    // logo: "",
-    title: "React Native Developer",
+    title: "React Native Developer ·",
+    jobType: "Contract",
     company: "Buy My Spot",
     companyUrl: "https://google.com",
     bullets: [

@@ -19,7 +19,6 @@ import TechList from "@/components/home/tech-list.astro";
 import SectionHeader from "@/components/home/section-header.astro";
 import Experience from "@/components/home/experience.astro";
 import SocialLinks from "@/components/home/social-links.astro";
-import Button from "@/components/ui/button.astro";
 import { buttonVariants } from "@/components/ui/button.astro";
 import Project from "@/components/home/project.astro";
 import PageTitle from "@/components/page-title.astro";
@@ -127,14 +126,14 @@ import { cn } from "@/lib/utils";
       <!-- about -->
       <section
         id="skills"
-        class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24 lg:px-4"
+        class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24 lg:px-4 "
         aria-label="About Me"
         data-observable="true"
       >
         <SectionHeader title="Skills" />
 
         <OrbitingTech />
-        <TechList />
+        <TechList class={"mt-12"}/>
       </section>
 
       <!-- experience -->
@@ -203,7 +202,6 @@ import { cn } from "@/lib/utils";
             timePeriod="2018 - 2022"
             title="B.S. Computer Science"
             company="University of Michigan"
-            companyUrl="https://umich.edu"
             bullets={["Men's Club Lacrosse"]}
           />
         </div>
