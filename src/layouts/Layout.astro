@@ -6,21 +6,32 @@ import geistWoff2 from "@fontsource-variable/geist/files/geist-latin-wght-normal
 import Grid from "@/components/grid.astro";
 import Particles from "@/components/particles";
 interface Props {
-  title?: string;
+  title: string;
+  description: string;
+  ogUrl: string;
 }
-const { title } = Astro.props;
+const { title, description, ogUrl } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <title>{title}</title>
     <meta
       name="description"
-      content="Tim Machnacki's frontend software engineer portfolio"
+      content={description}
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#09090b" />
+    <meta name="image" content="https://timmachnacki.dev/og.png">
+    <meta property="og:image" content="https://timmachnacki.dev/og.png">
+    <meta property="og:url" content={ogUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link
       rel="preload"
       as="font"
@@ -28,8 +39,7 @@ const { title } = Astro.props;
       href={geistWoff2}
       crossorigin="anonymous"
     />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title ? title : "Tim Machnacki"}</title>
+    <link rel="manifest" href="/manifest.json" />
   </head>
   <body
     class="custom-scrollbar no-scrollbar relative z-10 bg-background font-sans text-foreground antialiased min-w-[300px]"

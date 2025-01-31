@@ -24,9 +24,12 @@ const {
   features,
   actions,
 } = PROJECTS[1];
+
+const pageDescription = "ShareBase is a modern social media app built with React, TypeScript, Tailwind CSS, React Router, Vite, Zustand, and Firebase.";
+const ogUrl = "https://timmachnacki.dev/projects/sharebase";
 ---
 
-<Layout title={`${title} | Tim Machnacki`}>
+<Layout title={`${title} | Tim Machnacki`} description={pageDescription} ogUrl={ogUrl}>
   <div class="absolute left-0 top-6 z-20 w-full lg:fixed lg:top-12">
     <Breadcrumbs
       links={[

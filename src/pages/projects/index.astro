@@ -7,9 +7,13 @@ import { PROJECTS } from "@/data/projects";
 import PageTitle from "@/components/page-title.astro";
 import ProjectCard from "@/components/project-archive/project-card.astro";
 import Breadcrumbs from "@/components/ui/breadcrumbs.astro";
+
+const title = "Projects | Tim Machnacki";
+const description = "View all of Tim Machnacki's projects. View Github source code as well as live demos of Tim's full-stack applications.";
+const ogUrl = "https://timmachnacki.dev/projects";
 ---
 
-<Layout title="Projects | Tim Machnacki">
+<Layout title={title} description={description} ogUrl={ogUrl}>
   <div class="absolute left-0 top-6 z-20 w-full lg:top-12">
     <Breadcrumbs
       links={[

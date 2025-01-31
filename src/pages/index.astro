@@ -27,9 +27,13 @@ import PageTitle from "@/components/page-title.astro";
 import Pin from "@/components/icons/pin.astro";
 import ArrowR from "@/components/icons/arrow-r.astro";
 import { cn } from "@/lib/utils";
+
+const title = "Tim Machnacki";
+const description = "Tim Machnacki is a frontend software engineer who builds accessible and performant applications for the web, specializing in React, TypeScript, and Tailwind CSS.";
+const ogUrl = "https://timmachnacki.dev";
 ---
 
-<Layout>
+<Layout title={title} description={description} ogUrl={ogUrl}>
   <!-- background effects-->
   <div
     class="absolute inset-0 flex h-[500px] w-full items-center justify-center overflow-hidden lg:fixed"
@@ -284,7 +288,7 @@ import { cn } from "@/lib/utils";
           href="https://code.visualstudio.com/"
           target="_blank"
           referrerpolicy="no-referrer"
-          class="hover:text- foreground font-medium text-muted-foreground hover:underline"
+          class="hover:text-foreground font-medium text-muted-foreground hover:underline"
           >Visual Studio Code</a
         >. Deployed with <a
           href="https://vercel.com/"

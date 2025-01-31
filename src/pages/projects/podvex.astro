@@ -24,9 +24,12 @@ const {
   features,
   actions,
 } = PROJECTS[0];
+
+const pageDescription = "Podvex is a modern podcast streaming SaaS app built with React, TypeScript, Tailwind CSS, NextJS, Convex, and Stripe.";
+const ogUrl = "https://timmachnacki.dev/projects/podvex";
 ---
 
-<Layout title={`${title} | Tim Machnacki`}>
+<Layout title={`${title} | Tim Machnacki`} description={pageDescription} ogUrl={ogUrl}>
   <div class="absolute left-0 top-6 z-20 w-full lg:fixed lg:top-12">
     <Breadcrumbs
       links={[
