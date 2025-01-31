@@ -48,7 +48,7 @@ export const EXPERIENCE: ExperienceProps[] = [
       "Did some other cool thing with some tech and code",
       "Did another other cool thing with some tech and code",
     ],
-    skills: ["Astro", "Javascript", "HTML", "Tailwind CSS", "DaisyUI"],
+    skills: ["Astro", "Javascript", "HTML", "Tailwind CSS", "DaisyUI", "Figma"],
   },
   {
     timePeriod: "April 2023",

@@ -126,14 +126,14 @@ import { cn } from "@/lib/utils";
       <!-- about -->
       <section
         id="skills"
-        class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24 lg:px-4 "
+        class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24 lg:px-4"
         aria-label="About Me"
         data-observable="true"
       >
         <SectionHeader title="Skills" />
 
         <OrbitingTech />
-        <TechList class={"mt-12"}/>
+        <TechList class={"mt-12"} />
       </section>
 
       <!-- experience -->
@@ -182,7 +182,7 @@ import { cn } from "@/lib/utils";
         >
           {
             EXPERIENCE.map((experience) => (
-              <li id={experience.company}>
+              <li>
                 <Experience {...experience} />
               </li>
             ))
@@ -202,7 +202,10 @@ import { cn } from "@/lib/utils";
             timePeriod="2018 - 2022"
             title="B.S. Computer Science"
             company="University of Michigan"
-            bullets={["Men's Club Lacrosse", "J.P. Morgan Chase EECS 183 Showcase Winner"]}
+            bullets={[
+              "Men's Club Lacrosse",
+              "J.P. Morgan Chase EECS 183 Showcase Winner",
+            ]}
           />
         </div>
       </section>
@@ -254,14 +257,46 @@ import { cn } from "@/lib/utils";
         </div>
       </section>
 
-      <footer class="text-zinc-500 text-sm w-full max-w-lg">
-        Built with 
-        <a href="https://astro.build/" target="_blank" referrerpolicy="no-referrer" class=" font-medium text-muted-foreground hover:text-foreground hover:underline">Astro</a>, 
-        <a href="https://react.dev/" target="_blank" referrerpolicy="no-referrer" class=" font-medium text-muted-foreground hover:text-foreground hover:underline">React</a>, 
-        and <a href="https://tailwindcss.com/" target="_blank" referrerpolicy="no-referrer" class=" font-medium text-muted-foreground hover:text-foreground hover:underline">Tailwind CSS</a>.
-        Coded in <a href="https://code.visualstudio.com/" target="_blank" referrerpolicy="no-referrer" class=" font-medium text-muted-foreground hover:text-foreground hover:underline">Visual Studio Code</a>.
-        Deployed with <a href="https://vercel.com/" target="_blank" referrerpolicy="no-referrer" class=" font-medium text-muted-foreground hover:text-foreground hover:underline">Vercel</a>.
-        Text set in <a href="https://vercel.com/font" target="_blank" referrerpolicy="no-referrer" class=" font-medium text-muted-foreground hover:text-foreground hover:underline">Geist</a>.
+      <footer class="w-full max-w-lg text-sm text-zinc-500">
+        Built with
+        <a
+          href="https://astro.build/"
+          target="_blank"
+          referrerpolicy="no-referrer"
+          class="font-medium text-muted-foreground hover:text-foreground hover:underline"
+          >Astro</a
+        >,
+        <a
+          href="https://react.dev/"
+          target="_blank"
+          referrerpolicy="no-referrer"
+          class="font-medium text-muted-foreground hover:text-foreground hover:underline"
+          >React</a
+        >, and <a
+          href="https://tailwindcss.com/"
+          target="_blank"
+          referrerpolicy="no-referrer"
+          class="font-medium text-muted-foreground hover:text-foreground hover:underline"
+          >Tailwind CSS</a
+        >. Coded in <a
+          href="https://code.visualstudio.com/"
+          target="_blank"
+          referrerpolicy="no-referrer"
+          class="font-medium text-muted-foreground hover:text-foreground hover:underline"
+          >Visual Studio Code</a
+        >. Deployed with <a
+          href="https://vercel.com/"
+          target="_blank"
+          referrerpolicy="no-referrer"
+          class="font-medium text-muted-foreground hover:text-foreground hover:underline"
+          >Vercel</a
+        >. Text set in <a
+          href="https://vercel.com/font"
+          target="_blank"
+          referrerpolicy="no-referrer"
+          class="font-medium text-muted-foreground hover:text-foreground hover:underline"
+          >Geist</a
+        >.
       </footer>
     </main>
   </div>

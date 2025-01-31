@@ -347,7 +347,8 @@ export const PROJECTS: ProjectProps[] = [
       },
       {
         name: "Create Post",
-        description: "Add an image, caption, location, and tagged users, all with form validation",
+        description:
+          "Add an image, caption, location, and tagged users, all with form validation",
       },
       {
         name: "Post Interactions",
@@ -359,11 +360,13 @@ export const PROJECTS: ProjectProps[] = [
       },
       {
         name: "Profile Page",
-        description: "View a user's profile, including their posts, followers, and following",
+        description:
+          "View a user's profile, including their posts, followers, and following",
       },
       {
         name: "Live Messaging",
-        description: "Send and receive messages with Firebase realtime database subscriptions",
+        description:
+          "Send and receive messages with Firebase realtime database subscriptions",
       },
       {
         name: "Explore Page",
@@ -371,7 +374,8 @@ export const PROJECTS: ProjectProps[] = [
       },
       {
         name: "Firebase BaaS",
-        description: "Firebase authentication with Google OAuth, Firestore document database, realtime database, and file storage",
+        description:
+          "Firebase authentication with Google OAuth, Firestore document database, realtime database, and file storage",
       },
       {
         name: "Light and dark modes",
@@ -393,7 +397,7 @@ export const PROJECTS: ProjectProps[] = [
     date: "Jan. 2025",
     subtitle: "My portfolio website",
     description:
-      "You're already here! Take a look around. Built by yours truly in Visual Studio Code.",
+      "You're already here! Take a look around. Built by yours truly in Visual Studio Code with accessibility in mind.",
     thumbnail: Home_V2,
     thumbnailWide: HomeWide_V2,
     skills: [
