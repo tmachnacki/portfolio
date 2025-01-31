@@ -38,6 +38,7 @@ const { links, class: className, ...props } = Astro.props;
                   <a
                     href={link.href}
                     class="transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring motion-reduce:transition-none"
+                    data-astro-prefetch
                   >
                     {link.title}
                   </a>
