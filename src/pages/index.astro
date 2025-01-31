@@ -173,21 +173,23 @@ import { cn } from "@/lib/utils";
         </div>
 
         <!-- experience cards -->
-        <ol
+        <div
+          class=""
           id="work-panel"
           role="tabpanel"
           aria-labelledby="work-tab"
           tabindex="0"
-          class="group/list space-y-16 lg:space-y-8"
         >
-          {
-            EXPERIENCE.map((experience) => (
-              <li>
-                <Experience {...experience} />
-              </li>
-            ))
-          }
-        </ol>
+          <ol class="group/list space-y-16 lg:space-y-8" role="list">
+            {
+              EXPERIENCE.map((experience) => (
+                <li>
+                  <Experience {...experience} />
+                </li>
+              ))
+            }
+          </ol>
+        </div>
 
         <!-- education -->
         <div
