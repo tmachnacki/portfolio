@@ -1,10 +1,10 @@
 ---
 import type { ExperienceProps as Props } from "@/data/experience";
 
-import Card from "../card.astro";
-import Skill from "../skill.astro";
+import Card from "@/components/ui/card.astro";
+import Skill from "@/components/ui/skill.astro";
 
-import ArrowTr from "../icons/arrow-tr.astro";
+import ArrowTr from "@/components/icons/arrow-tr.astro";
 
 const {
   timePeriod,
@@ -25,13 +25,6 @@ const {
     aria-label={timePeriod}
   >
     {timePeriod}
-    {
-      badge && (
-        <span class="ml-3 inline-flex h-5 items-center rounded-full border bg-transparent bg-gradient-to-b from-muted to-transparent px-4 pb-0.5 text-xs font-normal lowercase leading-none text-muted-foreground sm:hidden">
-          {badge}
-        </span>
-      )
-    }
   </header>
   <div class="z-10 sm:col-span-6">
     <div class="mb-4">
@@ -59,7 +52,7 @@ const {
         }
         {
           badge && (
-            <span class="ml-3 hidden h-5 items-center self-start rounded-full border bg-transparent bg-gradient-to-b from-muted to-muted/20 px-4 pb-0.5 text-xs font-normal leading-none text-muted-foreground sm:inline-flex lg:group-hover:border-zinc-700 lg:group-hover:bg-background">
+            <span class="ml-3 inline-flex h-5 items-center justify-center self-start rounded-full border bg-transparent bg-gradient-to-b from-muted to-muted/20 px-4 pb-0.5 text-xs font-normal leading-none text-muted-foreground lg:group-hover:border-zinc-700 lg:group-hover:bg-background">
               {badge}
             </span>
           )

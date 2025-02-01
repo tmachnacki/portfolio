@@ -1,16 +1,16 @@
 ---
 import type { ProjectProps as Props } from "@/data/projects";
 import { Image } from "astro:assets";
-
-import Card from "../card.astro";
-import Skill from "../skill.astro";
-import Button, { buttonVariants } from "../ui/button.astro";
-
-import Github from "../icons/github.astro";
-import Live from "../icons/live.astro";
-import ArrowTr from "../icons/arrow-tr.astro";
-import ArrowR from "../icons/arrow-r.astro";
 import { cn } from "@/lib/utils";
+
+import Card from "@/components/ui/card.astro";
+import Skill from "@/components/ui/skill.astro";
+import Button, { buttonVariants } from "@/components/ui/button.astro";
+
+import Github from "@/components/icons/github.astro";
+import Live from "@/components/icons/live.astro";
+import ArrowTr from "@/components/icons/arrow-tr.astro";
+import ArrowR from "@/components/icons/arrow-r.astro";
 
 const {
   title,
@@ -165,7 +165,7 @@ const {
       )
     }
     <div
-      class="block sm:hidden overflow-hidden rounded-sm border lg:group-hover:border-zinc-600 aspect-16/9 w-full h-auto max-w-56 mt-5"
+      class="mt-5 block aspect-16/9 h-auto w-full max-w-56 overflow-hidden rounded-sm border sm:hidden lg:group-hover:border-zinc-600"
     >
       <Image
         src={thumbnailWide}

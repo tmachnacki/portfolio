@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import type { ProjectSkill } from "@/data/projects";
-import Planet from "../ui/planet.astro";
+import Planet from "@/components/ui/planet.astro";
 
 // icons
 import Typescript from "@/components/icons/tech/typescript.astro";
@@ -14,10 +14,11 @@ import Stripe from "@/components/icons/tech/stripe.png";
 import Clerk from "@/components/icons/tech/clerk.png";
 import AI from "@/components/icons/tech/ai.astro";
 import Vercel from "@/components/icons/tech/vercel.astro";
-import Firebase from "../icons/tech/firebase.astro";
-import Router from "../icons/tech/router.astro";
-import Vite from "../icons/tech/vite.astro";
-import Zustand from "../icons/tech/zustand.png";
+import Firebase from "@/components/icons/tech/firebase.astro";
+import Router from "@/components/icons/tech/router.astro";
+import Vite from "@/components/icons/tech/vite.astro";
+import Zustand from "@/components/icons/tech/zustand.png";
+
 interface Props {
   skills: ProjectSkill[];
 }

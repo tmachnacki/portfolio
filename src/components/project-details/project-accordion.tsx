@@ -1,5 +1,3 @@
-import type { ProjectSkill } from "@/data/projects";
-
 import { cn } from "@/lib/utils";
 import {
   Accordion,
@@ -13,8 +11,8 @@ export interface ProjectAccordionProps {
   accordionItemClassName?: string;
   accordionTriggerClassName?: string;
   accordionContentClassName?: string;
-  tech?: any;
-  features?: any;
+  tech?: any; // astro component slot
+  features?: any; // astro component slot
 }
 
 export const ProjectAccordion = ({

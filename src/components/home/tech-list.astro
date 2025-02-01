@@ -5,24 +5,27 @@ import { cn } from "@/lib/utils";
 
 import TechListItem from "./tech-list-item.astro";
 
-import Typescript from "../icons/tech/typescript.astro";
-import React from "../icons/tech/react.astro";
-import Tailwind from "../icons/tech/tailwind.astro";
-import Shadcn from "../icons/tech/shadcn.astro";
-import Next from "../icons/tech/next.astro";
-import AstroIcon from "../icons/tech/astro-icon.astro";
-import Convex from "../icons/tech/convex.astro";
-import Firebase from "../icons/tech/firebase.astro";
-import Node from "../icons/tech/node.astro";
-import Stripe from "../icons/tech/stripe.png";
-import Vercel from "../icons/tech/vercel.astro";
-import Figma from "../icons/tech/figma.astro";
+import Typescript from "@/components/icons/tech/typescript.astro";
+import React from "@/components/icons/tech/react.astro";
+import Tailwind from "@/components/icons/tech/tailwind.astro";
+import Shadcn from "@/components/icons/tech/shadcn.astro";
+import Next from "@/components/icons/tech/next.astro";
+import AstroIcon from "@/components/icons/tech/astro-icon.astro";
+import Convex from "@/components/icons/tech/convex.astro";
+import Firebase from "@/components/icons/tech/firebase.astro";
+import Node from "@/components/icons/tech/node.astro";
+import Stripe from "@/components/icons/tech/stripe.png";
+import Vercel from "@/components/icons/tech/vercel.astro";
+import Figma from "@/components/icons/tech/figma.astro";
 
 interface Props extends HTMLAttributes<"ul"> {}
 const { class: className, ...props } = Astro.props;
 ---
 
-<ul class={cn("grid w-full grid-cols-1 gap-3 md:grid-cols-2", className)} {...props}>
+<ul
+  class={cn("grid w-full grid-cols-1 gap-3 md:grid-cols-2", className)}
+  {...props}
+>
   <TechListItem
     name="Typescript"
     description="Less bad javascript"

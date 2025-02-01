@@ -9,11 +9,9 @@ import { PROJECTS } from "@/data/projects";
 
 // client components
 import Spotlight from "@/components/home/spotlight";
-// import About from "@/components/home/about";
 import About from "@/components/home/about.astro";
 
 // astro components
-// import Avatar from "@/components/home/avatar.astro";
 import OrbitingTech from "@/components/home/orbiting-tech.astro";
 import TechList from "@/components/home/tech-list.astro";
 import SectionHeader from "@/components/home/section-header.astro";
@@ -29,7 +27,8 @@ import ArrowR from "@/components/icons/arrow-r.astro";
 import { cn } from "@/lib/utils";
 
 const title = "Tim Machnacki";
-const description = "Tim Machnacki is a frontend software engineer who builds accessible and performant applications for the web, specializing in React, TypeScript, and Tailwind CSS.";
+const description =
+  "Tim Machnacki is a frontend software engineer who builds accessible and performant applications for the web, specializing in React, TypeScript, and Tailwind CSS.";
 const ogUrl = "https://timmachnacki.dev";
 ---
 
@@ -53,7 +52,6 @@ const ogUrl = "https://timmachnacki.dev";
     >
       <div class="relative flex flex-col items-start gap-12 text-left">
         <div class="flex flex-row gap-6">
-          <!-- <Avatar /> -->
           <div class="flex-grow-1 flex-shrink-0">
             <PageTitle class="mb-2">
               <a href="/"> Tim Machnacki </a>
@@ -288,7 +286,7 @@ const ogUrl = "https://timmachnacki.dev";
           href="https://code.visualstudio.com/"
           target="_blank"
           referrerpolicy="no-referrer"
-          class="hover:text-foreground font-medium text-muted-foreground hover:underline"
+          class="font-medium text-muted-foreground hover:text-foreground hover:underline"
           >Visual Studio Code</a
         >. Deployed with <a
           href="https://vercel.com/"
@@ -351,14 +349,14 @@ const ogUrl = "https://timmachnacki.dev";
     const tabs = tabList.querySelectorAll(':scope > [role="tab"]');
 
     // Add a click event handler to each tab
-    tabs?.forEach((tab) => {
+    tabs.forEach((tab) => {
       tab.addEventListener("click", changeTabs);
     });
 
     // Enable arrow navigation between tabs in the tab list
     let tabFocus = 0;
 
-    tabList?.addEventListener("keydown", (e) => {
+    tabList.addEventListener("keydown", (e) => {
       // Move right
       if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
         tabs[tabFocus].setAttribute("tabindex", -1);
