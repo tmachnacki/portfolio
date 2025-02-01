@@ -9,7 +9,7 @@ const { as: Tag = "h1", class: className, ...props } = Astro.props;
 
 <Tag
   class={cn(
-    "block text-4xl md:text-5xl font-semibold tracking-tight text-foreground",
+    "block text-4xl sm:text-5xl font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white to-indigo-300",
     className,
   )}
   {...props}

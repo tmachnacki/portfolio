@@ -152,7 +152,7 @@ export const PROJECTS: ProjectProps[] = [
         description: "UI framework",
       },
       {
-        name: "NextJS",
+        name: "Next.js",
         description: "Fullstack React framework",
       },
       {
@@ -467,8 +467,10 @@ export const PROJECTS: ProjectProps[] = [
     ],
     actions: {
       source: "https://github.com/tmachnacki/twitter-sentiment",
-      writeup: "/report.pdf",
-      poster: "/poster.pdf",
+      writeup:
+        "https://drive.google.com/file/d/1NnzhO_Cg7km2E2oRIrUnVsmDQFjly4HM/view?usp=drive_link",
+      poster:
+        "https://drive.google.com/file/d/1VOtA0GdK1Y_g4Ek5s_n1KzlkV3VzV_Pp/view?usp=drive_link",
     },
   },
   {

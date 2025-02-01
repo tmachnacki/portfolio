@@ -18,15 +18,12 @@ const { title, description, ogUrl } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <title>{title}</title>
-    <meta
-      name="description"
-      content={description}
-    />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#09090b" />
-    <meta name="image" content="https://timmachnacki.dev/og.png">
-    <meta property="og:image" content="https://timmachnacki.dev/og.png">
+    <meta name="image" content="https://timmachnacki.dev/og.png" />
+    <meta property="og:image" content="https://timmachnacki.dev/og.png" />
     <meta property="og:url" content={ogUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -40,9 +37,10 @@ const { title, description, ogUrl } = Astro.props;
       crossorigin="anonymous"
     />
     <link rel="manifest" href="/manifest.json" />
+    <link rel="sitemap" href="/sitemap.xml" />
   </head>
   <body
-    class="custom-scrollbar no-scrollbar relative z-10 bg-background font-sans text-foreground antialiased min-w-[300px]"
+    class="custom-scrollbar no-scrollbar relative z-10 min-w-[300px] bg-background font-sans text-foreground antialiased"
   >
     <Particles
       client:idle
