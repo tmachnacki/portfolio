@@ -81,10 +81,9 @@ const {
         >
           {skills.map((skill) => (
             <li>
-              <Skill
-                label={skill}
-                class="border-primary/50 bg-transparent lg:group-hover:bg-background lg:group-hover:shadow-md lg:group-hover:shadow-primary/20"
-              />
+              <Skill class="lg:group-hover:border-primary/50 lg:group-hover:shadow-md lg:group-hover:shadow-primary/20">
+                {skill}
+              </Skill>
             </li>
           ))}
         </ul>
