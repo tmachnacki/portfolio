@@ -172,6 +172,8 @@ export const Compare = ({
                 draggable={false}
                 alt={firstImageAlt}
                 loading="eager"
+                width={860}
+                height={645}
               />
             </motion.div>
           )}
@@ -189,6 +191,8 @@ export const Compare = ({
             draggable={false}
             alt={secondImageAlt}
             loading="eager"
+            width={860}
+            height={645}
           />
         )}
       </AnimatePresence>

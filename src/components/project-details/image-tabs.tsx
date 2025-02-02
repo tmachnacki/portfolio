@@ -67,6 +67,9 @@ export const ImageTabs = ({
                   alt={image.label}
                   className="h-auto w-full object-cover object-center"
                   draggable={false}
+                  loading="eager"
+                  width={860}
+                  height={645}
                 />
               )}
             </div>
@@ -115,6 +118,9 @@ export const ImageTabs = ({
                   alt={image.label}
                   className="h-auto w-full rounded object-cover object-center"
                   draggable={false}
+                  loading="eager"
+                  width={96}
+                  height={72}
                 />
               </div>
             </TabsTrigger>
