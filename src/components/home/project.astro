@@ -88,11 +88,13 @@ const lightHouseMetrics = [
         >
           {lightHouseMetrics.map((metric) => (
             <li
-              class="relative inline-flex h-6 items-center justify-center rounded-full border border-green-500/20 bg-transparent pl-8 pr-3 transition duration-100 motion-reduce:transition-none lg:group-hover:border-green-500/30 lg:group-hover:bg-background lg:group-hover:shadow-md lg:group-hover:shadow-green-500/15"
+              class="relative inline-flex h-6 shrink-0 items-center justify-center text-nowrap rounded-full border border-green-500/20 bg-transparent pl-8 pr-3 transition duration-100 motion-reduce:transition-none lg:group-hover:border-green-500/30 lg:group-hover:bg-background lg:group-hover:shadow-md lg:group-hover:shadow-green-500/15"
               aria-label={`100 Lighthouse ${metric} score`}
             >
-              <span class="absolute left-0 top-[50%] inline-flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full border border-green-500 bg-green-950 text-green-500">
-                <span class="inline-block text-[9px]">100</span>
+              <span class="absolute left-0 top-[50%] inline-flex h-6 w-6 shrink-0 -translate-y-1/2 rounded-full border border-green-500 bg-green-950 text-green-500">
+                <span class="absolute left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%] text-nowrap text-[9px] leading-none">
+                  100
+                </span>
               </span>
 
               <p class="text-sm text-green-400">{metric}</p>
