@@ -114,7 +114,12 @@ const { class: className, ...props } = Astro.props;
     borderGradientClassName="via-indigo-500"
     planetClassName="from-indigo-500"
   >
-    <Image src={Stripe} alt="Stripe" class="aspect-square size-5 rounded-sm" />
+    <Image
+      src={Stripe}
+      alt="Stripe logo"
+      class="aspect-square size-5 rounded-sm"
+      loading="eager"
+    />
   </TechListItem>
   <TechListItem
     name="Vercel"

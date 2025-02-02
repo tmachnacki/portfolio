@@ -11,10 +11,10 @@ const { class: className, ...props } = Astro.props;
 <ul class={cn("flex flex-shrink-0 items-center gap-4", className)} {...props}>
   <li>
     <Button
+      as={"a"}
       variant={"outline"}
       gradient={"primary"}
-      as={"a"}
-      class={"rounded-full px-5"}
+      rounded="full"
       href={"/resume.pdf"}
       target={"_blank"}
       aria-label={"Tim Machnacki's Resume (opens in a new tab)"}

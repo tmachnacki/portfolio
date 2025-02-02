@@ -33,11 +33,16 @@ export const buttonVariants = cva(
           "relative group/button backdrop-blur-sm hover:bg-gradient-to-b hover:from-primary/10 hover:to-primary/0 hover:bg-transparent border border-border hover:border-primary/30",
         zinc: "relative group/button backdrop-blur-sm hover:bg-gradient-to-b hover:from-zinc-400/10 hover:to-zinc-400/0 hover:bg-transparent border border-border hover:border-zinc-400/30",
       },
+      rounded: {
+        default: "",
+        full: "rounded-full px-6",
+      },
     },
     defaultVariants: {
       variant: "default",
       size: "default",
       gradient: "default",
+      rounded: "default",
     },
   },
 );
@@ -49,6 +54,7 @@ const {
   variant,
   size,
   gradient,
+  rounded,
   as: Tag = "button",
   class: className,
   ...props
@@ -56,17 +62,20 @@ const {
 ---
 
 <Tag
-  class={cn(buttonVariants({ variant, size, gradient }), className)}
+  class={cn(buttonVariants({ variant, size, gradient, rounded }), className)}
   {...props}
 >
   {
     gradient && (
       <span
         class={cn(
-          "absolute -top-px left-[20%] h-px w-[60%] bg-gradient-to-r opacity-0 transition-opacity duration-300 group-hover/button:opacity-100 motion-reduce:transition-none",
+          "absolute -top-px h-px bg-gradient-to-r opacity-0 transition-opacity duration-300 group-hover/button:opacity-100 motion-reduce:transition-none",
           gradient === "primary"
-            ? "from-primary/10 via-primary to-primary/10"
-            : "from-zinc-400/10 via-zinc-400 to-zinc-400/0",
+            ? "from-primary/0 via-primary to-primary/0"
+            : "from-zinc-400/0 via-zinc-400 to-zinc-400/0",
+          rounded && rounded === "full"
+            ? "left-[20%] w-[60%]"
+            : "left-[10%] w-[80%]",
         )}
       />
     )
@@ -78,10 +87,13 @@ const {
     gradient && (
       <span
         class={cn(
-          "absolute -bottom-px left-[20%] h-px w-[60%] bg-gradient-to-r opacity-100 transition-opacity duration-300 group-hover/button:opacity-0 motion-reduce:transition-none",
+          "absolute -bottom-px h-px bg-gradient-to-r opacity-100 transition-opacity duration-300 group-hover/button:opacity-0 motion-reduce:transition-none",
           gradient === "primary"
-            ? "from-primary/10 via-primary to-primary/10"
-            : "from-zinc-400/10 via-zinc-400 to-zinc-400/0",
+            ? "from-primary/0 via-primary to-primary/0"
+            : "from-zinc-400/0 via-zinc-400 to-zinc-400/0",
+          rounded && rounded === "full"
+            ? "left-[20%] w-[60%]"
+            : "left-[10%] w-[80%]",
         )}
       />
     )

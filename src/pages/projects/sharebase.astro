@@ -25,11 +25,11 @@ const {
   actions,
 } = PROJECTS[1];
 
-const pageDescription = "ShareBase is a modern social media app built with React, TypeScript, Tailwind CSS, React Router, Vite, Zustand, and Firebase.";
-const ogUrl = "https://timmachnacki.dev/projects/sharebase";
+const pageDescription =
+  "ShareBase is a modern social media app built with React, TypeScript, Tailwind CSS, React Router, Vite, Zustand, and Firebase.";
 ---
 
-<Layout title={`${title} | Tim Machnacki`} description={pageDescription} ogUrl={ogUrl}>
+<Layout title={`${title} | Tim Machnacki`} description={pageDescription}>
   <div class="absolute left-0 top-6 z-20 w-full lg:fixed lg:top-12">
     <Breadcrumbs
       links={[
@@ -83,9 +83,8 @@ const ogUrl = "https://timmachnacki.dev/projects/sharebase";
                     as={"a"}
                     variant={"outline"}
                     gradient={"zinc"}
-                    class={
-                      "group/action relative w-full rounded-full transition"
-                    }
+                    rounded={"full"}
+                    class={"relative w-full"}
                     href={actions?.source}
                     target={"_blank"}
                     aria-label={`${title} github (opens in new tab)`}
@@ -101,9 +100,8 @@ const ogUrl = "https://timmachnacki.dev/projects/sharebase";
                     as={"a"}
                     variant={"outline"}
                     gradient={"zinc"}
-                    class={
-                      "group/action relative w-full rounded-full transition"
-                    }
+                    rounded={"full"}
+                    class={"relative w-full"}
                     href={actions?.demo}
                     target={"_blank"}
                     aria-label={`${title} demo (opens in new tab)`}

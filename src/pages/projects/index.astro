@@ -9,11 +9,11 @@ import ProjectCard from "@/components/project-archive/project-card.astro";
 import Breadcrumbs from "@/components/ui/breadcrumbs.astro";
 
 const title = "Projects | Tim Machnacki";
-const description = "View all of Tim Machnacki's projects. View Github source code as well as live demos of Tim's full-stack applications.";
-const ogUrl = "https://timmachnacki.dev/projects";
+const description =
+  "View all of Tim Machnacki's projects. Checkout the Github source code as well as live demos of Tim's full-stack applications.";
 ---
 
-<Layout title={title} description={description} ogUrl={ogUrl}>
+<Layout title={title} description={description}>
   <div class="absolute left-0 top-6 z-20 w-full lg:top-12">
     <Breadcrumbs
       links={[
@@ -24,7 +24,7 @@ const ogUrl = "https://timmachnacki.dev/projects";
     />
   </div>
 
-  <main class="relative page-container w-full lg:py-24">
+  <main class="page-container relative w-full lg:py-24">
     <article class="w-full">
       <PageTitle class="mb-8 lg:mb-12">My Projects</PageTitle>
       <ul

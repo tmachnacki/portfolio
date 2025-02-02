@@ -50,7 +50,10 @@ export const ImageTabs = ({
           className="overflow-hidden rounded-lg"
         >
           <MockBrowser url={projectUrl}>
-            <div className="m-0 aspect-4/3 h-auto w-full overflow-hidden rounded-b-lg animate-in fade-in-0 duration-300 motion-reduce:transition-none motion-reduce:animate-none" draggable={false}>
+            <div
+              className="m-0 aspect-4/3 h-auto w-full overflow-hidden rounded-b-lg duration-300 animate-in fade-in-0 motion-reduce:animate-none motion-reduce:transition-none"
+              draggable={false}
+            >
               {image.compare && image.compareImages ? (
                 <Compare
                   firstImage={image.compareImages.imageOne}
@@ -62,7 +65,7 @@ export const ImageTabs = ({
                 <img
                   src={image.image.src}
                   alt={image.label}
-                  className="w-full h-auto object-cover object-center"
+                  className="h-auto w-full object-cover object-center"
                   draggable={false}
                 />
               )}
@@ -97,20 +100,20 @@ export const ImageTabs = ({
         >
           {images.map((image) => (
             <TabsTrigger
-              className="m-0 flex w-24 shrink-0 grow-0 flex-col space-y-2 p-0 hover:ring-1 hover:ring-ring/50 group"
+              className="group m-0 flex w-24 shrink-0 grow-0 flex-col space-y-2 p-0 hover:ring-1 hover:ring-ring/50"
               value={image.label}
               draggable={false}
               title={image.label}
               key={`${image.label}-trigger`}
             >
               <div
-                className="block aspect-4/3 h-auto w-full overflow-hidden rounded-sm group-data-[state=active]:ring-1 group-data-[state=active]:ring-ring"
+                className="block aspect-4/3 h-auto w-full overflow-hidden rounded group-data-[state=active]:ring-1 group-data-[state=active]:ring-ring"
                 draggable={false}
               >
                 <img
                   src={image.image.src}
                   alt={image.label}
-                  className="w-full h-auto object-cover object-center"
+                  className="h-auto w-full rounded object-cover object-center"
                   draggable={false}
                 />
               </div>

@@ -8,9 +8,10 @@ import Particles from "@/components/particles";
 interface Props {
   title: string;
   description: string;
-  ogUrl: string;
 }
-const { title, description, ogUrl } = Astro.props;
+const { title, description } = Astro.props;
+const ogDescription =
+  "Tim Machnacki is a frontend software engineer who builds accessible and performant applications for the web, specializing in React, TypeScript, and Tailwind CSS.";
 ---
 
 <!doctype html>
@@ -22,11 +23,24 @@ const { title, description, ogUrl } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#09090b" />
-    <meta name="image" content="https://timmachnacki.dev/og.png" />
-    <meta property="og:image" content="https://timmachnacki.dev/og.png" />
-    <meta property="og:url" content={ogUrl} />
+    <meta name="image" content="https://timmachnacki.dev/open-graph.jpeg" />
+    <meta property="og:site_name" content="Tim Machnacki" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={ogDescription} />
+    <meta
+      property="og:image"
+      content="https://timmachnacki.dev/open-graph.jpeg"
+    />
+    <meta property="og:url" content="https://timmachnacki.dev" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={ogDescription} />
+    <meta
+      property="twitter:image"
+      content="https://timmachnacki.dev/open-graph.jpeg"
+    />
 
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link

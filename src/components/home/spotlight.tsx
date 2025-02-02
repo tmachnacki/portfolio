@@ -15,6 +15,7 @@ const Spotlight = ({ className, fill }: SpotlightProps) => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 3787 2842"
       fill="none"
+      aria-hidden="true"
     >
       <g filter="url(#filter)">
         <ellipse
