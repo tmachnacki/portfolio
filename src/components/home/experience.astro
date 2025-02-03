@@ -14,6 +14,7 @@ const {
   jobType,
   company,
   companyUrl,
+  description,
   bullets,
   skills,
 } = Astro.props;
@@ -64,19 +65,24 @@ const {
         {jobType && <span class="inline-block"> {jobType}</span>}
       </h4>
     </div>
-    <ul
-      class="mt-3 list-disc space-y-1 pl-4 text-sm leading-snug text-zinc-300/90"
-    >
-      {
-        bullets.map((bullet) => (
-          <li class="list-item items-start gap-2">{bullet}</li>
-        ))
-      }
-    </ul>
+    {
+      description && (
+        <p class="mt-3 text-sm leading-snug text-zinc-300/90">{description}</p>
+      )
+    }
+    {
+      bullets && (
+        <ul class="mt-3 list-disc space-y-1 pl-4 text-sm leading-snug text-zinc-300/90">
+          {bullets.map((bullet) => (
+            <li class="list-item items-start gap-2">{bullet}</li>
+          ))}
+        </ul>
+      )
+    }
     {
       skills && (
         <ul
-          class="mt-4 flex flex-wrap gap-x-1.5 gap-y-2"
+          class="mt-5 flex flex-wrap gap-x-1.5 gap-y-2"
           aria-label="Technologies used"
         >
           {skills.map((skill) => (

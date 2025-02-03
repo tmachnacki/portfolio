@@ -69,13 +69,16 @@ const {
     gradient && (
       <span
         class={cn(
-          "absolute -top-px h-px bg-gradient-to-r opacity-0 transition-opacity duration-300 group-hover/button:opacity-100 motion-reduce:transition-none",
+          "absolute -top-px h-[2px] bg-gradient-to-r opacity-0 transition-opacity duration-300 group-hover/button:opacity-100 motion-reduce:transition-none",
           gradient === "primary"
             ? "from-primary/0 via-primary to-primary/0"
             : "from-zinc-400/0 via-zinc-400 to-zinc-400/0",
           rounded && rounded === "full"
             ? "left-[20%] w-[60%]"
             : "left-[10%] w-[80%]",
+          size === "icon" || size === "iconSm" || size === "iconXs"
+            ? "h-px"
+            : "h-[2px]",
         )}
       />
     )
@@ -87,13 +90,16 @@ const {
     gradient && (
       <span
         class={cn(
-          "absolute -bottom-px h-px bg-gradient-to-r opacity-100 transition-opacity duration-300 group-hover/button:opacity-0 motion-reduce:transition-none",
+          "absolute -bottom-px h-[2px] bg-gradient-to-r opacity-100 transition-opacity duration-300 group-hover/button:opacity-0 motion-reduce:transition-none",
           gradient === "primary"
             ? "from-primary/0 via-primary to-primary/0"
             : "from-zinc-400/0 via-zinc-400 to-zinc-400/0",
           rounded && rounded === "full"
             ? "left-[20%] w-[60%]"
             : "left-[10%] w-[80%]",
+          size === "icon" || size === "iconSm" || size === "iconXs"
+            ? "h-px"
+            : "h-[2px]",
         )}
       />
     )
