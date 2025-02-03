@@ -1,18 +1,32 @@
-# Astro Starter Kit: Basics
+<h1 align="center">
+  timmachnacki.dev
+</h1>
 
-```sh
-npm create astro@latest -- --template basics
-```
+![demo](https://raw.githubusercontent.com/tmachnacki/portfolio/master/src/assets/v2/home-wide.webp)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+<div align="center">
+  <img src="https://img.shields.io/badge/-Astro-black?style=for-the-badge&logoColor=white&logo=astro&color=c026d3" alt="astro" />
+  <img src="https://img.shields.io/badge/-React-black?style=for-the-badge&logoColor=white&logo=react&color=06b6d4" alt="React" />
+  <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=0EA5E9" alt="tailwindcss" />
+  <img src="https://img.shields.io/badge/-Typescript-black?style=for-the-badge&logoColor=white&logo=typescript&color=3178C6" alt="typescript" />
+</div>
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🤙 Usage
+Feel free to clone/fork - just give credit by linking back to [timmachnacki.dev](https://timmachnacki.dev).
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## 🔋 Features
+ - 100/100 Lighthouse scores and 0 axe issues
+ - Astro `<Image />` optimization
+ - Astro prefetching
+ - SEO practices: `<meta />` tags, `robots.txt`, Astro `sitemap` integration, font preloading to prevent layout shift
+ - reduced-motion accessibiliy
+ - Typescript integration with Astro
+ - Astro Islands with React client components
+ - Tailwind v3 with prettier sorting and Astro formatting integration
+ - Geist font
+ - Zinc, Indigo, Emerald color palettes. See more on [shadcn/ui](https://ui.shadcn.com/colors) docs (or tailwind v3 docs)
 
-## 🚀 Project Structure
+## 🗃 Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:
 
@@ -36,7 +50,7 @@ There's nothing special about `src/components/`, but that's where we like to put
 
 Any static assets, like images, can be placed in the `public/` directory.
 
-## 🧞 Commands
+## 🚀 Commands
 
 All commands are run from the root of the project, from a terminal:
 
@@ -49,6 +63,5 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+Check out [Astro's docs](https://docs.astro.build) to learn more.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
