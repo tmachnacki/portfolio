@@ -23,8 +23,7 @@ Feel free to clone/fork - just give credit by linking back to [timmachnacki.dev]
  - Typescript integration with Astro
  - Astro Islands with React client components
  - Tailwind v3 with prettier sorting and Astro formatting integration
- - Geist font
- - Zinc, Indigo, Emerald color palettes. See more on [shadcn/ui](https://ui.shadcn.com/colors) docs (or tailwind v3 docs)
+ - Geist variable font via [fontsource](https://fontsource.org/fonts/geist)
 
 ## 🗃 Project Structure
 
@@ -64,4 +63,12 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
 Check out [Astro's docs](https://docs.astro.build) to learn more.
+
+## 🎨 Color Reference
+
+- Base: Zinc
+- Primary: Indigo
+
+See color swatches on [shadcn/ui](https://ui.shadcn.com/colors) docs or [tailwind v3](https://v3.tailwindcss.com/docs/customizing-colors) docs.
+
 
