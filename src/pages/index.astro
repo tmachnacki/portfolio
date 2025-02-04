@@ -117,6 +117,19 @@ const description =
               <span>Projects</span>
             </a>
           </li>
+          <li class="relative">
+            <a
+              id="interests-nav"
+              href="#interests"
+              class="group flex items-center gap-4 py-2 text-sm font-medium uppercase tracking-wider transition-all duration-100 hover:text-foreground motion-reduce:transition-none [&.active]:text-foreground"
+            >
+              <span
+                aria-hidden="true"
+                class="h-px w-10 bg-zinc-500 transition-all duration-100 group-hover:w-16 group-hover:bg-foreground group-[&.active]:w-16 group-[&.active]:bg-foreground motion-reduce:transition-none"
+              ></span>
+              <span>Interests</span>
+            </a>
+          </li>
         </ul>
       </nav>
 
@@ -128,7 +141,7 @@ const description =
       <!-- about -->
       <section
         id="skills"
-        class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24 lg:px-4"
+        class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
         aria-label="About Me"
         data-observable="true"
       >
@@ -150,7 +163,7 @@ const description =
         <!-- tabs -->
         <div
           role="tablist"
-          class="relative mb-8 grid h-10 w-full grid-cols-2  border-b bg-transparent text-muted-foreground"
+          class="relative mb-8 grid h-10 w-full grid-cols-2 border-b bg-transparent text-muted-foreground"
         >
           <button
             id="work-tab"
@@ -266,7 +279,40 @@ const description =
         </div>
       </section>
 
-      <footer class="w-full max-w-lg text-sm text-zinc-400/80">
+      <!-- Interests -->
+      <section
+        id="interests"
+        class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+        aria-label="Interests"
+        data-observable="true"
+      >
+        <SectionHeader title="Interests" />
+
+        <div class="relative flex flex-col p-0 gap-6 lg:p-6">
+          <div class="max-w-lg">
+            <h3 class="text-base font-medium text-foreground sm:-mt-1">
+              More About Me
+            </h3>
+            <p class="mt-2 text-sm text-muted-foreground">
+              Other than coding like a hermit, I enjoy music production,
+              weight-lifting, sports (go Lions), fantasy football, fishing,
+              water-skiing, hiking, Christopher Nolan movies, and dogs.
+            </p>
+          </div>
+          <div class="relative flex items-center justify-end  gap-2 w-full mt-2 sm:mt-0">
+            <div
+              class="mt-0 aspect-square w-24 sm:w-32 overflow-hidden rounded-sm border-transparent ring-1 ring-accent ring-offset-1 ring-offset-background transition duration-100 motion-reduce:transition-none lg:group-hover:ring-zinc-600 -skew-y-6"
+            >
+            </div>
+            <div
+              class="mt-0 aspect-square w-24 sm:w-32 skew-y-6 overflow-hidden rounded-sm border-transparent ring-1 ring-accent ring-offset-1 ring-offset-background transition duration-100 motion-reduce:transition-none lg:group-hover:ring-zinc-600"
+            >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="w-full max-w-lg text-sm text-zinc-400/80 lg:px-6">
         Built with
         <a
           href="https://astro.build/"
@@ -313,7 +359,7 @@ const description =
 
 <!-- scrollspy -->
 <script>
-  const threshold = 0.75;
+  const threshold = 0.85;
 
   const changeNav = (entries: any[], observer: any) => {
     entries.forEach(
