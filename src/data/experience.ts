@@ -42,7 +42,7 @@ export const EXPERIENCE: ExperienceProps[] = [
     company: "Recruiting Arena",
     companyUrl: "https://recruitingarena.com/",
     description:
-      "Leveraged knowledge of React, TypeScript, and Tailwind CSS to build a UI component library",
+      "Led the design and development of 8 pages in a multi-page application through close collaboration with backend leads and business ownership, additionally creating 2 high-fidelity Figma prototypes for profile and messaging features to drive future development.",
     skills: ["Astro", "Javascript", "HTML", "Tailwind CSS", "DaisyUI", "Figma"],
   },
   {
