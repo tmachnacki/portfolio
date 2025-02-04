@@ -1,12 +1,17 @@
 ---
+import { cn } from "@/lib/utils";
 interface Props {
   title: string;
+  class?: string;
 }
-const { title } = Astro.props;
+const { title, class: className } = Astro.props;
 ---
 
 <div
-  class="w-[calc(100vw - 1.5rem)] sticky top-0 z-30 -mx-6 mb-6 bg-transparent px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0"
+  class={cn(
+    "w-[calc(100vw - 1.5rem)] sticky -top-px z-30 -mx-6 mb-8 bg-transparent px-6 py-3 backdrop-blur-lg md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0",
+    className,
+  )}
 >
   <h2
     class="text-base font-bold uppercase tracking-widest text-foreground lg:sr-only"

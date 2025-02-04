@@ -49,7 +49,7 @@ const lightHouseMetrics = [
 
   <div class="z-10 sm:col-span-6">
     <div class="text-base font-medium text-foreground">
-      <h3 class="-mt-1">
+      <h3 class="sm:-mt-1">
         {
           actions?.demo ? (
             <a
@@ -76,7 +76,9 @@ const lightHouseMetrics = [
 
     {
       description && (
-        <p class="mt-2 text-sm leading-snug text-zinc-300/90">{description}</p>
+        <p class="mt-2 text-sm leading-normal text-zinc-300/90">
+          {description}
+        </p>
       )
     }
 
