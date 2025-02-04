@@ -19,7 +19,7 @@ export const EXPERIENCE: ExperienceProps[] = [
     company: "Signs365",
     companyUrl: "https://signs365.com",
     description:
-      "Leading complete frontend architecture and development of new v5 site using React 19, Tanstack (React) Query, and React Router v7. Designed and implemented a new t-shirt ordering interface, developing 35+ reusable and accessible UI components using React, TypeScript, and Tailwind CSS, while maintaining documentation through Storybook for team-wide adoption. Work with backend engineers, designers, and management to develop and maintain application features.",
+      "Leading frontend architecture and development of new v5 site using React 19, Tanstack (React) Query, React Router v7, and Zod. Designed and implemented a new t-shirt ordering interface, developing 35+ reusable and accessible UI components using React, TypeScript, and Tailwind CSS, while maintaining documentation through Storybook for team-wide adoption. Work with backend engineers, designers, and management to develop and maintain application features.",
     skills: [
       "TypeScript",
       "React",
@@ -36,13 +36,13 @@ export const EXPERIENCE: ExperienceProps[] = [
   },
   {
     timePeriod: "Aug. 2023 - Present",
-    badge: "alpha",
+    badge: "startup",
     title: "Web Developer ·",
     jobType: "Freelance",
     company: "Recruiting Arena",
     companyUrl: "https://recruitingarena.com/",
     description:
-      "Led the design and development of 8 pages in a multi-page application through close collaboration with backend leads and business ownership, additionally creating 2 high-fidelity Figma prototypes for profile and messaging features to drive future development.",
+      "Led the design and development of 8 responsive pages in a multi-page application through close collaboration with backend leads and business ownership, additionally creating 2 high-fidelity Figma prototypes for profile and messaging features to drive future development.",
     skills: ["Astro", "Javascript", "HTML", "Tailwind CSS", "DaisyUI", "Figma"],
   },
   {
