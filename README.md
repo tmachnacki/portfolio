@@ -14,6 +14,12 @@
 ## 🤙 Usage
 Feel free to clone/fork - just give credit by linking back to [timmachnacki.dev](https://timmachnacki.dev).
 
+## 🥞 Stack
+ - Astro
+ - React
+ - Tailwind CSS
+ - TypeScript
+
 ## 🔋 Features
  - 100/100 Lighthouse scores and 0 axe issues
  - Astro `<Image />` optimization
