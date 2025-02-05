@@ -20,7 +20,7 @@ import TechList from "@/components/home/tech-list.astro";
 import SectionHeader from "@/components/home/section-header.astro";
 import Experience from "@/components/home/experience.astro";
 import SocialLinks from "@/components/home/social-links.astro";
-import { buttonVariants } from "@/components/ui/button.astro";
+import Button, { buttonVariants } from "@/components/ui/button.astro";
 import Project from "@/components/home/project.astro";
 import PageTitle from "@/components/page-title.astro";
 
@@ -35,6 +35,16 @@ const description =
 ---
 
 <Layout title={title} description={description}>
+  <!-- skip to content -->
+  <Button 
+    as="a"
+    href="#content"
+    variant="outline"    
+    class="absolute z-30 top-1 left-0 -translate-x-[calc(100%+4px)] focus-visible:translate-x-1 bg-background shadow-lg"
+  >
+    Skip to content
+  </Button>
+
   <!-- background effects-->
   <div
     class="absolute inset-0 flex h-[500px] w-full items-center justify-center overflow-hidden lg:fixed"
@@ -140,7 +150,7 @@ const description =
     </header>
 
     <!-- content -->
-    <main class="relative w-full pt-24 lg:col-span-6 lg:py-24">
+    <main class="relative w-full pt-24 lg:col-span-6 lg:py-24" id="content">
       <!-- about -->
       <section
         id="skills"
@@ -405,7 +415,7 @@ const description =
 <script type="module">
   // Only handle one particular tablist; if you have multiple tab
   // lists (might even be nested), you have to apply this code for each one
-  const tabList = document.querySelector('[role="tablist"]');
+  const tabList = document?.querySelector('[role="tablist"]');
   const tabs = tabList?.querySelectorAll(':scope > [role="tab"]');
 
   // Add a click event handler to each tab
@@ -436,6 +446,7 @@ const description =
       }
 
       tabs[tabFocus].setAttribute("tabindex", 0);
+      tabs[tabFocus].click();
       tabs[tabFocus].focus();
     }
   });
@@ -456,8 +467,6 @@ const description =
     // animate tab indicator
     const indicator = tabList.querySelector("[role='presentation']");
     indicator.style.left = `${targetTab.offsetLeft}px`;
-
-    // Hide all tab panels
 
     // Hide all tab panels
     tabGroup.querySelectorAll(':scope > [role="tabpanel"]').forEach((p) => {
