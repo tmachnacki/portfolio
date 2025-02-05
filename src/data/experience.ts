@@ -42,7 +42,7 @@ export const EXPERIENCE: ExperienceProps[] = [
     company: "Recruiting Arena",
     companyUrl: "https://recruitingarena.com/",
     description:
-      "Led the design and development of 8 responsive pages in a multi-page application through close collaboration with backend leads and business ownership, additionally creating 2 high-fidelity Figma prototypes for profile and messaging features to drive future development. Currently in alpha testing with 100+ student-athletes across two high schools.",
+      "Led the design and development of 8 responsive pages in a multi-page application through close collaboration with backend leads and primary stakeholders, additionally creating 2 high-fidelity Figma prototypes for profile and messaging features to drive future development. Currently in alpha testing with 100+ student-athletes across two high schools.",
     skills: ["Astro", "Javascript", "HTML", "Tailwind CSS", "DaisyUI", "Figma"],
   },
   {
@@ -52,7 +52,7 @@ export const EXPERIENCE: ExperienceProps[] = [
     company: "Buy My Spot",
     companyUrl: "https://www.buymyspot.com/",
     description:
-      "Delivered a streamlined 5-step user onboarding experience in collaboration with design leadership, implementing progressive multi-step form validation to enhance new user activation.",
+      "Delivered a streamlined five-step user onboarding experience in collaboration with design leadership, implementing progressive multi-step form validation to enhance new user activation.",
     skills: ["Typescript", "React Native", "Tailwind CSS", "Expo"],
   },
 ];
