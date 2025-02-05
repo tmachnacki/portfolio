@@ -2,6 +2,9 @@
 // root
 import Layout from "@/layouts/Layout.astro";
 import "@/styles/globals.css";
+import { Image } from "astro:assets";
+import about from "@/assets/about.webp";
+import about2 from "@/assets/about-2.webp";
 
 // data
 import { EXPERIENCE } from "@/data/experience";
@@ -288,26 +291,31 @@ const description =
       >
         <SectionHeader title="Interests" />
 
-        <div class="relative flex flex-col p-0 gap-6 lg:p-6">
+        <div class="relative flex flex-col gap-6 p-0 lg:px-6">
           <div class="max-w-lg">
-            <h3 class="text-base font-medium text-foreground sm:-mt-1">
-              More About Me
-            </h3>
+            <h3 class="text-base font-medium text-foreground">More About Me</h3>
             <p class="mt-2 text-sm text-muted-foreground">
               Other than coding like a hermit, I enjoy music production,
               weight-lifting, sports (go Lions), fantasy football, fishing,
               water-skiing, hiking, Christopher Nolan movies, and dogs.
             </p>
           </div>
-          <div class="relative flex items-center justify-end  gap-2 w-full mt-2 sm:mt-0">
-            <div
-              class="mt-0 aspect-square w-24 sm:w-32 overflow-hidden rounded-sm border-transparent ring-1 ring-accent ring-offset-1 ring-offset-background transition duration-100 motion-reduce:transition-none lg:group-hover:ring-zinc-600 -skew-y-6"
-            >
-            </div>
-            <div
-              class="mt-0 aspect-square w-24 sm:w-32 skew-y-6 overflow-hidden rounded-sm border-transparent ring-1 ring-accent ring-offset-1 ring-offset-background transition duration-100 motion-reduce:transition-none lg:group-hover:ring-zinc-600"
-            >
-            </div>
+
+          <div class="group flex w-max gap-2">
+            <Image
+              src={about}
+              alt="Tim Machnacki playing lacrosse"
+              width={120}
+              height={120}
+              class="block aspect-square size-28 flex-shrink-0 flex-grow-0 rounded-md transition-all duration-300 hover:!scale-110 hover:!opacity-100 hover:!blur-none hover:!grayscale-0 group-hover:opacity-75 group-hover:blur-sm group-hover:grayscale motion-reduce:transition-none"
+            />
+            <Image
+              src={about2}
+              alt="Tim Machnacki"
+              width={120}
+              height={120}
+              class="block aspect-square size-28 flex-shrink-0 flex-grow-0 rounded-md transition-all duration-300 hover:!scale-110 hover:!opacity-100 hover:!blur-none hover:!grayscale-0 group-hover:opacity-75 group-hover:blur-sm group-hover:grayscale motion-reduce:transition-none"
+            />
           </div>
         </div>
       </section>
