@@ -3,6 +3,7 @@ import type { ExperienceProps as Props } from "@/data/experience";
 
 import Card from "@/components/ui/card.astro";
 import Skill from "@/components/ui/skill.astro";
+import Badge from "@/components/ui/badge.astro";
 
 import ArrowTr from "@/components/icons/arrow-tr.astro";
 
@@ -52,13 +53,7 @@ const {
           )
         }
 
-        {
-          badge && (
-            <span class="ml-3 inline-flex h-[18px] -translate-y-0.5 items-center justify-center rounded-full border bg-transparent bg-gradient-to-b from-muted to-transparent px-4 pb-0.5 text-xs font-normal leading-none text-muted-foreground lg:group-hover:border-zinc-700 lg:group-hover:bg-background">
-              {badge}
-            </span>
-          )
-        }
+        {badge && <Badge class="ml-3 -translate-y-0.5">{badge}</Badge>}
       </h3>
       <h4 class="text-wrap text-sm font-medium leading-tight text-zinc-400/80">
         {title}
@@ -67,7 +62,7 @@ const {
     </div>
     {
       description && (
-        <p class="mt-3 text-sm leading-normal text-zinc-300/90 whitespace-pre-line">
+        <p class="mt-3 whitespace-pre-line text-sm leading-normal text-zinc-300/90">
           {description}
         </p>
       )

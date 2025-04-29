@@ -23,7 +23,7 @@ const {
   skills,
   features,
   actions,
-} = PROJECTS[0];
+} = PROJECTS.find((project) => project.title === "Podvex")!;
 
 const pageDescription =
   "Podvex is a modern podcast streaming SaaS app built with React, TypeScript, Tailwind CSS, NextJS, Convex, and Stripe.";

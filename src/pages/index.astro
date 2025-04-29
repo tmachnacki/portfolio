@@ -1,20 +1,15 @@
 ---
-// root
-import Layout from "@/layouts/Layout.astro";
-import "@/styles/globals.css";
 import { Image } from "astro:assets";
+import Layout from "@/layouts/Layout.astro";
 import about from "@/assets/about.webp";
 import about2 from "@/assets/about-2.webp";
 
-// data
 import { EXPERIENCE } from "@/data/experience";
 import { PROJECTS } from "@/data/projects";
 
-// client components
 import Spotlight from "@/components/home/spotlight";
-import About from "@/components/home/about.astro";
 
-// astro components
+import About from "@/components/home/about.astro";
 import OrbitingTech from "@/components/home/orbiting-tech.astro";
 import TechList from "@/components/home/tech-list.astro";
 import SectionHeader from "@/components/home/section-header.astro";
@@ -24,10 +19,11 @@ import Button, { buttonVariants } from "@/components/ui/button.astro";
 import Project from "@/components/home/project.astro";
 import PageTitle from "@/components/page-title.astro";
 
-// icons
 import Pin from "@/components/icons/pin.astro";
 import ArrowR from "@/components/icons/arrow-r.astro";
+
 import { cn } from "@/lib/utils";
+import "@/styles/globals.css";
 
 const title = "Tim Machnacki";
 const description =
@@ -256,7 +252,7 @@ const description =
         <!-- project cards -->
         <ol class="group/list space-y-16 lg:space-y-8">
           {
-            PROJECTS.slice(0, 3).map((project) => (
+            PROJECTS.slice(0, 4).map((project) => (
               <li id={project.title}>
                 <Project {...project} />
               </li>
@@ -265,7 +261,7 @@ const description =
         </ol>
 
         <div class="mt-12 flex w-full items-center justify-center">
-          <!-- prefteched links must be rendered directly as <a> tags -->
+          <!-- prefetched links must be rendered directly as <a> tags -->
           <a
             class={cn(
               buttonVariants({

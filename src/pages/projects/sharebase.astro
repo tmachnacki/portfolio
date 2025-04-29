@@ -23,7 +23,7 @@ const {
   skills,
   features,
   actions,
-} = PROJECTS[1];
+} = PROJECTS.find((project) => project.title === "ShareBase")!;
 
 const pageDescription =
   "ShareBase is a modern social media app built with React, TypeScript, Tailwind CSS, React Router, Vite, Zustand, and Firebase.";

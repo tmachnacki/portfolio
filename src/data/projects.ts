@@ -1,3 +1,7 @@
+// altcn assets
+import Altcn from "@/assets/altcn/altcn.webp";
+import AltcnWide from "@/assets/altcn/altcn-wide.webp";
+
 // podvex assets
 import Account_PV from "@/assets/podvex/account.webp";
 import Billing_PV from "@/assets/podvex/billing.webp";
@@ -63,6 +67,7 @@ export interface ProjectSkill {
 
 export interface ProjectProps {
   title: string;
+  badge?: string;
   date?: string;
   subtitle?: string;
   description?: string;
@@ -81,6 +86,39 @@ export interface ProjectProps {
 }
 
 export const PROJECTS: ProjectProps[] = [
+  {
+    title: "Altcn",
+    badge: "In Progress",
+    date: "In Progress",
+    description:
+      "A collection of alternatively styled shadcn/ui component variants.",
+    thumbnail: Altcn,
+    thumbnailWide: AltcnWide,
+    skills: [
+      {
+        name: "TypeScript",
+      },
+      {
+        name: "React",
+      },
+      {
+        name: "Next.js",
+      },
+      {
+        name: "Tailwind CSS",
+      },
+      {
+        name: "Radix UI",
+      },
+      {
+        name: "shadcn/ui",
+      },
+    ],
+    actions: {
+      demo: "https://altcn.vercel.app/",
+      source: "https://github.com/tmachnacki/altcn",
+    },
+  },
   {
     title: "Podvex",
     date: "Aug. 2024",

@@ -36,7 +36,7 @@ export const EXPERIENCE: ExperienceProps[] = [
   },
   {
     timePeriod: "Aug. 2023 - Present",
-    badge: "startup",
+    badge: "Startup",
     title: "Web Developer ·",
     jobType: "Freelance",
     company: "Recruiting Arena",

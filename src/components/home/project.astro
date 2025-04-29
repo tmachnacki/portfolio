@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 
 import Card from "@/components/ui/card.astro";
 import Skill from "@/components/ui/skill.astro";
+import Badge from "@/components/ui/badge.astro";
 import Button, { buttonVariants } from "@/components/ui/button.astro";
 
 import Github from "@/components/icons/github.astro";
@@ -14,6 +15,7 @@ import ArrowR from "@/components/icons/arrow-r.astro";
 
 const {
   title,
+  badge,
   date,
   subtitle,
   description,
@@ -33,7 +35,7 @@ const lightHouseMetrics = [
 ];
 ---
 
-<Card class="">
+<Card>
   <div
     class="mt-0 hidden aspect-4/3 h-max overflow-hidden rounded-sm border-transparent ring-1 ring-accent ring-offset-1 ring-offset-background transition duration-100 motion-reduce:transition-none sm:col-span-2 sm:block lg:group-hover:ring-zinc-600"
   >
@@ -49,7 +51,7 @@ const lightHouseMetrics = [
 
   <div class="sm:col-span-6">
     <div class="text-base font-medium text-foreground">
-      <h3 class="sm:-mt-1">
+      <h3 class="flex items-baseline sm:-mt-1">
         {
           actions?.demo ? (
             <a
@@ -71,6 +73,7 @@ const lightHouseMetrics = [
             title
           )
         }
+        {badge && <Badge class="ml-3 -translate-y-0.5">{badge}</Badge>}
       </h3>
     </div>
 

@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import type { HTMLTag, Polymorphic } from "astro/types";
 
 export const buttonVariants = cva(
-  "cursor-pointer inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition duration-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 motion-reduce:transition-none",
+  "inline-flex cursor-pointer items-center justify-center whitespace-nowrap text-sm font-medium transition duration-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 motion-reduce:transition-none",
   {
     variants: {
       variant: {
@@ -19,7 +19,7 @@ export const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
-        default: "h-10 px-4 py-2 rounded-md",
+        default: "h-10 rounded-md px-4 py-2",
         sm: "h-9 rounded px-3",
         lg: "h-11 rounded-md px-8",
         icon: "h-10 w-10 rounded-md",
@@ -30,8 +30,8 @@ export const buttonVariants = cva(
       gradient: {
         default: "",
         primary:
-          "relative group/button backdrop-blur-sm hover:bg-gradient-to-b hover:from-primary/10 hover:to-primary/0 hover:bg-transparent border border-border hover:border-primary/30",
-        zinc: "relative group/button backdrop-blur-sm hover:bg-gradient-to-b hover:from-zinc-400/10 hover:to-zinc-400/0 hover:bg-transparent border border-border hover:border-zinc-400/30",
+          "group/button relative border border-border backdrop-blur-sm hover:border-primary/30 hover:bg-transparent hover:bg-gradient-to-b hover:from-primary/10 hover:to-primary/0",
+        zinc: "group/button relative border border-border backdrop-blur-sm hover:border-zinc-400/30 hover:bg-transparent hover:bg-gradient-to-b hover:from-zinc-400/10 hover:to-zinc-400/0",
       },
       rounded: {
         default: "",
@@ -73,9 +73,7 @@ const {
           gradient === "primary"
             ? "from-primary/0 via-primary to-primary/0"
             : "from-zinc-400/0 via-zinc-400 to-zinc-400/0",
-          rounded && rounded === "full"
-            ? "left-[20%] w-[60%]"
-            : "left-[10%] w-[80%]",
+          rounded === "full" ? "left-[20%] w-[60%]" : "left-[10%] w-[80%]",
           size === "icon" || size === "iconSm" || size === "iconXs"
             ? "h-px"
             : "h-[2px]",
